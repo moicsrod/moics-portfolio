@@ -12,6 +12,8 @@ export const PROJECTS_DATA = {
   busy: {
     id: "busy",
     title: "BUSY",
+    actionLabel: "Visit site",
+    url: "https://busymoics.figma.site/",
     tagline: "Moics’ illustration portfolio",
     image: ASSETS.busyman,
     otherImages: [ASSETS.stonks, ASSETS.cbum],
@@ -34,6 +36,8 @@ export const PROJECTS_DATA = {
   quartos: {
     id: "quartos",
     title: "QUARTOS",
+    actionLabel: "Visit site",
+    url: "https://moics-quartos.vercel.app/",
     tagline: "Finance for everyone",
     image: ASSETS.stonks,
     otherImages: [ASSETS.busyman, ASSETS.cbum],
@@ -55,6 +59,8 @@ export const PROJECTS_DATA = {
   fortissimo: {
     id: "fortissimo",
     title: "FORTISSIMO",
+    actionLabel: "Open case study",
+    url: "https://www.figma.com/slides/JcTS46Kqxey0VLidqczSG9/Fortissimo?t=RzGjX4zKK4qswteF-6",
     tagline: "Fitness app for young people",
     image: ASSETS.cbum,
     otherImages: [ASSETS.busyman, ASSETS.stonks],

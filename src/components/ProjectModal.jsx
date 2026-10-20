@@ -80,11 +80,11 @@ export default function ProjectModal({ projectId, onClose }) {
             </div>
             <a
               className="project-modal-visit"
-              href="https://busymoics.figma.site/"
+              href={project.url}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
             >
-              Visit site
+              {project.actionLabel}
             </a>
           </section>
 
