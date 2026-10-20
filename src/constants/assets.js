@@ -8,22 +8,19 @@ export const ASSETS = {
   humanoLogo: "/assets/images/humano-logo.svg",
 };
 
+export const PROJECT_IDS = ["busy", "quartos", "fortissimo"];
+
 export const PROJECTS_DATA = {
   busy: {
     id: "busy",
     title: "BUSY",
     actionLabel: "Visit site",
     url: "https://busymoics.figma.site/",
-    tagline: "Moics’ illustration portfolio",
+    tagline: "Moics' illustration portfolio & original universe",
     image: ASSETS.busyman,
     otherImages: [ASSETS.stonks, ASSETS.cbum],
-    summary:
-      "An interactive portfolio featuring original character design, fan illustrations, and chapters from my independent manga",
-    about: [
-      "Finance app to track goals and expenses.",
-      "To showcase the importance of saving and",
-      "It features fanarts from the artist´s favorite works and original characters from the upcoming manga Milky Way.",
-    ],
+    description:
+      "An interactive visual showcase exploring character design, fan illustrations, and worldbuilding. Features original characters and visual development from the upcoming independent manga project, Milky Way.",
     previews: [
       "/assets/images/modal-busy-gallery.png",
       "/assets/images/modal-busy-characters.png",
@@ -41,12 +38,8 @@ export const PROJECTS_DATA = {
     tagline: "Finance for everyone",
     image: ASSETS.stonks,
     otherImages: [ASSETS.busyman, ASSETS.cbum],
-    summary:
-      "Finance app to track goals and expenses. Quartos helps to raise awareness about the importance of saving and investing money the right way.",
-    about: [
-      "Finance app to track goals and expenses.",
-      "Quartos helps to raise awareness about the importance of saving and investing money the right way.",
-    ],
+    description:
+      "A personal finance platform designed to simplify expense tracking, financial goals, and cash flow habits. Built to make money management intuitive, actionable, and accessible for everyday users.",
     previews: [
       "/assets/images/modal-quartos-dashboard.png",
       "/assets/images/modal-quartos-expenses.png",
@@ -61,19 +54,13 @@ export const PROJECTS_DATA = {
     title: "FORTISSIMO",
     actionLabel: "Open case study",
     url: "https://www.figma.com/slides/JcTS46Kqxey0VLidqczSG9/Fortissimo?t=RzGjX4zKK4qswteF-6",
-    tagline: "Fitness app for young people",
+    tagline: "Strength & progressive overload tracker",
     image: ASSETS.cbum,
     otherImages: [ASSETS.busyman, ASSETS.stonks],
-    summary:
-      "Fitness Mobile app for young people to get jacked. People need a platform to track their workout and meals so Fortissimo comes up to provide the tools needed to make it happen.",
-    about: [
-      "Fitness Mobile app for young people to get jacked.",
-      "People need a platform to track their workout and meals so Fortissimo comes up to provide the tools needed to make it happen.",
-    ],
-    previews: [
-      "/assets/images/modal-quartos-dashboard.png",
-      "/assets/images/modal-quartos-expenses.png",
-    ],
+    description:
+      "A mobile fitness companion tailored for progressive overload, routine adherence, and nutrition tracking. Designed with friction-free workout logging to keep training momentum consistent and focused.",
+    previews: [],
+    previewPlaceholder: "Fortissimo preview coming soon",
     modalColor: "#00D2AA",
     aboutColor: "#2FD78F",
     previewColor: "#027D65",

@@ -1,14 +1,32 @@
-import React, { useEffect } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { PROJECTS_DATA } from "../constants/assets";
+import { PROJECT_IDS, PROJECTS_DATA } from "../constants/assets";
 
 export default function ProjectModal({ projectId, onClose }) {
-  const project = PROJECTS_DATA[projectId];
+  const [activeProjectId, setActiveProjectId] = useState(projectId);
+  const project = PROJECTS_DATA[activeProjectId];
+
+  const navigateProject = useCallback((direction) => {
+    setActiveProjectId((currentProjectId) => {
+      const currentIndex = PROJECT_IDS.indexOf(currentProjectId);
+      const nextIndex =
+        (currentIndex + direction + PROJECT_IDS.length) % PROJECT_IDS.length;
+      return PROJECT_IDS[nextIndex];
+    });
+  }, []);
 
   useEffect(() => {
     const previousOverflow = document.body.style.overflow;
     const handleKeyDown = (event) => {
       if (event.key === "Escape") onClose();
+      if (event.key === "ArrowLeft") {
+        event.preventDefault();
+        navigateProject(-1);
+      }
+      if (event.key === "ArrowRight") {
+        event.preventDefault();
+        navigateProject(1);
+      }
     };
 
     document.body.style.overflow = "hidden";
@@ -18,7 +36,7 @@ export default function ProjectModal({ projectId, onClose }) {
       document.body.style.overflow = previousOverflow;
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [onClose]);
+  }, [navigateProject, onClose]);
 
   if (!project) return null;
 
@@ -47,6 +65,22 @@ export default function ProjectModal({ projectId, onClose }) {
         aria-modal="true"
         aria-labelledby="project-modal-title"
       >
+        <button
+          className="project-modal-nav project-modal-nav-previous"
+          type="button"
+          aria-label="Previous project"
+          onClick={() => navigateProject(-1)}
+        >
+          ‹
+        </button>
+        <button
+          className="project-modal-nav project-modal-nav-next"
+          type="button"
+          aria-label="Next project"
+          onClick={() => navigateProject(1)}
+        >
+          ›
+        </button>
         <header className="project-modal-header">
           <img className="project-modal-brand" src={project.image} alt="" />
           <div className="project-modal-heading">
@@ -73,9 +107,7 @@ export default function ProjectModal({ projectId, onClose }) {
             <div>
               <h3 className="design-title font-['Boldonse',sans-serif]">ABOUT</h3>
               <div className="project-modal-copy">
-                {project.about.map((paragraph) => (
-                  <p key={paragraph}>{paragraph}</p>
-                ))}
+                <p>{project.description}</p>
               </div>
             </div>
             <a
@@ -91,13 +123,19 @@ export default function ProjectModal({ projectId, onClose }) {
           <section className="project-modal-preview">
             <h3 className="design-title font-['Boldonse',sans-serif]">PREVIEW</h3>
             <div className="project-modal-images">
-              {project.previews.map((src, index) => (
-                <img
-                  key={src}
-                  src={src}
-                  alt={`${project.title} preview ${index + 1}`}
-                />
-              ))}
+              {project.previews.length > 0 ? (
+                project.previews.map((src, index) => (
+                  <img
+                    key={src}
+                    src={src}
+                    alt={`${project.title} preview ${index + 1}`}
+                  />
+                ))
+              ) : (
+                <div className="project-modal-placeholder" role="status">
+                  {project.previewPlaceholder}
+                </div>
+              )}
             </div>
           </section>
         </div>

@@ -1,6 +1,12 @@
 import React from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { ASSETS, ABOUT_DATA, EXPERIENCE_DATA, PROJECTS_DATA } from "../constants/assets";
+import {
+  ASSETS,
+  ABOUT_DATA,
+  EXPERIENCE_DATA,
+  PROJECTS_DATA,
+  PROJECT_IDS,
+} from "../constants/assets";
 
 const layoutTransition = {
   type: "spring",
@@ -212,11 +218,11 @@ export default function BentoGrid({
   onOpenProjectModal,
 }) {
   const project = PROJECTS_DATA[selectedProject];
-  const projectIds = ["busy", "quartos", "fortissimo"];
-
   const nextProject = () => {
-    const currentIndex = projectIds.indexOf(selectedProject);
-    setSelectedProject(projectIds[(currentIndex + 1) % projectIds.length]);
+    const currentIndex = PROJECT_IDS.indexOf(selectedProject);
+    setSelectedProject(
+      PROJECT_IDS[(currentIndex + 1) % PROJECT_IDS.length],
+    );
   };
 
   const toggleSection = (section) => {
@@ -240,7 +246,7 @@ export default function BentoGrid({
           {activeSection === "work" ? (
             <>
               <ProjectCollage project={project} />
-              <p className="work-summary">{project.summary}</p>
+              <p className="work-summary">{project.description}</p>
               <ProjectButtons
                 projectId={selectedProject}
                 onOpenProjectModal={onOpenProjectModal}
