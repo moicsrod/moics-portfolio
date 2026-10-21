@@ -198,7 +198,8 @@ function ProfileCard({ onOpenContactModal }) {
     >
       <div className="profile-card-content">
         <h1 className="design-title font-['Boldonse',sans-serif]">
-          MOISES RODRIGUEZ
+          <span>MOISES</span>
+          <span>RODRIGUEZ</span>
         </h1>
         <p>
           UI/UX Designer with a deep focus on design systems &amp; human-centered

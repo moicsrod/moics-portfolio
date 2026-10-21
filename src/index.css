@@ -504,16 +504,18 @@ a:focus-visible,
 
 .profile-card {
   display: flex;
+  height: 100%;
   flex-direction: column;
   justify-content: space-between;
   align-items: stretch;
-  padding: 32px;
+  padding: 24px;
   background: var(--profile);
   color: #fff;
 }
 
 .profile-card-content {
   display: flex;
+  min-width: 0;
   flex-direction: column;
   gap: 16px;
 }
@@ -547,9 +549,23 @@ a:focus-visible,
 }
 
 .profile-card h1 {
+  display: flex;
+  width: 100%;
+  min-width: 0;
+  flex-direction: column;
   flex: 0 0 auto;
-  font-size: 30px;
-  line-height: 1.45;
+  overflow-wrap: anywhere;
+  font-size: 36px;
+  line-height: 0.9;
+  letter-spacing: -0.05em;
+}
+
+.profile-card h1 span {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  overflow-wrap: anywhere;
 }
 
 .profile-card p {
@@ -580,10 +596,6 @@ a:focus-visible,
 .profile-contact-button:hover {
   transform: translateY(-2px);
   background: #681185;
-}
-
-.bento-grid-about .profile-card h1 {
-  font-size: 28px;
 }
 
 .experience-card {
@@ -1559,7 +1571,7 @@ a:focus-visible,
   }
 
   .profile-card {
-    padding: 32px;
+    padding: 24px;
   }
 
   .project-collage {
@@ -1661,6 +1673,10 @@ a:focus-visible,
 
 @media (min-width: 768px) {
   .profile-card {
-    padding: 40px;
+    padding: 32px;
+  }
+
+  .profile-card h1 {
+    font-size: 48px;
   }
 }
