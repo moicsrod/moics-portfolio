@@ -1,6 +1,7 @@
 import React, { useCallback, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import BentoGrid from "./components/BentoGrid";
+import ContactModal from "./components/ContactModal";
 import DisclaimerBanner from "./components/DisclaimerBanner";
 import ProjectModal from "./components/ProjectModal";
 import TetrisIntro from "./components/TetrisIntro";
@@ -11,12 +12,17 @@ export default function App() {
   const [activeSection, setActiveSection] = useState("work");
   const [selectedProject, setSelectedProject] = useState("busy");
   const [activeModal, setActiveModal] = useState(null);
+  const [contactModalOpen, setContactModalOpen] = useState(false);
   const bannerTimer = useRef(null);
 
   const handleIntroComplete = useCallback(() => {
     setIntroComplete(true);
     bannerTimer.current = window.setTimeout(() => setShowBanner(true), 400);
   }, []);
+  const closeContactModal = useCallback(
+    () => setContactModalOpen(false),
+    [],
+  );
 
   const updateActiveSection = (update) => {
     const next = typeof update === "function" ? update(activeSection) : update;
@@ -61,8 +67,11 @@ export default function App() {
           selectedProject={selectedProject}
           setSelectedProject={setSelectedProject}
           onOpenProjectModal={setActiveModal}
+          onOpenContactModal={() => setContactModalOpen(true)}
         />
       </motion.main>
+
+      {contactModalOpen && <ContactModal onClose={closeContactModal} />}
 
       <AnimatePresence>
         {activeModal && (

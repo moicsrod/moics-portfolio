@@ -1,5 +1,6 @@
 import React from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import { Mail } from "lucide-react";
 import {
   ASSETS,
   ABOUT_DATA,
@@ -93,15 +94,21 @@ function AboutCard({ expanded, onToggle }) {
       <AnimatePresence initial={false}>
         {expanded && (
           <motion.div
-            className="about-gallery"
+            className="about-hobbies"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.25 }}
           >
-            {ABOUT_DATA.gallery.map((image) => (
-              <img key={image} src={image} alt="" />
-            ))}
+            <p className="about-hobbies-copy">{ABOUT_DATA.hobbies}</p>
+            <div className="about-gallery">
+              {ABOUT_DATA.gallery.map(({ image, label }) => (
+                <div className="about-hobby" key={label}>
+                  <img src={image} alt="" />
+                  <span>{label}</span>
+                </div>
+              ))}
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
@@ -182,17 +189,48 @@ function ProfilePhoto() {
   );
 }
 
-function ProfileCard() {
+function ProfileCard({ onOpenContactModal }) {
   return (
     <motion.article
       layout
       transition={layoutTransition}
       className="portfolio-card profile-card"
     >
+      <div className="profile-card-actions" aria-label="Contact links">
+        <a
+          href="https://www.linkedin.com/in/mois%C3%A9s-ram%C3%B3n-rodr%C3%ADguez-s%C3%A1nchez/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="LinkedIn profile (opens in a new tab)"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.8"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden="true"
+          >
+            <rect x="3" y="3" width="18" height="18" rx="4" />
+            <path d="M8 10v7M8 7.5v.01M12 17v-7h3v1.2a2.8 2.8 0 0 1 2-1.2v7" />
+          </svg>
+        </a>
+        <a href="mailto:moiserod04@gmail.com" aria-label="Email Moises">
+          <Mail aria-hidden="true" />
+        </a>
+      </div>
       <h1 className="design-title font-['Boldonse',sans-serif]">
         MOISES RODRIGUEZ
       </h1>
       <p>UI/UX Designer with a deep focus on design systems &amp; human-centered interfaces</p>
+      <button
+        className="profile-contact-button"
+        type="button"
+        onClick={onOpenContactModal}
+      >
+        Contact me
+      </button>
     </motion.article>
   );
 }
@@ -216,6 +254,7 @@ export default function BentoGrid({
   selectedProject,
   setSelectedProject,
   onOpenProjectModal,
+  onOpenContactModal,
 }) {
   const project = PROJECTS_DATA[selectedProject];
   const nextProject = () => {
@@ -275,7 +314,7 @@ export default function BentoGrid({
 
       <motion.div layout className="portfolio-column profile-column">
         <ProfilePhoto />
-        <ProfileCard />
+        <ProfileCard onOpenContactModal={onOpenContactModal} />
       </motion.div>
 
       <motion.div layout className="portfolio-column secondary-column">

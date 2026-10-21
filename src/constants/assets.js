@@ -75,7 +75,13 @@ export const ABOUT_DATA = {
     "I’m Moises, but some people call me Moi or Moics. I like to think out of the box, cube, sphere—it don’t matter, I just like to find ways to bring ideas into existence. I’m the best designer of my family (don’t ask me how many there are though).",
   expandedBio:
     "I’m Moises, but some people call me Moi or Moics. I like to think out of the box, cube, sphere—it don’t matter, I just like to find ways to bring ideas into existence.",
-  gallery: [ASSETS.eula, ASSETS.cbum, ASSETS.church],
+  hobbies:
+    "When I’m not designing I’m usually serving at church, drawing my manga Milky Way or working out at the gym.",
+  gallery: [
+    { image: ASSETS.eula, label: "Manga illustration" },
+    { image: ASSETS.church, label: "Serving at church" },
+    { image: ASSETS.cbum, label: "Working out" },
+  ],
 };
 
 export const EXPERIENCE_DATA = {
