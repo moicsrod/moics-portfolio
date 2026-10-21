@@ -197,9 +197,12 @@ function ProfileCard({ onOpenContactModal }) {
       className="portfolio-card profile-card"
     >
       <div className="profile-card-content">
-        <h1 className="design-title font-['Boldonse',sans-serif]">
-          <span>MOISES</span>
-          <span>RODRIGUEZ</span>
+        <h1 className="profile-card-title font-['Boldonse',sans-serif]">
+          MOISES
+          <br />
+          RODRI
+          <br />
+          GUEZ
         </h1>
         <p>
           UI/UX Designer with a deep focus on design systems &amp; human-centered
@@ -213,16 +216,12 @@ function ProfileCard({ onOpenContactModal }) {
             aria-label="LinkedIn profile (opens in a new tab)"
           >
             <svg
+              className="profile-linkedin-icon"
               viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
+              fill="currentColor"
               aria-hidden="true"
             >
-              <rect x="3" y="3" width="18" height="18" rx="5" />
-              <path d="M8 10v7M8 7.5v.01M12 17v-7h2.5a2.5 2.5 0 0 1 2.5 2.5V17" />
+              <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.25V10.9H6.46M7.86 6.5a1.64 1.64 0 0 0-1.64 1.64c0 .9.73 1.64 1.64 1.64A1.64 1.64 0 0 0 9.5 8.14c0-.91-.73-1.64-1.64-1.64z" />
             </svg>
           </a>
           <a href="mailto:moiserod04@gmail.com" aria-label="Email Moises">

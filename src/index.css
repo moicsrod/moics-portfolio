@@ -505,6 +505,7 @@ a:focus-visible,
 .profile-card {
   display: flex;
   height: 100%;
+  container-type: inline-size;
   flex-direction: column;
   justify-content: space-between;
   align-items: stretch;
@@ -543,29 +544,20 @@ a:focus-visible,
 }
 
 .profile-card-actions svg {
-  width: 30px;
-  height: 30px;
-  stroke-width: 2;
+  width: 36px;
+  height: 36px;
+  flex: 0 0 36px;
+  color: #fff;
 }
 
-.profile-card h1 {
-  display: flex;
-  width: 100%;
+.profile-card-title {
+  width: max-content;
   min-width: 0;
-  flex-direction: column;
   flex: 0 0 auto;
-  overflow-wrap: anywhere;
-  font-size: 36px;
-  line-height: 0.9;
-  letter-spacing: -0.05em;
-}
-
-.profile-card h1 span {
-  display: block;
-  width: 100%;
-  min-width: 0;
-  max-width: 100%;
-  overflow-wrap: anywhere;
+  font-size: clamp(36px, 18cqi, 48px);
+  line-height: 0.95;
+  letter-spacing: -0.025em;
+  white-space: nowrap;
 }
 
 .profile-card p {
@@ -1676,7 +1668,4 @@ a:focus-visible,
     padding: 32px;
   }
 
-  .profile-card h1 {
-    font-size: 48px;
-  }
 }
