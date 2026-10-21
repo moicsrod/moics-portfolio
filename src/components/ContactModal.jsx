@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import { Check, Copy, Mail, Send, X } from "lucide-react";
 
 const EMAIL = "moiserod04@gmail.com";
@@ -11,13 +10,31 @@ const PROJECT_SCOPES = [
   "Other",
 ];
 
-export default function ContactModal({ onClose }) {
+export default function ContactModal({ isOpen, onClose }) {
   const [copyStatus, setCopyStatus] = useState("idle");
+  const [isClosing, setIsClosing] = useState(false);
+  const closeTimer = useRef(null);
+  const isClosingRef = useRef(false);
+
+  const closeModal = useCallback(() => {
+    if (isClosingRef.current) return;
+    isClosingRef.current = true;
+    setIsClosing(true);
+    closeTimer.current = window.setTimeout(() => {
+      isClosingRef.current = false;
+      setIsClosing(false);
+      onClose();
+    }, 250);
+  }, [onClose]);
 
   useEffect(() => {
+    if (!isOpen) return undefined;
+
+    isClosingRef.current = false;
+    setIsClosing(false);
     const previousOverflow = document.body.style.overflow;
     const handleKeyDown = (event) => {
-      if (event.key === "Escape") onClose();
+      if (event.key === "Escape") closeModal();
     };
 
     document.body.style.overflow = "hidden";
@@ -27,13 +44,24 @@ export default function ContactModal({ onClose }) {
       document.body.style.overflow = previousOverflow;
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [onClose]);
+  }, [closeModal, isOpen]);
+
+  const copyTimer = useRef(null);
+
+  useEffect(
+    () => () => window.clearTimeout(copyTimer.current),
+    [],
+  );
+  useEffect(
+    () => () => window.clearTimeout(closeTimer.current),
+    [],
+  );
 
   const copyEmail = async () => {
     try {
       await navigator.clipboard.writeText(EMAIL);
       setCopyStatus("copied");
-      window.setTimeout(() => setCopyStatus("idle"), 1800);
+      copyTimer.current = window.setTimeout(() => setCopyStatus("idle"), 1800);
     } catch {
       const emailInput = document.createElement("textarea");
       emailInput.value = EMAIL;
@@ -48,10 +76,10 @@ export default function ContactModal({ onClose }) {
           throw new Error("The browser rejected the clipboard copy request.");
         }
         setCopyStatus("copied");
-        window.setTimeout(() => setCopyStatus("idle"), 1800);
+        copyTimer.current = window.setTimeout(() => setCopyStatus("idle"), 1800);
       } catch {
         setCopyStatus("failed");
-        window.setTimeout(() => setCopyStatus("idle"), 2500);
+        copyTimer.current = window.setTimeout(() => setCopyStatus("idle"), 2500);
       } finally {
         emailInput.remove();
       }
@@ -74,30 +102,38 @@ export default function ContactModal({ onClose }) {
   };
 
   return (
-    <motion.div
+    <div
       className="contact-modal-overlay"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.2 }}
+      style={{
+        display: isOpen || isClosing ? "flex" : "none",
+        pointerEvents: isOpen && !isClosing ? "auto" : "none",
+        opacity: isOpen && !isClosing ? 1 : 0,
+      }}
+      aria-hidden={!isOpen && !isClosing}
     >
       <button
         className="contact-modal-backdrop"
         type="button"
         aria-label="Close contact dialog"
-        onClick={onClose}
+        onClick={closeModal}
       />
       <section
         className="contact-modal"
+        style={{
+          opacity: isOpen && !isClosing ? 1 : 0,
+          transform: isOpen && !isClosing
+            ? "translateY(0) scale(1)"
+            : "translateY(12px) scale(0.96)",
+        }}
         role="dialog"
-        aria-modal="true"
+        aria-modal={isOpen}
         aria-labelledby="contact-modal-title"
       >
         <button
           className="contact-modal-close"
           type="button"
           aria-label="Close"
-          onClick={onClose}
+          onClick={closeModal}
         >
           <X aria-hidden="true" />
         </button>
@@ -163,6 +199,6 @@ export default function ContactModal({ onClose }) {
           </button>
         </form>
       </section>
-    </motion.div>
+    </div>
   );
 }

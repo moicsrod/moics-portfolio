@@ -196,6 +196,10 @@ function ProfileCard({ onOpenContactModal }) {
       transition={layoutTransition}
       className="portfolio-card profile-card"
     >
+      <h1 className="design-title font-['Boldonse',sans-serif]">
+        MOISES RODRIGUEZ
+      </h1>
+      <p>UI/UX Designer with a deep focus on design systems &amp; human-centered interfaces</p>
       <div className="profile-card-actions" aria-label="Contact links">
         <a
           href="https://www.linkedin.com/in/mois%C3%A9s-ram%C3%B3n-rodr%C3%ADguez-s%C3%A1nchez/"
@@ -220,10 +224,6 @@ function ProfileCard({ onOpenContactModal }) {
           <Mail aria-hidden="true" />
         </a>
       </div>
-      <h1 className="design-title font-['Boldonse',sans-serif]">
-        MOISES RODRIGUEZ
-      </h1>
-      <p>UI/UX Designer with a deep focus on design systems &amp; human-centered interfaces</p>
       <button
         className="profile-contact-button"
         type="button"

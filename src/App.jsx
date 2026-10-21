@@ -71,7 +71,10 @@ export default function App() {
         />
       </motion.main>
 
-      {contactModalOpen && <ContactModal onClose={closeContactModal} />}
+      <ContactModal
+        isOpen={contactModalOpen}
+        onClose={closeContactModal}
+      />
 
       <AnimatePresence>
         {activeModal && (
