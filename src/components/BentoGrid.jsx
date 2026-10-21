@@ -196,41 +196,48 @@ function ProfileCard({ onOpenContactModal }) {
       transition={layoutTransition}
       className="portfolio-card profile-card"
     >
-      <h1 className="design-title font-['Boldonse',sans-serif]">
-        MOISES RODRIGUEZ
-      </h1>
-      <p>UI/UX Designer with a deep focus on design systems &amp; human-centered interfaces</p>
-      <div className="profile-card-actions" aria-label="Contact links">
-        <a
-          href="https://www.linkedin.com/in/mois%C3%A9s-ram%C3%B3n-rodr%C3%ADguez-s%C3%A1nchez/"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="LinkedIn profile (opens in a new tab)"
-        >
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.8"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            aria-hidden="true"
+      <div className="profile-card-content">
+        <h1 className="design-title font-['Boldonse',sans-serif]">
+          MOISES RODRIGUEZ
+        </h1>
+        <p>
+          UI/UX Designer with a deep focus on design systems &amp; human-centered
+          interfaces
+        </p>
+        <div className="profile-card-actions" aria-label="Contact links">
+          <a
+            href="https://www.linkedin.com/in/mois%C3%A9s-ram%C3%B3n-rodr%C3%ADguez-s%C3%A1nchez/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn profile (opens in a new tab)"
           >
-            <rect x="3" y="3" width="18" height="18" rx="4" />
-            <path d="M8 10v7M8 7.5v.01M12 17v-7h3v1.2a2.8 2.8 0 0 1 2-1.2v7" />
-          </svg>
-        </a>
-        <a href="mailto:moiserod04@gmail.com" aria-label="Email Moises">
-          <Mail aria-hidden="true" />
-        </a>
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+            >
+              <rect x="3" y="3" width="18" height="18" rx="5" />
+              <path d="M8 10v7M8 7.5v.01M12 17v-7h2.5a2.5 2.5 0 0 1 2.5 2.5V17" />
+            </svg>
+          </a>
+          <a href="mailto:moiserod04@gmail.com" aria-label="Email Moises">
+            <Mail aria-hidden="true" />
+          </a>
+        </div>
       </div>
-      <button
-        className="profile-contact-button"
-        type="button"
-        onClick={onOpenContactModal}
-      >
-        Contact me
-      </button>
+      <div className="profile-card-bottom">
+        <button
+          className="profile-contact-button"
+          type="button"
+          onClick={onOpenContactModal}
+        >
+          Contact me
+        </button>
+      </div>
     </motion.article>
   );
 }
