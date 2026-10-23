@@ -550,16 +550,6 @@ a:focus-visible,
   color: #fff;
 }
 
-.profile-card-title {
-  width: max-content;
-  min-width: 0;
-  flex: 0 0 auto;
-  font-size: clamp(36px, 18cqi, 48px);
-  line-height: 0.95;
-  letter-spacing: -0.025em;
-  white-space: nowrap;
-}
-
 .profile-card p {
   flex: 0 0 auto;
   margin: 0;

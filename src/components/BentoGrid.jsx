@@ -197,13 +197,17 @@ function ProfileCard({ onOpenContactModal }) {
       className="portfolio-card profile-card"
     >
       <div className="profile-card-content">
-        <h1 className="profile-card-title font-['Boldonse',sans-serif]">
-          MOISES
-          <br />
-          RODRI
-          <br />
-          GUEZ
-        </h1>
+        <div className="profile-card-title flex flex-col gap-1 select-none">
+          <span className="font-['Boldonse',sans-serif] text-4xl sm:text-5xl text-white uppercase tracking-tight leading-none whitespace-nowrap">
+            MOISES
+          </span>
+          <span className="font-['Boldonse',sans-serif] text-4xl sm:text-5xl text-white uppercase tracking-tight leading-none whitespace-nowrap">
+            RODRI
+          </span>
+          <span className="font-['Boldonse',sans-serif] text-4xl sm:text-5xl text-white uppercase tracking-tight leading-none whitespace-nowrap">
+            GUEZ
+          </span>
+        </div>
         <p>
           UI/UX Designer with a deep focus on design systems &amp; human-centered
           interfaces
