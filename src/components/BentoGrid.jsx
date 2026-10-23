@@ -211,7 +211,8 @@ function ProfileCard({ onOpenContactModal }) {
       }}
     >
       <h1 className="design-title font-['Boldonse',sans-serif]">
-        MOISES<br />
+        MOI<br />
+        SES<br />
         RODRI<br />
         GUEZ
       </h1>
