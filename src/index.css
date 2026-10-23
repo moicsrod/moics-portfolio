@@ -520,15 +520,6 @@ a:focus-visible,
   overflow-wrap: anywhere;
 }
 
-.profile-card > .design-title {
-  height: 201px;
-  flex: 0 0 201px;
-  font-size: 43px;
-  line-height: 67px;
-  overflow-wrap: anywhere;
-  white-space: nowrap;
-}
-
 .experience-summary {
   font-size: 24px;
   line-height: 1.37;
