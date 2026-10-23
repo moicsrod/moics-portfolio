@@ -193,7 +193,7 @@ function ProfileCard({ onOpenContactModal }) {
     <motion.article
       layout
       transition={layoutTransition}
-      className="portfolio-card relative select-none overflow-hidden"
+      className="portfolio-card profile-card relative select-none overflow-hidden"
       style={{
         display: "flex",
         flexDirection: "column",
@@ -205,22 +205,12 @@ function ProfileCard({ onOpenContactModal }) {
         borderRadius: "32px",
         border: "2px solid #313131",
         backgroundColor: "#FF2964",
+        color: "#fff",
         boxSizing: "border-box",
         flexShrink: 0,
       }}
     >
-      <h1
-        className="font-['Boldonse',sans-serif] text-white uppercase"
-        style={{
-          fontSize: "38px",
-          lineHeight: "67px",
-          fontWeight: 400,
-          height: "192px",
-          alignSelf: "stretch",
-          flexShrink: 0,
-          margin: 0,
-        }}
-      >
+      <h1 className="design-title font-['Boldonse',sans-serif]">
         MOISES<br />
         RODRI<br />
         GUEZ
