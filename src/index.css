@@ -146,7 +146,7 @@ a:focus-visible,
 }
 
 .profile-column {
-  grid-template-rows: 292.36px 640px;
+  grid-template-rows: 292.36px 643px;
 }
 
 .secondary-column {
@@ -178,7 +178,7 @@ a:focus-visible,
 }
 
 .bento-grid-experience .profile-column {
-  grid-template-rows: 292.36px 605px;
+  grid-template-rows: 292.36px 643px;
 }
 
 .bento-grid-experience .secondary-column {
@@ -500,84 +500,6 @@ a:focus-visible,
   border-radius: 50%;
   background: var(--profile);
   pointer-events: none;
-}
-
-.profile-card {
-  display: flex;
-  height: 100%;
-  container-type: inline-size;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: stretch;
-  padding: 24px;
-  background: var(--profile);
-  color: #fff;
-}
-
-.profile-card-content {
-  display: flex;
-  min-width: 0;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.profile-card-actions {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  margin-top: 2px;
-}
-
-.profile-card-actions a {
-  display: flex;
-  width: 36px;
-  height: 36px;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  transition: opacity 0.2s ease, transform 0.2s ease;
-}
-
-.profile-card-actions a:hover {
-  opacity: 0.75;
-  transform: translateY(-2px);
-}
-
-.profile-card-actions svg {
-  width: 36px;
-  height: 36px;
-  flex: 0 0 36px;
-  color: #fff;
-}
-
-.profile-card p {
-  flex: 0 0 auto;
-  margin: 0;
-  font-size: 24px;
-  line-height: 1.37;
-}
-
-.profile-card-bottom {
-  padding-top: 24px;
-}
-
-.profile-contact-button {
-  width: 100%;
-  min-height: 56px;
-  flex: 0 0 56px;
-  padding: 0 20px;
-  border: 2px solid #313131;
-  border-radius: 24px;
-  background: #540d6e;
-  color: #fff;
-  font-size: 18px;
-  font-weight: 600;
-  transition: transform 0.2s ease, background-color 0.2s ease;
-}
-
-.profile-contact-button:hover {
-  transform: translateY(-2px);
-  background: #681185;
 }
 
 .experience-card {
@@ -1452,10 +1374,6 @@ a:focus-visible,
     width: 100%;
   }
 
-  .profile-card {
-    min-height: 420px;
-  }
-
   .experience-card {
     min-height: 350px;
   }
@@ -1550,10 +1468,6 @@ a:focus-visible,
   .tldr-card {
     padding-right: 20px;
     padding-left: 20px;
-  }
-
-  .profile-card {
-    padding: 24px;
   }
 
   .project-collage {
@@ -1651,11 +1565,4 @@ a:focus-visible,
     height: 42px;
     font-size: 42px;
   }
-}
-
-@media (min-width: 768px) {
-  .profile-card {
-    padding: 32px;
-  }
-
 }
