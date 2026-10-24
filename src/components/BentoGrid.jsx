@@ -197,17 +197,20 @@ function ProfileCard({ onOpenContactModal }) {
       style={{ backgroundColor: "#FF2964", boxSizing: "border-box" }}
     >
       <div className="flex w-full flex-col items-start gap-5">
-        <div className="flex w-full flex-col gap-1.5">
-          <span className="font-['Boldonse',sans-serif] text-[38px] leading-none uppercase tracking-tight text-white">
-            MOISES
-          </span>
-          <span className="font-['Boldonse',sans-serif] text-[38px] leading-none uppercase tracking-tight text-white">
-            RODRI
-          </span>
-          <span className="font-['Boldonse',sans-serif] text-[38px] leading-none uppercase tracking-tight text-white">
-            GUEZ
-          </span>
-        </div>
+        <h1
+          className="design-title w-full select-none text-white"
+          style={{
+            fontSize: "38px",
+            lineHeight: "67px",
+            height: "auto",
+            margin: 0,
+            padding: 0,
+          }}
+        >
+          MOISES<br />
+          RODRI<br />
+          GUEZ
+        </h1>
         <p
           className="m-0 text-white"
           style={{
