@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
-import { Check, Copy, Mail, Send, X } from "lucide-react";
+import { Check, Copy, Mail, Send } from "lucide-react";
 
 const EMAIL = "moiserod04@gmail.com";
 const PROJECT_SCOPES = [
@@ -135,33 +135,38 @@ export default function ContactModal({ isOpen, onClose }) {
           aria-label="Close"
           onClick={closeModal}
         >
-          <X aria-hidden="true" />
+          ×
         </button>
-        <h2
-          id="contact-modal-title"
-          className="font-['Boldonse',sans-serif] text-3xl uppercase tracking-tight text-white sm:text-4xl"
-        >
-          LET&apos;S WORK TOGETHER
-        </h2>
-        <p className="contact-modal-subtitle mt-2 mb-6 font-['Poppins',sans-serif] text-base leading-relaxed text-[#c6c6c6]">
-          Available globally for Freelance projects and Full-time UI/UX Designer
-          roles. Let&apos;s build something impactful together.
-        </p>
+
+        <div className="contact-modal-header">
+          <h2
+            id="contact-modal-title"
+            className="design-title font-['Boldonse',sans-serif]"
+          >
+            LET&apos;S WORK TOGETHER
+          </h2>
+          <p className="contact-modal-subtitle">
+            Available globally for freelance projects and full-time UI/UX design
+            roles. Let&apos;s build something cool.
+          </p>
+        </div>
 
         <div className="contact-email-copy">
-          <Mail aria-hidden="true" />
-          <span>{EMAIL}</span>
+          <div className="flex min-w-0 items-center gap-3">
+            <Mail className="h-5 w-5 shrink-0 text-[#00D2AA]" aria-hidden="true" />
+            <span className="font-medium text-white">{EMAIL}</span>
+          </div>
           <button type="button" onClick={copyEmail} aria-live="polite">
             {copyStatus === "copied" ? (
               <>
-                <Check aria-hidden="true" />
+                <Check className="h-4 w-4 text-[#00D2AA]" aria-hidden="true" />
                 Copied!
               </>
             ) : copyStatus === "failed" ? (
               "Copy failed"
             ) : (
               <>
-                <Copy aria-hidden="true" />
+                <Copy className="h-4 w-4" aria-hidden="true" />
                 COPY
               </>
             )}
@@ -171,18 +176,28 @@ export default function ContactModal({ isOpen, onClose }) {
         <form className="contact-form" onSubmit={handleSubmit}>
           <label>
             <span>Your Name</span>
-            <input name="name" type="text" autoComplete="name" required />
+            <input
+              name="name"
+              type="text"
+              placeholder="e.g. Satoshi Nakamoto"
+              autoComplete="name"
+              required
+            />
           </label>
           <label>
             <span>Your Email</span>
-            <input name="email" type="email" autoComplete="email" required />
+            <input
+              name="email"
+              type="email"
+              placeholder="name@domain.com"
+              autoComplete="email"
+              required
+            />
           </label>
           <label>
             <span>Project Scope</span>
             <select name="scope" defaultValue="" required>
-              <option value="" disabled>
-                Select a project scope
-              </option>
+              <option value="" disabled>Select a project scope</option>
               {PROJECT_SCOPES.map((scope) => (
                 <option key={scope} value={scope}>
                   {scope}
@@ -192,10 +207,15 @@ export default function ContactModal({ isOpen, onClose }) {
           </label>
           <label>
             <span>Message</span>
-            <textarea name="message" rows="4" required />
+            <textarea
+              name="message"
+              rows="3"
+              placeholder="Tell me about your idea, timeline and goals..."
+              required
+            />
           </label>
           <button className="contact-submit" type="submit">
-            <Send aria-hidden="true" />
+            <Send className="h-5 w-5" aria-hidden="true" />
             Send Message
           </button>
         </form>
