@@ -193,59 +193,40 @@ function ProfileCard({ onOpenContactModal }) {
     <motion.article
       layout
       transition={layoutTransition}
-      className="portfolio-card profile-card relative select-none overflow-hidden"
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "flex-start",
-        width: "266px",
-        height: "100%",
-        minHeight: "640px",
-        padding: "24px 40px",
-        gap: "16px",
-        borderRadius: "32px",
-        border: "2px solid #313131",
-        backgroundColor: "#FF2964",
-        color: "#fff",
-        boxSizing: "border-box",
-        flexShrink: 0,
-      }}
+      className="portfolio-card profile-card relative flex h-full min-h-[640px] w-full select-none flex-col justify-between overflow-hidden rounded-[32px] border-2 border-[#313131] p-[24px_40px]"
+      style={{ backgroundColor: "#FF2964", boxSizing: "border-box" }}
     >
-      <div className="flex flex-col gap-4">
-        <h1 className="font-['Boldonse',sans-serif] text-white uppercase select-none tracking-tight text-4xl sm:text-[38px] leading-[0.95] sm:leading-[1]">
-          MOISES<br />
-          RODRI<br />
-          GUEZ
-        </h1>
+      <div className="flex w-full flex-col items-start gap-5">
+        <div className="flex w-full flex-col gap-1.5">
+          <span className="font-['Boldonse',sans-serif] text-[38px] leading-none uppercase tracking-tight text-white">
+            MOISES
+          </span>
+          <span className="font-['Boldonse',sans-serif] text-[38px] leading-none uppercase tracking-tight text-white">
+            RODRI
+          </span>
+          <span className="font-['Boldonse',sans-serif] text-[38px] leading-none uppercase tracking-tight text-white">
+            GUEZ
+          </span>
+        </div>
         <p
-          className="text-white"
+          className="m-0 text-white"
           style={{
             fontFamily: "Poppins, sans-serif",
             fontSize: "20px",
             fontWeight: 400,
-            lineHeight: "normal",
-            alignSelf: "stretch",
-            margin: 0,
+            lineHeight: "1.35",
           }}
         >
-          UI/UX Designer with a deep focus on design systems &amp;
-          human-centered interfaces
+          UI/UX Designer with a deep focus on design systems &amp; human-centered
+          interfaces
         </p>
-        <div
-          aria-label="Contact links"
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "16px",
-            alignSelf: "stretch",
-          }}
-        >
+        <div className="flex items-center gap-4 pt-1">
           <a
             href="https://www.linkedin.com/in/mois%C3%A9s-ram%C3%B3n-rodr%C3%ADguez-s%C3%A1nchez/"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn Profile"
-            className="hover:opacity-80 transition-opacity shrink-0"
+            className="shrink-0 transition-opacity hover:opacity-80"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -271,7 +252,7 @@ function ProfileCard({ onOpenContactModal }) {
           <a
             href="mailto:moiserod04@gmail.com"
             aria-label="Send email"
-            className="hover:opacity-80 transition-opacity shrink-0"
+            className="shrink-0 transition-opacity hover:opacity-80"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -292,26 +273,29 @@ function ProfileCard({ onOpenContactModal }) {
           </a>
         </div>
       </div>
-      <button
-        type="button"
-        onClick={onOpenContactModal}
-        className="text-white font-semibold cursor-pointer hover:brightness-110 active:scale-95 transition"
-        style={{
-          display: "flex",
-          width: "185px",
-          height: "56px",
-          padding: "16px 20px",
-          justifyContent: "center",
-          alignItems: "center",
-          gap: "8px",
-          flexShrink: 0,
-          borderRadius: "16px",
-          backgroundColor: "#540D6E",
-          border: "none",
-        }}
-      >
-        Contact me
-      </button>
+      <div className="mt-auto w-full pt-6">
+        <button
+          type="button"
+          onClick={onOpenContactModal}
+          className="cursor-pointer text-white transition hover:brightness-110 active:scale-95"
+          style={{
+            display: "flex",
+            width: "185px",
+            height: "56px",
+            padding: "16px 20px",
+            justifyContent: "center",
+            alignItems: "center",
+            gap: "8px",
+            flexShrink: 0,
+            borderRadius: "16px",
+            backgroundColor: "#540D6E",
+            border: "none",
+            fontWeight: 600,
+          }}
+        >
+          Contact me
+        </button>
+      </div>
     </motion.article>
   );
 }

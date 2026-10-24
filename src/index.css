@@ -1331,6 +1331,10 @@ a:focus-visible,
     min-height: 0;
   }
 
+  .portfolio-card.profile-card {
+    min-height: 640px;
+  }
+
   .work-card {
     gap: 16px;
   }
