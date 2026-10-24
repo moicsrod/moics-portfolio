@@ -154,7 +154,7 @@ a:focus-visible,
 }
 
 .bento-grid-about .primary-column {
-  grid-template-rows: 391px 620px;
+  grid-template-rows: 391px minmax(620px, max-content);
 }
 
 .bento-grid-about {
@@ -416,14 +416,19 @@ a:focus-visible,
 }
 
 .about-card-expanded {
-  height: 620px;
+  height: auto;
+  min-height: 620px;
   padding-bottom: 40px;
 }
 
 .about-copy-expanded {
-  height: 180px;
-  flex-basis: 180px;
-  -webkit-line-clamp: 6;
+  height: auto;
+  max-height: none;
+  flex-basis: auto;
+  -webkit-line-clamp: unset;
+  display: block;
+  overflow: visible;
+  margin-bottom: 8px;
 }
 
 .about-gallery {
@@ -437,7 +442,7 @@ a:focus-visible,
   min-height: 0;
   flex-direction: column;
   gap: 10px;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .about-hobbies-copy {
@@ -456,9 +461,10 @@ a:focus-visible,
 
 .about-hobby img {
   width: 100%;
-  height: 84px;
+  height: 90px;
   border-radius: 12px;
   object-fit: cover;
+  object-position: top center;
 }
 
 .about-hobby span {
@@ -467,9 +473,15 @@ a:focus-visible,
   line-height: 1.2;
 }
 
+.about-card-expanded .about-copy-expanded,
 .bento-grid-about .about-copy-expanded {
-  height: 130px;
-  flex-basis: 130px;
+  height: auto;
+  max-height: none;
+  flex-basis: auto;
+  -webkit-line-clamp: unset;
+  display: block;
+  overflow: visible;
+  margin-bottom: 8px;
 }
 
 .profile-photo {
@@ -1522,7 +1534,7 @@ a:focus-visible,
   }
 
   .about-hobby img {
-    height: 72px;
+    height: 90px;
   }
 
   .about-hobby span {
