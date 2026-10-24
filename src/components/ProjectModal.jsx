@@ -123,15 +123,14 @@ export default function ProjectModal({ projectId, onClose }) {
           <section className="project-modal-preview">
             <h3 className="design-title font-['Boldonse',sans-serif]">PREVIEW</h3>
             <div className="project-modal-images">
-              {project.previews.length > 0 ? (
-                project.previews.map((src, index) => (
-                  <img
-                    key={src}
-                    src={src}
-                    alt={`${project.title} preview ${index + 1}`}
-                  />
-                ))
-              ) : (
+              {project.previews.map((src, index) => (
+                <img
+                  key={src}
+                  src={src}
+                  alt={`${project.title} preview ${index + 1}`}
+                />
+              ))}
+              {project.previews.length === 0 && (
                 <div className="project-modal-placeholder" role="status">
                   {project.previewPlaceholder}
                 </div>

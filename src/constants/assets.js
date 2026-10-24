@@ -59,8 +59,10 @@ export const PROJECTS_DATA = {
     otherImages: [ASSETS.busyman, ASSETS.stonks],
     description:
       "A mobile fitness companion tailored for progressive overload, routine adherence, and nutrition tracking. Designed with friction-free workout logging to keep training momentum consistent and focused.",
-    previews: [],
-    previewPlaceholder: "Fortissimo preview coming soon",
+    previews: [
+      "/assets/images/Fortissimo%201.png",
+      "/assets/images/Fortissimo%202.png",
+    ],
     modalColor: "#00D2AA",
     aboutColor: "#2FD78F",
     previewColor: "#027D65",
