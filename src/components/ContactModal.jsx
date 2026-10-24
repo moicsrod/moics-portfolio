@@ -137,12 +137,13 @@ export default function ContactModal({ isOpen, onClose }) {
         >
           <X aria-hidden="true" />
         </button>
-        <p className="contact-modal-kicker">
-          <span aria-hidden="true" />
-          GET IN TOUCH
-        </p>
-        <h2 id="contact-modal-title">Let&apos;s Work Together</h2>
-        <p className="contact-modal-subtitle">
+        <h2
+          id="contact-modal-title"
+          className="font-['Boldonse',sans-serif] text-3xl uppercase tracking-tight text-white sm:text-4xl"
+        >
+          LET&apos;S WORK TOGETHER
+        </h2>
+        <p className="contact-modal-subtitle mt-2 mb-6 font-['Poppins',sans-serif] text-base leading-relaxed text-[#c6c6c6]">
           Available globally for Freelance projects and Full-time UI/UX Designer
           roles. Let&apos;s build something impactful together.
         </p>
