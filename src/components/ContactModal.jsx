@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
-import { Check, Copy, Mail, Send } from "lucide-react";
+import { Check, Copy, Mail } from "lucide-react";
 
 const EMAIL = "moiserod04@gmail.com";
 const PROJECT_SCOPES = [
@@ -141,15 +141,15 @@ export default function ContactModal({ isOpen, onClose }) {
         <div className="contact-modal-header">
           <h2
             id="contact-modal-title"
-            className="font-['Boldonse',sans-serif] m-0 select-none uppercase text-[#090909]"
+            className="font-['Boldonse',sans-serif] uppercase text-[#090909] select-none whitespace-nowrap m-0"
             style={{
-              fontSize: "44px",
-              lineHeight: "56px",
+              fontSize: "clamp(24px, 3.8vw, 36px)",
+              lineHeight: "1.1",
               fontWeight: 400,
+              marginBottom: "20px",
             }}
           >
-            LET&apos;S WORK<br />
-            TOGETHER
+            LET&apos;S WORK TOGETHER
           </h2>
           <p className="contact-modal-subtitle">
             Available globally for freelance projects and full-time UI/UX design
@@ -221,7 +221,6 @@ export default function ContactModal({ isOpen, onClose }) {
             />
           </label>
           <button className="contact-submit" type="submit">
-            <Send className="h-5 w-5" aria-hidden="true" />
             Send Message
           </button>
         </form>
