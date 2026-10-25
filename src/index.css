@@ -1036,7 +1036,7 @@ a:focus-visible,
   padding: 10px 16px;
   border: 2px solid #090909;
   border-radius: 16px;
-  background: #009e7f;
+  background-color: #04ac8c !important;
 }
 
 .contact-email-copy > div {
@@ -1115,8 +1115,8 @@ a:focus-visible,
   border: 2px solid #090909;
   border-radius: 16px;
   outline: none;
-  background: transparent !important;
-  background-color: transparent !important;
+  background: #00d2aa !important;
+  background-color: #00d2aa !important;
   color: #090909;
   font-family: var(--body);
   font-size: 14px;
@@ -1127,7 +1127,7 @@ a:focus-visible,
 
 .contact-form input::placeholder,
 .contact-form textarea::placeholder {
-  color: rgba(9, 9, 9, 0.55);
+  color: rgba(9, 9, 9, 0.6);
   opacity: 1;
 }
 
@@ -1135,9 +1135,7 @@ a:focus-visible,
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
-  background: transparent
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23090909' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E")
-    no-repeat right 18px center / 16px 16px !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23090909' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") !important;
   background-repeat: no-repeat;
   background-position: right 18px center;
   background-size: 16px 16px;
@@ -1158,7 +1156,7 @@ a:focus-visible,
 .contact-form input:focus,
 .contact-form select:focus,
 .contact-form textarea:focus {
-  border-color: var(--tldr);
+  border-color: #540d6e;
   box-shadow: none;
 }
 
