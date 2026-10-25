@@ -141,9 +141,15 @@ export default function ContactModal({ isOpen, onClose }) {
         <div className="contact-modal-header">
           <h2
             id="contact-modal-title"
-            className="design-title font-['Boldonse',sans-serif]"
+            className="font-['Boldonse',sans-serif] m-0 select-none uppercase text-[#090909]"
+            style={{
+              fontSize: "44px",
+              lineHeight: "56px",
+              fontWeight: 400,
+            }}
           >
-            LET&apos;S WORK TOGETHER
+            LET&apos;S WORK<br />
+            TOGETHER
           </h2>
           <p className="contact-modal-subtitle">
             Available globally for freelance projects and full-time UI/UX design
@@ -153,13 +159,13 @@ export default function ContactModal({ isOpen, onClose }) {
 
         <div className="contact-email-copy">
           <div className="flex min-w-0 items-center gap-3">
-            <Mail className="h-5 w-5 shrink-0 text-[#00D2AA]" aria-hidden="true" />
-            <span className="font-medium text-white">{EMAIL}</span>
+            <Mail className="h-5 w-5 shrink-0 text-[#090909]" aria-hidden="true" />
+            <span className="font-semibold text-[#090909]">{EMAIL}</span>
           </div>
           <button type="button" onClick={copyEmail} aria-live="polite">
             {copyStatus === "copied" ? (
               <>
-                <Check className="h-4 w-4 text-[#00D2AA]" aria-hidden="true" />
+                <Check className="h-4 w-4" aria-hidden="true" />
                 Copied!
               </>
             ) : copyStatus === "failed" ? (
