@@ -165,15 +165,12 @@ function ExperienceCard({ expanded, onToggle }) {
             </div>
           </div>
           <div className="experience-collapsed-bottom">
-            <div className="experience-stats">
-              <div className="experience-stat">
+            <div className="experience-stat">
+              <div className="experience-stat-copy">
                 <span className="experience-stat-value">20+</span>
                 <span className="experience-stat-label">Features Shipped</span>
               </div>
-              <div className="experience-stat">
-                <span className="experience-stat-value">UI Kit</span>
-                <span className="experience-stat-label">Design Tokens</span>
-              </div>
+              <span className="experience-stat-badge">Production</span>
             </div>
             <div className="experience-summary-footer">
               <span>2024 — Present</span>
