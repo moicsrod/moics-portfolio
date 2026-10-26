@@ -274,8 +274,10 @@ a:focus-visible,
   flex: 0 0 117px;
   overflow: hidden;
   margin: 0;
-  font-size: 24px;
-  line-height: 1.5;
+  font-family: var(--body);
+  font-size: 20px !important;
+  font-weight: 400;
+  line-height: 1.35 !important;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
 }
@@ -343,8 +345,10 @@ a:focus-visible,
   display: -webkit-box;
   overflow: hidden;
   margin: 0;
-  font-size: 24px;
-  line-height: 1.25;
+  font-family: var(--body);
+  font-size: 20px !important;
+  font-weight: 400;
+  line-height: 1.35 !important;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 6;
 }
@@ -371,8 +375,10 @@ a:focus-visible,
   flex: 0 0 186px;
   overflow: hidden;
   margin: 0;
-  font-size: 24px;
-  line-height: 1.25;
+  font-family: var(--body);
+  font-size: 20px !important;
+  font-weight: 400;
+  line-height: 1.35 !important;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 6;
   display: -webkit-box;
@@ -409,8 +415,10 @@ a:focus-visible,
   flex: 0 0 108px;
   overflow: hidden;
   margin: 0;
-  font-size: 24px;
-  line-height: 1.5;
+  font-family: var(--body);
+  font-size: 20px !important;
+  font-weight: 400;
+  line-height: 1.35 !important;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
 }
@@ -429,6 +437,10 @@ a:focus-visible,
   height: auto;
   max-height: none;
   flex-basis: auto;
+  font-family: var(--body);
+  font-size: 20px !important;
+  font-weight: 400;
+  line-height: 1.35 !important;
   -webkit-line-clamp: unset;
   display: block;
   overflow: visible;
@@ -451,8 +463,10 @@ a:focus-visible,
 
 .about-hobbies-copy {
   margin: 0;
-  font-size: 18px;
-  line-height: 1.4;
+  font-family: var(--body);
+  font-size: 20px !important;
+  font-weight: 400;
+  line-height: 1.35 !important;
 }
 
 .about-hobby {
@@ -537,12 +551,18 @@ a:focus-visible,
 }
 
 .experience-summary {
-  font-size: 24px;
-  line-height: 1.37;
+  font-family: var(--body);
+  font-size: 20px !important;
+  font-weight: 400;
+  line-height: 1.35 !important;
 }
 
 .experience-summary p {
   margin: 0;
+  font-family: var(--body);
+  font-size: 20px !important;
+  font-weight: 400;
+  line-height: 1.35 !important;
 }
 
 .experience-company {
@@ -628,12 +648,18 @@ a:focus-visible,
 }
 
 .experience-achievements {
-  font-size: 20px;
-  line-height: 1.5;
+  font-family: var(--body);
+  font-size: 20px !important;
+  font-weight: 400;
+  line-height: 1.35 !important;
 }
 
 .experience-achievements p {
   margin: 0 0 20px;
+  font-family: var(--body);
+  font-size: 20px !important;
+  font-weight: 400;
+  line-height: 1.35 !important;
 }
 
 .experience-achievements p:last-child {
@@ -690,8 +716,10 @@ a:focus-visible,
 
 .tldr-card p {
   margin: 0;
-  font-size: 24px;
-  line-height: 1.37;
+  font-family: var(--body);
+  font-size: 20px !important;
+  font-weight: 400;
+  line-height: 1.35 !important;
 }
 
 .bento-grid-experience .tldr-card > .design-title {
@@ -1548,7 +1576,8 @@ a:focus-visible,
   .about-copy,
   .experience-summary,
   .tldr-card p {
-    font-size: 18px;
+    font-size: 20px !important;
+    line-height: 1.35 !important;
   }
 
   .about-gallery {
