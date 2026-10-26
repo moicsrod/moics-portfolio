@@ -14,6 +14,13 @@ const layoutTransition = {
   damping: 30,
 };
 
+const descriptionStyle = {
+  fontSize: "20px",
+  lineHeight: "1.35",
+  fontWeight: 400,
+  fontFamily: "Poppins, sans-serif",
+};
+
 function ProjectCollage({ project }) {
   return (
     <div className="project-collage" aria-label={`${project.title} project preview`}>
@@ -58,7 +65,7 @@ function ProjectOverview({ project, projectId, onOpenProjectModal, onNextProject
     <>
       <div className="project-overview">
         <img src={project.image} alt="" />
-        <p>{PROJECTS_DATA.overview}</p>
+        <p style={descriptionStyle}>{PROJECTS_DATA.overview}</p>
       </div>
       <ProjectButtons
         projectId={projectId}
@@ -87,7 +94,10 @@ function AboutCard({ expanded, onToggle }) {
       aria-expanded={expanded}
     >
       <h2 className="design-title font-['Boldonse',sans-serif]">ABOUT</h2>
-      <p className={`about-copy ${expanded ? "about-copy-expanded" : ""}`}>
+      <p
+        className={`about-copy ${expanded ? "about-copy-expanded" : ""}`}
+        style={descriptionStyle}
+      >
         {expanded ? ABOUT_DATA.expandedBio : ABOUT_DATA.fullBio}
       </p>
       <AnimatePresence initial={false}>
@@ -99,7 +109,9 @@ function AboutCard({ expanded, onToggle }) {
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.25 }}
           >
-            <p className="about-hobbies-copy">{ABOUT_DATA.hobbies}</p>
+            <p className="about-hobbies-copy" style={descriptionStyle}>
+              {ABOUT_DATA.hobbies}
+            </p>
             <div className="about-gallery">
               {ABOUT_DATA.gallery.map(({ image, label }) => (
                 <div className="about-hobby" key={label}>
@@ -135,9 +147,11 @@ function ExperienceCard({ expanded, onToggle }) {
       <h2 className="design-title font-['Boldonse',sans-serif]">EXPERIENCE</h2>
       {!expanded ? (
         <div className="experience-summary">
-          <p>Designing for Humans</p>
-          <p className="experience-company">Humano Seguros</p>
-          <p>DR - UI UX Designer</p>
+          <p style={descriptionStyle}>Designing for Humans</p>
+          <p className="experience-company" style={descriptionStyle}>
+            Humano Seguros
+          </p>
+          <p style={descriptionStyle}>DR - UI UX Designer</p>
         </div>
       ) : (
         <motion.div
@@ -162,7 +176,7 @@ function ExperienceCard({ expanded, onToggle }) {
           </div>
           <div className="experience-achievements">
             {EXPERIENCE_DATA.achievements.map((item) => (
-              <p key={item.title}>
+              <p key={item.title} style={descriptionStyle}>
                 <strong>{item.title}</strong>
                 <br />
                 {item.description}
@@ -213,12 +227,7 @@ function ProfileCard({ onOpenContactModal }) {
         </h1>
         <p
           className="m-0 text-white"
-          style={{
-            fontFamily: "Poppins, sans-serif",
-            fontSize: "20px",
-            fontWeight: 400,
-            lineHeight: "1.35",
-          }}
+          style={descriptionStyle}
         >
           UI/UX Designer with a deep focus on design systems &amp; human-centered
           interfaces
@@ -311,7 +320,9 @@ function TldrCard() {
       className="portfolio-card tldr-card"
     >
       <h2 className="design-title font-['Boldonse',sans-serif]">TLDR</h2>
-      <p>Great designer, great guy, hit me up to build something cool :)</p>
+      <p style={descriptionStyle}>
+        Great designer, great guy, hit me up to build something cool :)
+      </p>
     </motion.article>
   );
 }
@@ -353,7 +364,9 @@ export default function BentoGrid({
           {activeSection === "work" ? (
             <>
               <ProjectCollage project={project} />
-              <p className="work-summary">{project.description}</p>
+              <p className="work-summary" style={descriptionStyle}>
+                {project.description}
+              </p>
               <ProjectButtons
                 projectId={selectedProject}
                 onOpenProjectModal={onOpenProjectModal}
@@ -369,7 +382,9 @@ export default function BentoGrid({
             />
           ) : (
             <>
-              <p className="experience-work-copy">{PROJECTS_DATA.overview}</p>
+              <p className="experience-work-copy" style={descriptionStyle}>
+                {PROJECTS_DATA.overview}
+              </p>
               <img className="experience-work-image" src={project.image} alt="" />
             </>
           )}

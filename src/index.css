@@ -1634,3 +1634,22 @@ a:focus-visible,
     font-size: 42px;
   }
 }
+
+  /* Universal Bento Description Typography Rule */
+  .work-summary,
+  .project-overview p,
+  .experience-work-copy,
+  .about-copy,
+  .about-copy-expanded,
+  .about-hobbies-copy,
+  .experience-summary,
+  .experience-summary p,
+  .experience-achievements p,
+  .tldr-card p,
+  .profile-card p {
+    font-family: var(--body) !important;
+    font-size: 20px !important;
+    font-weight: 400 !important;
+    line-height: 1.35 !important;
+    letter-spacing: normal !important;
+  }
