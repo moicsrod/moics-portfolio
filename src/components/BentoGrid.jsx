@@ -110,7 +110,19 @@ function AboutCard({ expanded, onToggle }) {
             transition={{ duration: 0.25 }}
           >
             <p className="about-hobbies-copy" style={descriptionStyle}>
-              {ABOUT_DATA.hobbies}
+              When I&apos;m{" "}
+              <span
+                className="font-['Boldonse',sans-serif] uppercase text-black font-normal tracking-wide inline-block"
+                style={{
+                  fontSize: "12px",
+                  lineHeight: "1",
+                  verticalAlign: "middle",
+                  margin: "0 2px",
+                }}
+              >
+                NOT
+              </span>{" "}
+              designing...
             </p>
             <div className="about-gallery">
               {ABOUT_DATA.gallery.map(({ image, label }) => (
@@ -165,11 +177,12 @@ function ExperienceCard({ expanded, onToggle }) {
           </div>
           <div className="experience-collapsed-bottom">
             <div className="experience-stat">
-              <div className="experience-stat-copy">
-                <span className="experience-stat-value">20+</span>
-                <span className="experience-stat-label">Features Shipped</span>
-              </div>
-              <span className="experience-stat-badge">Production</span>
+              <span className="experience-stat-value">20+</span>
+              <span className="experience-stat-label">
+                Features
+                <br />
+                Shipped
+              </span>
             </div>
             <div className="experience-summary-footer">
               <span>2024 — Present</span>

@@ -142,7 +142,7 @@ a:focus-visible,
 }
 
 .primary-column {
-  grid-template-rows: 640px 295px;
+  grid-template-rows: 595px 340px;
 }
 
 .profile-column {
@@ -154,7 +154,7 @@ a:focus-visible,
 }
 
 .bento-grid-about .primary-column {
-  grid-template-rows: 391px 544.36px;
+  grid-template-rows: 341px 594px !important;
 }
 
 .bento-grid-about {
@@ -200,30 +200,43 @@ a:focus-visible,
 }
 
 .work-card {
-  display: flex;
-  flex-direction: column;
-  padding: 24px 40px 32px;
-  background: var(--work);
-  color: #090909;
-}
-
-.work-card > .design-title {
-  height: 67px;
-  flex: 0 0 67px;
-  margin-bottom: 4px;
-  font-size: 43px;
-  line-height: 67px;
+  display: flex !important;
+  flex-direction: column !important;
+  padding: 24px 40px !important;
+  background: var(--work) !important;
+  color: #090909 !important;
+  box-sizing: border-box !important;
+  overflow: hidden !important;
 }
 
 .work-card-work {
-  gap: 16px;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: var(--card-title-content-gap) !important;
+  justify-content: flex-start !important;
+}
+
+.work-card-work .project-buttons {
+  margin-top: auto !important;
+  flex: 0 0 56px !important;
+}
+
+.work-card > .design-title,
+.work-card-work > .design-title {
+  height: auto !important;
+  flex: 0 0 auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  font-size: 43px !important;
+  line-height: 1 !important;
 }
 
 .project-collage {
   display: flex;
   width: 100%;
-  height: 287px;
-  flex: 0 0 287px;
+  height: 270px !important;
+  flex: 0 0 270px !important;
+  margin: 0 !important;
   gap: 8px;
   overflow: hidden;
   padding: 16px;
@@ -269,17 +282,20 @@ a:focus-visible,
 }
 
 .work-summary {
-  display: -webkit-box;
-  height: 117px;
-  flex: 0 0 117px;
-  overflow: hidden;
-  margin: 0;
-  font-family: var(--body);
+  display: -webkit-box !important;
+  -webkit-box-orient: vertical !important;
+  -webkit-line-clamp: 3 !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  height: 81px !important;
+  flex: 0 0 81px !important;
+  box-sizing: border-box !important;
+  font-family: var(--body) !important;
   font-size: 20px !important;
-  font-weight: 400;
+  font-weight: 400 !important;
   line-height: 1.35 !important;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
 }
 
 .project-buttons {
@@ -321,8 +337,24 @@ a:focus-visible,
 }
 
 .work-card-about {
-  height: 391px;
-  gap: 16px;
+  height: 341px !important;
+  gap: 8px !important;
+  padding: 24px 40px 20px !important;
+}
+
+.work-card-about .project-overview {
+  height: 140px !important;
+  flex: 0 0 140px !important;
+  gap: 16px !important;
+}
+
+.work-card-about .project-overview p {
+  -webkit-line-clamp: 4 !important;
+  margin: 0 !important;
+}
+
+.work-card-about .project-buttons {
+  margin-top: 4px !important;
 }
 
 .project-overview {
@@ -395,8 +427,9 @@ a:focus-visible,
 .about-card {
   display: flex;
   flex-direction: column;
-  gap: var(--card-title-content-gap);
-  padding: 24px 40px 40px;
+  justify-content: flex-start !important;
+  gap: 16px;
+  padding: 24px 40px 32px;
   background: var(--about);
   color: #000;
   cursor: pointer;
@@ -424,14 +457,14 @@ a:focus-visible,
 }
 
 .about-card-expanded {
-  height: 544.36px !important;
-  max-height: 544.36px !important;
+  height: 594px !important;
+  max-height: 594px !important;
   box-sizing: border-box !important;
   padding: 32px 40px !important;
   display: flex;
   flex-direction: column;
   justify-content: flex-start !important;
-  gap: 24px !important;
+  gap: 20px !important;
   overflow: hidden;
 }
 
@@ -457,19 +490,24 @@ a:focus-visible,
 
 .about-hobbies {
   display: flex;
-  min-height: 0;
   flex-direction: column;
-  gap: 12px;
+  gap: 16px;
+  padding: 20px !important;
+  background-color: #04b896 !important;
+  border: none !important;
+  border-radius: 20px;
+  box-sizing: border-box;
+  width: 100%;
   margin-top: 4px;
-  overflow: visible;
+  overflow: hidden;
 }
 
-.about-hobbies-copy {
+.about-hobbies .about-hobbies-copy {
   margin: 0;
   color: #090909;
   font-family: var(--body);
   font-size: 20px !important;
-  font-weight: 400;
+  font-weight: 500 !important;
   line-height: 1.35 !important;
 }
 
@@ -483,8 +521,8 @@ a:focus-visible,
 
 .about-hobby img {
   width: 100%;
-  height: 105px !important;
-  border-radius: 14px;
+  height: 80px !important;
+  border-radius: 12px;
   object-fit: cover;
   object-position: top center;
 }
@@ -632,54 +670,45 @@ a:focus-visible,
   gap: 12px;
   padding-top: 16px;
   margin-top: auto;
+  width: 100%;
+  box-sizing: border-box;
   border-top: 2px solid rgb(0 0 0 / 15%);
 }
 
 .experience-stat {
   display: flex;
+  box-sizing: border-box !important;
+  width: 100% !important;
   min-width: 0;
   align-items: center;
-  justify-content: space-between;
-  gap: 8px;
-  padding: 16px;
+  justify-content: flex-start;
+  gap: 16px;
+  padding: 16px 20px !important;
   border: 1px solid rgb(0 0 0 / 20%);
   border-radius: 16px;
   background: rgb(0 0 0 / 10%);
-}
-
-.experience-stat-copy {
-  display: flex;
-  min-width: 0;
-  flex-direction: column;
-  gap: 4px;
+  overflow: hidden;
 }
 
 .experience-stat-value {
   display: block;
+  flex-shrink: 0;
   color: #000;
   font-family: var(--display);
-  font-size: 30px;
+  font-size: 32px;
   line-height: 1;
+}
+
+.experience-card:not(.experience-card-expanded) .experience-stat-value {
+  font-size: 24px;
 }
 
 .experience-stat-label {
   color: rgb(0 0 0 / 80%);
   font-size: 14px;
   font-weight: 500;
-  line-height: 1.25;
-}
-
-.experience-stat-badge {
-  flex: 0 0 auto;
-  padding: 4px 10px;
-  border-radius: 8px;
-  background: rgb(0 0 0 / 10%);
-  color: rgb(0 0 0 / 60%);
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.06em;
   line-height: 1.2;
-  text-transform: uppercase;
+  text-transform: none;
 }
 
 .experience-summary-footer {
@@ -1460,6 +1489,11 @@ a:focus-visible,
     padding-left: 24px;
   }
 
+  .work-card {
+    padding-right: 24px !important;
+    padding-left: 24px !important;
+  }
+
   .project-button-primary {
     width: 45%;
     flex-basis: 45%;
@@ -1536,6 +1570,7 @@ a:focus-visible,
   }
 
   .work-card-about {
+    height: auto !important;
     min-height: 391px;
   }
 
