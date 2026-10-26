@@ -144,46 +144,81 @@ function ExperienceCard({ expanded, onToggle }) {
       tabIndex={0}
       aria-expanded={expanded}
     >
-      <h2 className="design-title font-['Boldonse',sans-serif]">EXPERIENCE</h2>
       {!expanded ? (
-        <div className="experience-summary">
-          <p style={descriptionStyle}>Designing for Humans</p>
-          <p className="experience-company" style={descriptionStyle}>
-            Humano Seguros
-          </p>
-          <p style={descriptionStyle}>DR - UI UX Designer</p>
+        <div className="experience-summary-layout">
+          <div className="experience-summary-top">
+            <h2 className="design-title font-['Boldonse',sans-serif]">
+              EXPERIENCE
+            </h2>
+            <div className="experience-summary">
+              <p style={descriptionStyle}>Designing for Humans</p>
+              <p className="experience-company" style={descriptionStyle}>
+                Seguros Humano — UI/UX Designer
+              </p>
+            </div>
+            <div className="experience-brand experience-brand-compact">
+              <div className="experience-brand-copy">
+                <strong>UI UX Design</strong>
+                <span>DR</span>
+              </div>
+              <div className="experience-brand-logo">
+                <img src={ASSETS.humanoLogo} alt="Humano Seguros" />
+              </div>
+            </div>
+          </div>
+          <div className="experience-summary-bottom">
+            <div className="experience-stats">
+              <div className="experience-stat">
+                <span className="experience-stat-value">20+</span>
+                <span className="experience-stat-label">Features Shipped</span>
+              </div>
+              <div className="experience-stat">
+                <span className="experience-stat-value">UI Kit</span>
+                <span className="experience-stat-label">Design System</span>
+              </div>
+            </div>
+            <div className="experience-summary-footer">
+              <span>2024 — Present</span>
+              <span>Click to expand ↗</span>
+            </div>
+          </div>
         </div>
       ) : (
-        <motion.div
-          className="experience-details"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.12 }}
-        >
-          <div className="experience-brand">
-            <div className="experience-brand-copy">
-              <strong>UI UX Design</strong>
-              <span>DR</span>
+        <>
+          <h2 className="design-title font-['Boldonse',sans-serif]">
+            EXPERIENCE
+          </h2>
+          <motion.div
+            className="experience-details"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.12 }}
+          >
+            <div className="experience-brand">
+              <div className="experience-brand-copy">
+                <strong>UI UX Design</strong>
+                <span>DR</span>
+              </div>
+              <div className="experience-brand-logo">
+                <img src={ASSETS.humanoLogo} alt="Humano Seguros" />
+              </div>
             </div>
-            <div className="experience-brand-logo">
-              <img src={ASSETS.humanoLogo} alt="Humano Seguros" />
+            <div className="experience-timeline">
+              <span>2024</span>
+              <span className="experience-timeline-line" />
+              <span>present</span>
             </div>
-          </div>
-          <div className="experience-timeline">
-            <span>2024</span>
-            <span className="experience-timeline-line" />
-            <span>present</span>
-          </div>
-          <div className="experience-achievements">
-            {EXPERIENCE_DATA.achievements.map((item) => (
-              <p key={item.title} style={descriptionStyle}>
-                <strong>{item.title}</strong>
-                <br />
-                {item.description}
-              </p>
-            ))}
-          </div>
-        </motion.div>
+            <div className="experience-achievements">
+              {EXPERIENCE_DATA.achievements.map((item) => (
+                <p key={item.title} style={descriptionStyle}>
+                  <strong>{item.title}</strong>
+                  <br />
+                  {item.description}
+                </p>
+              ))}
+            </div>
+          </motion.div>
+        </>
       )}
     </motion.article>
   );

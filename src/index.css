@@ -542,12 +542,31 @@ a:focus-visible,
   cursor: pointer;
 }
 
+.experience-summary-layout {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.experience-summary-top {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
 .experience-card > .design-title {
   height: 134px;
   flex: 0 0 134px;
   font-size: 43px;
   line-height: 67px;
   overflow-wrap: anywhere;
+}
+
+.experience-summary-top > .design-title {
+  height: 134px;
+  flex: 0 0 134px;
 }
 
 .experience-summary {
@@ -567,6 +586,97 @@ a:focus-visible,
 
 .experience-company {
   font-weight: 600;
+}
+
+.experience-card:not(.experience-card-expanded) .experience-brand-compact {
+  width: min(190px, 100%);
+  height: 56px;
+  flex-basis: 56px;
+  border-radius: 28px;
+  transform: scale(0.9);
+  transform-origin: left center;
+  margin-block: -3px;
+}
+
+.experience-card:not(.experience-card-expanded) .experience-brand-compact .experience-brand-copy {
+  width: 99px;
+  flex-basis: 99px;
+  padding-left: 18px;
+  font-size: 10px;
+  line-height: 14px;
+}
+
+.experience-card:not(.experience-card-expanded) .experience-brand-compact .experience-brand-copy span {
+  font-size: 9px;
+}
+
+.experience-card:not(.experience-card-expanded) .experience-brand-compact .experience-brand-logo {
+  width: 91px;
+  padding: 8px;
+  border-radius: 0 28px 28px 0;
+}
+
+.experience-card:not(.experience-card-expanded) .experience-brand-compact .experience-brand-logo img {
+  width: 70px;
+  height: auto;
+}
+
+.experience-summary-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-top: 16px;
+  border-top: 2px solid rgb(0 0 0 / 15%);
+}
+
+.experience-stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.experience-stat {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 3px;
+  padding: 6px;
+  border: 1px solid rgb(0 0 0 / 20%);
+  border-radius: 16px;
+  background: rgb(0 0 0 / 10%);
+}
+
+.experience-stat-value {
+  display: block;
+  color: #000;
+  font-family: var(--display);
+  font-size: 18px;
+  line-height: 1;
+}
+
+.experience-stat-label {
+  color: rgb(0 0 0 / 80%);
+  font-size: 9px;
+  font-weight: 500;
+  line-height: 1.15;
+}
+
+.experience-summary-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  padding-top: 4px;
+  color: rgb(0 0 0 / 70%);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.experience-summary-footer span {
+  white-space: nowrap;
 }
 
 .experience-card-expanded {
