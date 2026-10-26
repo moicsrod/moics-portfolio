@@ -149,9 +149,8 @@ function ExperienceCard({ expanded, onToggle }) {
         <div className="experience-collapsed-content">
           <div className="experience-collapsed-top">
             <div className="experience-summary">
-              <p style={descriptionStyle}>Designing for Humans</p>
-              <p className="experience-company" style={descriptionStyle}>
-                Humano Seguros — UI/UX Designer
+              <p style={descriptionStyle} className="m-0 text-black">
+                Designing for <b>Humans</b> at Humano Seguros — UI/UX Designer
               </p>
             </div>
             <div className="experience-brand experience-brand-compact">
