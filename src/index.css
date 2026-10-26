@@ -142,7 +142,7 @@ a:focus-visible,
 }
 
 .primary-column {
-  grid-template-rows: 640px 290px;
+  grid-template-rows: 640px 295px;
 }
 
 .profile-column {
@@ -150,11 +150,11 @@ a:focus-visible,
 }
 
 .secondary-column {
-  grid-template-rows: 534px 398px;
+  grid-template-rows: 534px 401px;
 }
 
 .bento-grid-about .primary-column {
-  grid-template-rows: 391px minmax(620px, max-content);
+  grid-template-rows: 391px 544px;
 }
 
 .bento-grid-about {
@@ -174,7 +174,7 @@ a:focus-visible,
 }
 
 .bento-grid-experience .primary-column {
-  grid-template-rows: 527px 370px;
+  grid-template-rows: 527px 408px;
 }
 
 .bento-grid-experience .profile-column {
@@ -182,7 +182,7 @@ a:focus-visible,
 }
 
 .bento-grid-experience .secondary-column {
-  grid-template-rows: 667px 229px;
+  grid-template-rows: 667px 268px;
 }
 
 .portfolio-card {
@@ -416,9 +416,13 @@ a:focus-visible,
 }
 
 .about-card-expanded {
-  height: auto;
-  min-height: 620px;
-  padding-bottom: 40px;
+  height: 100% !important;
+  max-height: 544px !important;
+  padding: 24px 40px 24px !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
 }
 
 .about-copy-expanded {
@@ -441,7 +445,7 @@ a:focus-visible,
   display: flex;
   min-height: 0;
   flex-direction: column;
-  gap: 10px;
+  gap: 8px;
   overflow: visible;
 }
 
@@ -461,7 +465,7 @@ a:focus-visible,
 
 .about-hobby img {
   width: 100%;
-  height: 90px;
+  height: 76px;
   border-radius: 12px;
   object-fit: cover;
   object-position: top center;
@@ -1425,7 +1429,9 @@ a:focus-visible,
 
   .about-card-expanded {
     min-height: 620px;
-    height: auto;
+    height: auto !important;
+    max-height: none !important;
+    padding: 24px 20px 40px !important;
   }
 
   .project-modal {
@@ -1551,7 +1557,7 @@ a:focus-visible,
   }
 
   .about-hobby img {
-    height: 90px;
+    height: 76px;
   }
 
   .about-hobby span {
