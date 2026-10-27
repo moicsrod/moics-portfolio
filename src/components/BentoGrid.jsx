@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import {
   ASSETS,
   ABOUT_DATA,
+  HOBBIES,
   EXPERIENCE_DATA,
   PROJECTS_DATA,
   PROJECT_IDS,
@@ -77,6 +78,10 @@ function ProjectOverview({ project, projectId, onOpenProjectModal, onNextProject
 }
 
 function AboutCard({ expanded, onToggle }) {
+  const [selectedHobbyId, setSelectedHobbyId] = useState("manga");
+  const selectedHobby =
+    HOBBIES.find((hobby) => hobby.id === selectedHobbyId) ?? HOBBIES[0];
+
   return (
     <motion.article
       layout
@@ -84,7 +89,10 @@ function AboutCard({ expanded, onToggle }) {
       className={`portfolio-card about-card ${expanded ? "about-card-expanded" : ""}`}
       onClick={onToggle}
       onKeyDown={(event) => {
-        if (event.key === "Enter" || event.key === " ") {
+        if (
+          event.target === event.currentTarget &&
+          (event.key === "Enter" || event.key === " ")
+        ) {
           event.preventDefault();
           onToggle();
         }
@@ -125,12 +133,30 @@ function AboutCard({ expanded, onToggle }) {
               designing...
             </p>
             <div className="about-gallery">
-              {ABOUT_DATA.gallery.map(({ image, label }) => (
-                <div className="about-hobby" key={label}>
-                  <img src={image} alt="" />
-                  <span>{label}</span>
-                </div>
-              ))}
+              {HOBBIES.map((hobby) => {
+                const isSelected = selectedHobbyId === hobby.id;
+
+                return (
+                  <button
+                    type="button"
+                    key={hobby.id}
+                    onClick={(event) => {
+                      event.stopPropagation();
+                      setSelectedHobbyId(hobby.id);
+                    }}
+                    className={`about-hobby ${
+                      isSelected ? "about-hobby-selected" : ""
+                    }`}
+                    aria-pressed={isSelected}
+                  >
+                    <img src={hobby.image} alt={hobby.name} />
+                    <span>{hobby.name}</span>
+                  </button>
+                );
+              })}
+            </div>
+            <div className="about-hobby-detail" aria-live="polite">
+              <p>{selectedHobby.description}</p>
             </div>
           </motion.div>
         )}

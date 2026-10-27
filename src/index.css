@@ -85,7 +85,7 @@ a:focus-visible,
 .portfolio-main {
   position: relative;
   z-index: 1;
-  width: min(1120px, 100%);
+  width: min(1124px, 100%);
   margin: auto;
 }
 
@@ -128,8 +128,8 @@ a:focus-visible,
 
 .bento-grid {
   display: grid;
-  width: min(100%, 1108px);
-  grid-template-columns: 541px 266px 261px;
+  width: min(100%, 1124px);
+  grid-template-columns: 552px 266px 266px;
   align-items: start;
   gap: 20px;
 }
@@ -142,6 +142,9 @@ a:focus-visible,
 }
 
 .primary-column {
+  width: 552px;
+  max-width: 552px;
+  box-sizing: border-box;
   grid-template-rows: 595px 340px;
 }
 
@@ -158,9 +161,9 @@ a:focus-visible,
 }
 
 .bento-grid-about {
-  position: relative;
-  top: 2.1875px;
-  margin-left: 6px;
+  width: min(100%, 1124px);
+  margin-left: 0;
+  top: 0;
 }
 
 .bento-grid-about .profile-column {
@@ -168,12 +171,14 @@ a:focus-visible,
 }
 
 .bento-grid-experience {
-  width: 1113px;
-  margin-left: 4px;
-  grid-template-columns: 266px 266px 541px;
+  width: min(100%, 1124px);
+  margin-left: 0;
+  grid-template-columns: 266px 266px 552px;
 }
 
 .bento-grid-experience .primary-column {
+  width: 266px;
+  max-width: 266px;
   grid-template-rows: 527px 408px;
 }
 
@@ -182,6 +187,9 @@ a:focus-visible,
 }
 
 .bento-grid-experience .secondary-column {
+  width: 552px;
+  max-width: 552px;
+  box-sizing: border-box;
   grid-template-rows: 667px 268px;
 }
 
@@ -202,7 +210,7 @@ a:focus-visible,
 .work-card {
   display: flex !important;
   flex-direction: column !important;
-  padding: 24px 40px !important;
+  padding: 36px 40px 24px !important;
   background: var(--work) !important;
   color: #090909 !important;
   box-sizing: border-box !important;
@@ -212,7 +220,7 @@ a:focus-visible,
 .work-card-work {
   display: flex !important;
   flex-direction: column !important;
-  gap: var(--card-title-content-gap) !important;
+  gap: 0 !important;
   justify-content: flex-start !important;
 }
 
@@ -222,24 +230,33 @@ a:focus-visible,
 }
 
 .work-card > .design-title,
-.work-card-work > .design-title {
+.work-card-work > .design-title,
+.work-card-about > .design-title {
   height: auto !important;
   flex: 0 0 auto !important;
-  margin: 0 !important;
+  margin: 0 0 44px 0 !important;
   padding: 0 !important;
   font-size: 43px !important;
-  line-height: 1 !important;
+  line-height: 1.1 !important;
+}
+
+.work-card-work > .design-title {
+  margin: 0 0 44px 0 !important;
+}
+
+.work-card-about > .design-title {
+  margin: 0 0 31px 0 !important;
 }
 
 .project-collage {
   display: flex;
   width: 100%;
-  height: 270px !important;
-  flex: 0 0 270px !important;
+  height: 248px !important;
+  flex: 0 0 248px !important;
   margin: 0 !important;
   gap: 8px;
   overflow: hidden;
-  padding: 16px;
+  padding: 14px;
   border-radius: 20px;
   background: #000;
 }
@@ -254,8 +271,8 @@ a:focus-visible,
 
 .project-collage-main img {
   width: 100%;
-  height: 192.3px;
-  flex: 0 0 192.3px;
+  height: 160px !important;
+  flex: 0 0 160px !important;
   border-radius: 21.53px;
   object-fit: cover;
 }
@@ -275,8 +292,8 @@ a:focus-visible,
 
 .project-collage-side img {
   width: 124.7px;
-  height: 124.7px;
-  flex: 0 0 124.7px;
+  height: 104px !important;
+  flex: 0 0 104px !important;
   border-radius: 21.53px;
   object-fit: cover;
 }
@@ -287,7 +304,7 @@ a:focus-visible,
   -webkit-line-clamp: 3 !important;
   overflow: hidden !important;
   text-overflow: ellipsis !important;
-  margin: 0 !important;
+  margin: 14px 0 !important;
   padding: 0 !important;
   height: 81px !important;
   flex: 0 0 81px !important;
@@ -338,8 +355,9 @@ a:focus-visible,
 
 .work-card-about {
   height: 341px !important;
-  gap: 8px !important;
-  padding: 24px 40px 20px !important;
+  gap: 0 !important;
+  justify-content: flex-start !important;
+  padding: 36px 40px 20px !important;
 }
 
 .work-card-about .project-overview {
@@ -428,7 +446,7 @@ a:focus-visible,
   display: flex;
   flex-direction: column;
   justify-content: flex-start !important;
-  gap: 16px;
+  gap: 16px !important;
   padding: 24px 40px 32px;
   background: var(--about);
   color: #000;
@@ -440,6 +458,7 @@ a:focus-visible,
   flex: 0 0 82px;
   font-size: 43px;
   line-height: 82px;
+  margin: 0 !important;
 }
 
 .about-copy {
@@ -468,6 +487,14 @@ a:focus-visible,
   overflow: hidden;
 }
 
+.about-card-expanded > .design-title {
+  height: auto !important;
+  flex: 0 0 auto !important;
+  font-size: 43px;
+  line-height: 1.1 !important;
+  margin: 0 !important;
+}
+
 .about-copy-expanded {
   height: auto;
   max-height: none;
@@ -486,6 +513,7 @@ a:focus-visible,
   display: flex;
   width: 100%;
   gap: 10px;
+  align-items: stretch;
 }
 
 .about-hobbies {
@@ -516,7 +544,17 @@ a:focus-visible,
   min-width: 0;
   flex: 1 1 0;
   flex-direction: column;
-  gap: 6px;
+  gap: 8px;
+  padding: 12px;
+  border: none;
+  border-radius: 18px;
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
+  transition:
+    background-color 0.2s ease,
+    padding 0.2s ease,
+    border-radius 0.2s ease;
 }
 
 .about-hobby img {
@@ -528,11 +566,36 @@ a:focus-visible,
 }
 
 .about-hobby span {
+  margin-top: 2px;
+  color: #090909;
   font-size: 13px;
   font-weight: 500;
   line-height: 1.2;
+  transition: color 0.2s ease;
+}
+
+.about-hobby.about-hobby-selected {
+  padding: 16px !important;
+  border-radius: 20px !important;
+  background: #000 !important;
+}
+
+.about-hobby.about-hobby-selected span {
+  color: #fff !important;
+}
+
+.about-hobby-detail {
+  min-height: 60px;
+  margin-top: 8px;
+}
+
+.about-hobby-detail p {
+  margin: 0;
   color: #090909;
-  margin-top: 2px;
+  font-family: var(--body);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.4;
 }
 
 .about-card-expanded .about-copy-expanded,
@@ -730,22 +793,35 @@ a:focus-visible,
 }
 
 .experience-card-expanded {
-  gap: var(--card-title-content-gap);
+  display: flex !important;
+  flex-direction: column !important;
+  padding: 28px 40px 32px !important;
+  gap: 24px !important;
+  justify-content: flex-start !important;
+  box-sizing: border-box !important;
 }
 
 .experience-card-expanded > .design-title {
-  height: 69px;
-  flex-basis: 69px;
+  height: auto !important;
+  flex: 0 0 auto !important;
   color: #1e1e1e;
-  line-height: 67px;
+  line-height: 1 !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
-.experience-details {
+.experience-card-expanded .experience-details {
   display: flex;
   min-height: 0;
   flex-direction: column;
   gap: 20px;
   overflow: hidden;
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+.experience-card-expanded .experience-brand {
+  margin-top: 0 !important;
 }
 
 .experience-brand {
@@ -1425,7 +1501,7 @@ a:focus-visible,
 
 @media (max-width: 1160px) {
   .portfolio-main {
-    width: min(1112px, 100%);
+    width: min(1124px, 100%);
   }
 
   .notice-banner {
@@ -1433,14 +1509,23 @@ a:focus-visible,
   }
 
   .bento-grid,
-  .bento-grid-experience {
+  .bento-grid-about {
     width: 100%;
     margin-left: 0;
-    grid-template-columns: minmax(0, 541fr) minmax(0, 266fr) minmax(0, 261fr);
+    grid-template-columns: minmax(0, 552fr) minmax(0, 266fr) minmax(0, 266fr);
   }
 
   .bento-grid-experience {
-    grid-template-columns: minmax(0, 266fr) minmax(0, 266fr) minmax(0, 541fr);
+    width: 100%;
+    margin-left: 0;
+    grid-template-columns: minmax(0, 266fr) minmax(0, 266fr) minmax(0, 552fr);
+  }
+
+  .primary-column,
+  .bento-grid-experience .primary-column,
+  .bento-grid-experience .secondary-column {
+    width: 100%;
+    max-width: none;
   }
 }
 
@@ -1552,6 +1637,13 @@ a:focus-visible,
     gap: 16px;
   }
 
+  .primary-column,
+  .bento-grid-experience .primary-column,
+  .bento-grid-experience .secondary-column {
+    width: 100%;
+    max-width: none;
+  }
+
   .portfolio-card {
     height: auto;
     min-height: 0;
@@ -1572,6 +1664,12 @@ a:focus-visible,
   .work-card-about {
     height: auto !important;
     min-height: 391px;
+    gap: 0 !important;
+    justify-content: flex-start !important;
+  }
+
+  .work-card-about > .design-title {
+    margin-bottom: 31px !important;
   }
 
   .work-card-experience {
