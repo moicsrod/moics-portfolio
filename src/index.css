@@ -127,7 +127,7 @@ a:focus-visible,
 }
 
 /* ==========================================================================
-   BENTO GRID ARCHITECTURE (Desktop 3-Column Matrix)
+   BENTO GRID ARCHITECTURE (Desktop 3-Column Matrix: 552px, 266px, 266px)
    ========================================================================== */
 
 .bento-grid {
@@ -422,10 +422,11 @@ a:focus-visible,
   flex-basis: 237px;
 }
 
+/* Work Card en vista Experience (columna 266px con texto igualado a 20px) */
 .bento-grid-experience .work-card,
 .work-card-experience {
   box-sizing: border-box !important;
-  padding: 24px 20px 20px !important;
+  padding: 32px 28px 24px !important;
   display: flex !important;
   flex-direction: column !important;
   justify-content: flex-start !important;
@@ -440,34 +441,34 @@ a:focus-visible,
 .work-card-experience > .design-title {
   height: auto !important;
   flex: 0 0 auto !important;
-  font-size: 40px !important;
-  line-height: 1 !important;
-  margin: 0 0 4px 0 !important;
+  font-size: 43px !important;
+  line-height: 1.1 !important;
+  margin: 0 !important;
   padding: 0 !important;
 }
 
 .bento-grid-experience .experience-work-copy,
 .work-card-experience .experience-work-copy {
   font-family: var(--body) !important;
-  font-size: 15px !important;
+  font-size: 20px !important;
+  font-weight: 400 !important;
   line-height: 1.35 !important;
   display: -webkit-box !important;
   -webkit-box-orient: vertical !important;
-  -webkit-line-clamp: 4 !important;
+  -webkit-line-clamp: 5 !important;
   overflow: hidden !important;
   text-overflow: ellipsis !important;
   margin: 0 !important;
   padding: 0 !important;
   height: auto !important;
-  max-height: 84px !important;
   flex: 0 0 auto !important;
 }
 
 .bento-grid-experience .experience-work-image,
 .work-card-experience .experience-work-image {
   width: 100% !important;
-  height: 140px !important;
-  flex: 0 0 140px !important;
+  height: 130px !important;
+  flex: 0 0 130px !important;
   border-radius: 18px !important;
   object-fit: cover !important;
   margin-top: auto !important;
@@ -1626,7 +1627,7 @@ a:focus-visible,
    ========================================================================== */
 
 @media (max-width: 768px) {
-  /* Contenedor fluido a ancho completo sin márgenes negros gigantes */
+  /* Contenedor fluido sin márgenes negros gigantes */
   .app-shell {
     padding: 20px 16px !important;
     align-items: flex-start !important;
