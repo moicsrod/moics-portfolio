@@ -22,19 +22,46 @@ const descriptionStyle = {
   fontFamily: "Poppins, sans-serif",
 };
 
-function ProjectCollage({ project }) {
+function ProjectCollage({ project, onSelectProjectId }) {
+  // Obtenemos los otros 2 proyectos para las miniaturas laterales interactivas
+  const otherProjectIds = PROJECT_IDS.filter((id) => id !== project.id);
+
   return (
-    <div className="project-collage" aria-label={`${project.title} project preview`}>
+    <div
+      className="project-collage"
+      aria-label={`${project.title} project preview`}
+      onClick={(e) => e.stopPropagation()}
+    >
       <div className="project-collage-main">
-        <img src={project.image} alt="" />
+        <img
+          src={project.image}
+          alt={project.title}
+          className="project-collage-main-img"
+        />
         <span className="project-collage-title design-title font-['Boldonse',sans-serif]">
           {project.title}
         </span>
       </div>
-      <div className="project-collage-side" aria-hidden="true">
-        {project.otherImages.map((image) => (
-          <img src={image} key={image} alt="" />
-        ))}
+      <div className="project-collage-side">
+        {otherProjectIds.map((otherId) => {
+          const otherProj = PROJECTS_DATA[otherId];
+          if (!otherProj) return null;
+          return (
+            <button
+              type="button"
+              key={otherId}
+              onClick={(e) => {
+                e.stopPropagation();
+                onSelectProjectId(otherId);
+              }}
+              className="project-collage-thumb-btn"
+              title={`Switch to ${otherProj.title}`}
+              aria-label={`Switch to ${otherProj.title}`}
+            >
+              <img src={otherProj.image} alt={otherProj.title} />
+            </button>
+          );
+        })}
       </div>
     </div>
   );
@@ -45,14 +72,20 @@ function ProjectButtons({ projectId, onOpenProjectModal, onNextProject }) {
     <div className="project-buttons">
       <button
         className="project-button project-button-primary"
-        onClick={() => onOpenProjectModal(projectId)}
+        onClick={(e) => {
+          e.stopPropagation();
+          onOpenProjectModal(projectId);
+        }}
         type="button"
       >
         Know more
       </button>
       <button
         className="project-button project-button-secondary"
-        onClick={onNextProject}
+        onClick={(e) => {
+          e.stopPropagation();
+          onNextProject();
+        }}
         type="button"
       >
         Explore projects
@@ -278,15 +311,14 @@ function ProfileCard({ onOpenContactModal }) {
           className="design-title w-full select-none text-white"
           style={{
             fontSize: "38px",
-            lineHeight: "67px",
+            lineHeight: "1.05",
             height: "auto",
             margin: 0,
             padding: 0,
           }}
         >
           MOISES<br />
-          RODRI<br />
-          GUEZ
+          RODRIGUEZ
         </h1>
         <p
           className="m-0 text-white"
@@ -422,11 +454,15 @@ export default function BentoGrid({
           layout
           transition={layoutTransition}
           className={`portfolio-card work-card work-card-${activeSection}`}
+          onClick={() => toggleSection("work")}
         >
           <h2 className="design-title font-['Boldonse',sans-serif]">WORK</h2>
           {activeSection === "work" ? (
             <>
-              <ProjectCollage project={project} />
+              <ProjectCollage
+                project={project}
+                onSelectProjectId={setSelectedProject}
+              />
               <p className="work-summary" style={descriptionStyle}>
                 {project.description}
               </p>
