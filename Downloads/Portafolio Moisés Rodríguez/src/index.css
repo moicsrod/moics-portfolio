@@ -679,7 +679,7 @@ a:focus-visible,
 }
 
 /* ==========================================================================
-   PROFILE CARD (Desktop)
+   PROFILE CARD (Desktop & Base Button)
    ========================================================================== */
 
 .profile-card {
@@ -735,6 +735,34 @@ a:focus-visible,
   border-radius: 50%;
   background: var(--profile);
   pointer-events: none;
+}
+
+/* Botón Contact Me base */
+.profile-contact-btn {
+  display: inline-flex !important;
+  width: 185px !important;
+  height: 56px !important;
+  padding: 16px 20px !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 8px !important;
+  border-radius: 16px !important;
+  background-color: #540d6e !important;
+  color: #ffffff !important;
+  border: none !important;
+  font-family: var(--body) !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+  transition: transform 0.15s ease, filter 0.15s ease !important;
+}
+
+.profile-contact-btn:hover {
+  filter: brightness(1.15) !important;
+}
+
+.profile-contact-btn:active {
+  transform: scale(0.96) !important;
 }
 
 /* ==========================================================================
@@ -1658,7 +1686,7 @@ a:focus-visible,
 }
 
 /* ==========================================================================
-   MOBILE & VIEWPORT <= 768px (Márgenes 64px, miniaturas 1:1 y título perfil 2 líneas)
+   MOBILE & VIEWPORT <= 768px (Márgenes 64px, miniaturas 1:1, botón morado restaurado)
    ========================================================================== */
 
 @media (max-width: 768px) {
@@ -1868,7 +1896,7 @@ a:focus-visible,
     height: 64px !important;
   }
 
-  /* PROFILE CARD (MOISES RODRIGUEZ: 2 líneas simétricas sin cortes) */
+  /* PROFILE CARD (MOISÉS RODRÍGUEZ) */
   .profile-card .design-title,
   .profile-card h1,
   .profile-card h2 {
@@ -1881,10 +1909,18 @@ a:focus-visible,
     hyphens: none !important;
   }
 
-  .profile-card button,
+  .profile-card .profile-contact-wrapper {
+    width: 100% !important;
+    margin-top: auto !important;
+    padding-top: 20px !important;
+  }
+
   .profile-card .profile-contact-btn {
     width: 100% !important;
     height: 52px !important;
+    background-color: #540d6e !important;
+    color: #ffffff !important;
+    border-radius: 14px !important;
   }
 
   /* EXPERIENCE CARD */
