@@ -250,7 +250,6 @@ a:focus-visible,
   line-height: 1.1 !important;
 }
 
-/* Collage contenedor */
 .project-collage {
   display: flex !important;
   width: 100% !important;
@@ -291,7 +290,6 @@ a:focus-visible,
   margin-top: 2px !important;
 }
 
-/* Miniaturas laterales perfectamente cuadradas (1:1) y con bordes redondeados */
 .project-collage-side {
   display: flex !important;
   flex: 0 0 120px !important;
@@ -1660,11 +1658,10 @@ a:focus-visible,
 }
 
 /* ==========================================================================
-   MOBILE & VIEWPORT <= 768px (Márgenes laterales 64px y proporciones perfectas)
+   MOBILE & VIEWPORT <= 768px (Márgenes 64px, miniaturas 1:1 y título perfil 2 líneas)
    ========================================================================== */
 
 @media (max-width: 768px) {
-  /* Márgenes laterales ampliados a 64px para que el fondo respire */
   .app-shell {
     padding: 24px 64px !important;
     align-items: flex-start !important;
@@ -1679,7 +1676,6 @@ a:focus-visible,
     margin: 0 auto !important;
   }
 
-  /* Columna vertical fluida */
   .bento-grid,
   .bento-grid-about,
   .bento-grid-experience {
@@ -1781,7 +1777,6 @@ a:focus-visible,
     line-height: 1.1 !important;
   }
 
-  /* Miniaturas mobile: perfectamente cuadradas y redondeadas */
   .project-collage-side {
     display: flex !important;
     flex: 0 0 76px !important;
@@ -1873,13 +1868,17 @@ a:focus-visible,
     height: 64px !important;
   }
 
-  /* PROFILE CARD (MOISÉS RODRÍGUEZ) */
-  .profile-card .design-title {
-    font-size: clamp(22px, 6vw, 28px) !important;
+  /* PROFILE CARD (MOISES RODRIGUEZ: 2 líneas simétricas sin cortes) */
+  .profile-card .design-title,
+  .profile-card h1,
+  .profile-card h2 {
+    font-size: clamp(18px, 4.8vw, 22px) !important;
     line-height: 1.05 !important;
     margin: 0 0 16px 0 !important;
     white-space: normal !important;
     word-break: keep-all !important;
+    overflow-wrap: normal !important;
+    hyphens: none !important;
   }
 
   .profile-card button,
