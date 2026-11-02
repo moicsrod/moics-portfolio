@@ -263,11 +263,9 @@ function ProfileCard({ onOpenContactModal }) {
       className="portfolio-card profile-card"
     >
       <div className="flex w-full flex-col items-start gap-4">
-        {/* Título fluido adaptativo: 2 líneas naturales (MOISES / RODRIGUEZ) sin partir palabras */}
+        {/* En desktop (>768px) quiebra en 2 líneas; en mobile se muestra en una sola línea continua */}
         <h1 className="design-title font-['Boldonse',sans-serif] text-white">
-          <span>MOISES</span>
-          <br />
-          <span>RODRIGUEZ</span>
+          MOISES<br className="profile-desktop-break" /> RODRIGUEZ
         </h1>
         <p className="m-0 text-white">
           UI/UX Designer with a deep focus on design systems &amp; human-centered

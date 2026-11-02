@@ -127,7 +127,7 @@ a:focus-visible,
 }
 
 /* ==========================================================================
-   BENTO GRID ARCHITECTURE (Desktop 3-Column Matrix)
+   BENTO GRID ARCHITECTURE (Desktop 3-Column Matrix: 552px, 266px, 266px)
    ========================================================================== */
 
 .bento-grid {
@@ -679,7 +679,7 @@ a:focus-visible,
 }
 
 /* ==========================================================================
-   PROFILE CARD (Desktop & Base Button)
+   PROFILE CARD (Desktop & Contact Button)
    ========================================================================== */
 
 .profile-card {
@@ -694,9 +694,15 @@ a:focus-visible,
 
 .profile-card .design-title {
   color: #fff;
-  font-size: 40px;
+  font-size: 38px;
   line-height: 1.05;
   margin-bottom: 24px;
+  white-space: normal;
+  word-break: keep-all;
+}
+
+.profile-desktop-break {
+  display: inline;
 }
 
 .profile-card p {
@@ -737,7 +743,6 @@ a:focus-visible,
   pointer-events: none;
 }
 
-/* Botón Contact Me base */
 .profile-contact-btn {
   display: inline-flex !important;
   width: 185px !important;
@@ -1686,7 +1691,7 @@ a:focus-visible,
 }
 
 /* ==========================================================================
-   MOBILE & VIEWPORT <= 768px (Márgenes 64px, miniaturas 1:1, botón morado restaurado)
+   MOBILE & VIEWPORT <= 768px (Márgenes 64px, miniaturas 1:1, título 1 línea, botón morado)
    ========================================================================== */
 
 @media (max-width: 768px) {
@@ -1896,14 +1901,18 @@ a:focus-visible,
     height: 64px !important;
   }
 
-  /* PROFILE CARD (MOISÉS RODRÍGUEZ) */
+  /* PROFILE CARD (MOISÉS RODRÍGUEZ: 1 sola línea en mobile, adaptativo) */
+  .profile-desktop-break {
+    display: none !important;
+  }
+
   .profile-card .design-title,
   .profile-card h1,
   .profile-card h2 {
-    font-size: clamp(18px, 4.8vw, 22px) !important;
-    line-height: 1.05 !important;
+    font-size: clamp(16px, 4.3vw, 22px) !important;
+    line-height: 1.1 !important;
     margin: 0 0 16px 0 !important;
-    white-space: normal !important;
+    white-space: nowrap !important;
     word-break: keep-all !important;
     overflow-wrap: normal !important;
     hyphens: none !important;
