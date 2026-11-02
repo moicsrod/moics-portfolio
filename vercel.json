@@ -1,0 +1,12 @@
+{
+  "rewrites": [
+    {
+      "source": "/quartos",
+      "destination": "https://moics-quartos.vercel.app"
+    },
+    {
+      "source": "/quartos/:path*",
+      "destination": "https://moics-quartos.vercel.app/:path*"
+    }
+  ]
+}
