@@ -250,7 +250,7 @@ a:focus-visible,
   line-height: 1.1 !important;
 }
 
-/* Collage cuadrado 1:1 e interactivo */
+/* Collage contenedor */
 .project-collage {
   display: flex !important;
   width: 100% !important;
@@ -291,17 +291,20 @@ a:focus-visible,
   margin-top: 2px !important;
 }
 
+/* Miniaturas laterales perfectamente cuadradas (1:1) y con bordes redondeados */
 .project-collage-side {
   display: flex !important;
-  flex: 0 0 125px !important;
-  width: 125px !important;
+  flex: 0 0 120px !important;
+  width: 120px !important;
   flex-direction: column !important;
   gap: 12px !important;
 }
 
-.project-collage-thumb-btn {
+.project-collage-side button,
+.project-collage-side .project-collage-thumb-btn {
   width: 100% !important;
   aspect-ratio: 1 / 1 !important;
+  height: auto !important;
   padding: 0 !important;
   margin: 0 !important;
   border: 2px solid transparent !important;
@@ -313,14 +316,17 @@ a:focus-visible,
   transition: transform 0.2s ease, border-color 0.2s ease !important;
 }
 
-.project-collage-thumb-btn:hover {
+.project-collage-side button:hover,
+.project-collage-side .project-collage-thumb-btn:hover {
   transform: scale(0.96) !important;
   border-color: #ffffff !important;
 }
 
-.project-collage-thumb-btn img {
+.project-collage-side img {
   width: 100% !important;
   height: 100% !important;
+  aspect-ratio: 1 / 1 !important;
+  border-radius: 16px !important;
   object-fit: cover !important;
   display: block !important;
 }
@@ -1654,11 +1660,11 @@ a:focus-visible,
 }
 
 /* ==========================================================================
-   MOBILE & VIEWPORT <= 768px (Ajustado con márgenes laterales al 300%: 64px)
+   MOBILE & VIEWPORT <= 768px (Márgenes laterales 64px y proporciones perfectas)
    ========================================================================== */
 
 @media (max-width: 768px) {
-  /* Márgenes laterales ampliados a 64px para que el fondo blueprint respire */
+  /* Márgenes laterales ampliados a 64px para que el fondo respire */
   .app-shell {
     padding: 24px 64px !important;
     align-items: flex-start !important;
@@ -1735,7 +1741,7 @@ a:focus-visible,
     line-height: 1.45 !important;
   }
 
-  /* WORK CARD & COLLAGE CUADRADO 1:1 */
+  /* WORK CARD & COLLAGE */
   .work-card > .design-title {
     margin-bottom: 12px !important;
   }
@@ -1775,30 +1781,34 @@ a:focus-visible,
     line-height: 1.1 !important;
   }
 
+  /* Miniaturas mobile: perfectamente cuadradas y redondeadas */
   .project-collage-side {
     display: flex !important;
-    flex: 0 0 78px !important;
-    width: 78px !important;
+    flex: 0 0 76px !important;
+    width: 76px !important;
     flex-direction: column !important;
     gap: 8px !important;
   }
 
-  .project-collage-thumb-btn {
+  .project-collage-side button,
+  .project-collage-side .project-collage-thumb-btn {
     width: 100% !important;
     aspect-ratio: 1 / 1 !important;
-    padding: 0 !important;
-    margin: 0 !important;
-    border: 2px solid transparent !important;
+    height: auto !important;
     border-radius: 12px !important;
     overflow: hidden !important;
+    border: 1.5px solid transparent !important;
+    padding: 0 !important;
+    margin: 0 !important;
     background: transparent !important;
-    cursor: pointer !important;
     display: block !important;
   }
 
-  .project-collage-thumb-btn img {
+  .project-collage-side img {
     width: 100% !important;
     height: 100% !important;
+    aspect-ratio: 1 / 1 !important;
+    border-radius: 12px !important;
     object-fit: cover !important;
     display: block !important;
   }
@@ -1863,7 +1873,7 @@ a:focus-visible,
     height: 64px !important;
   }
 
-  /* PROFILE CARD (MOISES RODRIGUEZ) */
+  /* PROFILE CARD (MOISÉS RODRÍGUEZ) */
   .profile-card .design-title {
     font-size: clamp(22px, 6vw, 28px) !important;
     line-height: 1.05 !important;
