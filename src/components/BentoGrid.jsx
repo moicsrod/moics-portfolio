@@ -15,53 +15,19 @@ const layoutTransition = {
   damping: 30,
 };
 
-const descriptionStyle = {
-  fontSize: "20px",
-  lineHeight: "1.35",
-  fontWeight: 400,
-  fontFamily: "Poppins, sans-serif",
-};
-
-function ProjectCollage({ project, onSelectProjectId }) {
-  // Obtenemos los otros 2 proyectos para las miniaturas laterales interactivas
-  const otherProjectIds = PROJECT_IDS.filter((id) => id !== project.id);
-
+function ProjectCollage({ project }) {
   return (
-    <div
-      className="project-collage"
-      aria-label={`${project.title} project preview`}
-      onClick={(e) => e.stopPropagation()}
-    >
+    <div className="project-collage" aria-label={`${project.title} project preview`}>
       <div className="project-collage-main">
-        <img
-          src={project.image}
-          alt={project.title}
-          className="project-collage-main-img"
-        />
+        <img src={project.image} alt="" />
         <span className="project-collage-title design-title font-['Boldonse',sans-serif]">
           {project.title}
         </span>
       </div>
-      <div className="project-collage-side">
-        {otherProjectIds.map((otherId) => {
-          const otherProj = PROJECTS_DATA[otherId];
-          if (!otherProj) return null;
-          return (
-            <button
-              type="button"
-              key={otherId}
-              onClick={(e) => {
-                e.stopPropagation();
-                onSelectProjectId(otherId);
-              }}
-              className="project-collage-thumb-btn"
-              title={`Switch to ${otherProj.title}`}
-              aria-label={`Switch to ${otherProj.title}`}
-            >
-              <img src={otherProj.image} alt={otherProj.title} />
-            </button>
-          );
-        })}
+      <div className="project-collage-side" aria-hidden="true">
+        {project.otherImages.map((image) => (
+          <img src={image} key={image} alt="" />
+        ))}
       </div>
     </div>
   );
@@ -72,20 +38,14 @@ function ProjectButtons({ projectId, onOpenProjectModal, onNextProject }) {
     <div className="project-buttons">
       <button
         className="project-button project-button-primary"
-        onClick={(e) => {
-          e.stopPropagation();
-          onOpenProjectModal(projectId);
-        }}
+        onClick={() => onOpenProjectModal(projectId)}
         type="button"
       >
         Know more
       </button>
       <button
         className="project-button project-button-secondary"
-        onClick={(e) => {
-          e.stopPropagation();
-          onNextProject();
-        }}
+        onClick={onNextProject}
         type="button"
       >
         Explore projects
@@ -99,7 +59,7 @@ function ProjectOverview({ project, projectId, onOpenProjectModal, onNextProject
     <>
       <div className="project-overview">
         <img src={project.image} alt="" />
-        <p style={descriptionStyle}>{PROJECTS_DATA.overview}</p>
+        <p>{PROJECTS_DATA.overview}</p>
       </div>
       <ProjectButtons
         projectId={projectId}
@@ -135,10 +95,7 @@ function AboutCard({ expanded, onToggle }) {
       aria-expanded={expanded}
     >
       <h2 className="design-title font-['Boldonse',sans-serif]">ABOUT</h2>
-      <p
-        className={`about-copy ${expanded ? "about-copy-expanded" : ""}`}
-        style={descriptionStyle}
-      >
+      <p className={`about-copy ${expanded ? "about-copy-expanded" : ""}`}>
         {expanded ? ABOUT_DATA.expandedBio : ABOUT_DATA.fullBio}
       </p>
       <AnimatePresence initial={false}>
@@ -150,7 +107,7 @@ function AboutCard({ expanded, onToggle }) {
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.25 }}
           >
-            <p className="about-hobbies-copy" style={descriptionStyle}>
+            <p className="about-hobbies-copy">
               When I&apos;m{" "}
               <span
                 className="font-['Boldonse',sans-serif] uppercase text-black font-normal tracking-wide inline-block"
@@ -220,7 +177,7 @@ function ExperienceCard({ expanded, onToggle }) {
         <div className="experience-collapsed-content">
           <div className="experience-collapsed-top">
             <div className="experience-summary">
-              <p style={descriptionStyle} className="m-0 text-black">
+              <p className="m-0 text-black">
                 Designing for <b>Humans</b> at Humano Seguros — UI/UX Designer
               </p>
             </div>
@@ -272,7 +229,7 @@ function ExperienceCard({ expanded, onToggle }) {
           </div>
           <div className="experience-achievements">
             {EXPERIENCE_DATA.achievements.map((item) => (
-              <p key={item.title} style={descriptionStyle}>
+              <p key={item.title}>
                 <strong>{item.title}</strong>
                 <br />
                 {item.description}
@@ -303,27 +260,14 @@ function ProfileCard({ onOpenContactModal }) {
     <motion.article
       layout
       transition={layoutTransition}
-      className="portfolio-card profile-card relative flex h-full min-h-[640px] w-full select-none flex-col justify-between overflow-hidden rounded-[32px] border-2 border-[#313131] p-[24px_40px]"
-      style={{ backgroundColor: "#FF2964", boxSizing: "border-box" }}
+      className="portfolio-card profile-card"
     >
-      <div className="flex w-full flex-col items-start gap-5">
-        <h1
-          className="design-title w-full select-none text-white"
-          style={{
-            fontSize: "38px",
-            lineHeight: "1.05",
-            height: "auto",
-            margin: 0,
-            padding: 0,
-          }}
-        >
-          MOISES<br />
-          RODRIGUEZ
+      <div className="flex w-full flex-col items-start gap-4">
+        {/* En desktop (>768px) quiebra en 2 líneas; en mobile se muestra en una sola línea continua */}
+        <h1 className="design-title font-['Boldonse',sans-serif] text-white">
+          MOISES<br className="profile-desktop-break" /> RODRIGUEZ
         </h1>
-        <p
-          className="m-0 text-white"
-          style={descriptionStyle}
-        >
+        <p className="m-0 text-white">
           UI/UX Designer with a deep focus on design systems &amp; human-centered
           interfaces
         </p>
@@ -337,8 +281,8 @@ function ProfileCard({ onOpenContactModal }) {
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              width="48"
-              height="48"
+              width="44"
+              height="44"
               viewBox="0 0 48 48"
               fill="none"
               aria-hidden="true"
@@ -363,8 +307,8 @@ function ProfileCard({ onOpenContactModal }) {
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              width="48"
-              height="48"
+              width="44"
+              height="44"
               viewBox="0 0 48 48"
               fill="none"
               aria-hidden="true"
@@ -380,25 +324,11 @@ function ProfileCard({ onOpenContactModal }) {
           </a>
         </div>
       </div>
-      <div className="mt-auto w-full pt-6">
+      <div className="profile-contact-wrapper mt-auto w-full pt-6">
         <button
           type="button"
           onClick={onOpenContactModal}
-          className="cursor-pointer text-white transition hover:brightness-110 active:scale-95"
-          style={{
-            display: "flex",
-            width: "185px",
-            height: "56px",
-            padding: "16px 20px",
-            justifyContent: "center",
-            alignItems: "center",
-            gap: "8px",
-            flexShrink: 0,
-            borderRadius: "16px",
-            backgroundColor: "#540D6E",
-            border: "none",
-            fontWeight: 600,
-          }}
+          className="profile-contact-btn"
         >
           Contact me
         </button>
@@ -415,7 +345,7 @@ function TldrCard() {
       className="portfolio-card tldr-card"
     >
       <h2 className="design-title font-['Boldonse',sans-serif]">TLDR</h2>
-      <p style={descriptionStyle}>
+      <p>
         Great designer, great guy, hit me up to build something cool :)
       </p>
     </motion.article>
@@ -454,16 +384,12 @@ export default function BentoGrid({
           layout
           transition={layoutTransition}
           className={`portfolio-card work-card work-card-${activeSection}`}
-          onClick={() => toggleSection("work")}
         >
           <h2 className="design-title font-['Boldonse',sans-serif]">WORK</h2>
           {activeSection === "work" ? (
             <>
-              <ProjectCollage
-                project={project}
-                onSelectProjectId={setSelectedProject}
-              />
-              <p className="work-summary" style={descriptionStyle}>
+              <ProjectCollage project={project} />
+              <p className="work-summary">
                 {project.description}
               </p>
               <ProjectButtons
@@ -481,7 +407,7 @@ export default function BentoGrid({
             />
           ) : (
             <>
-              <p className="experience-work-copy" style={descriptionStyle}>
+              <p className="experience-work-copy">
                 {PROJECTS_DATA.overview}
               </p>
               <img className="experience-work-image" src={project.image} alt="" />

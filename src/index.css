@@ -145,7 +145,6 @@ a:focus-visible,
   gap: 20px;
 }
 
-/* Altura fluida en columna 1 para acomodar Work cuadrado y comprimir About */
 .primary-column {
   width: 552px;
   max-width: 552px;
@@ -238,7 +237,7 @@ a:focus-visible,
 
 .work-card-work .project-buttons {
   margin-top: 16px !important;
-  flex: 0 0 56px !important;
+  flex: 0 0 auto !important;
 }
 
 .work-card > .design-title,
@@ -251,17 +250,16 @@ a:focus-visible,
   line-height: 1.1 !important;
 }
 
-/* Collage de proyectos: Contenedor y cuadrado 1:1 */
 .project-collage {
   display: flex !important;
   width: 100% !important;
   height: auto !important;
   flex: 0 0 auto !important;
   margin: 0 0 16px 0 !important;
-  gap: 12px !important;
+  gap: 16px !important;
   overflow: hidden !important;
-  padding: 16px !important;
-  border-radius: 24px !important;
+  padding: 24px !important;
+  border-radius: 28px !important;
   background: #000 !important;
   box-sizing: border-box !important;
 }
@@ -274,7 +272,6 @@ a:focus-visible,
   gap: 10px !important;
 }
 
-/* Imagen principal en cuadrado perfecto (1:1) */
 .project-collage-main img,
 .project-collage-main-img {
   width: 100% !important;
@@ -293,18 +290,19 @@ a:focus-visible,
   margin-top: 2px !important;
 }
 
-/* Miniaturas laterales cuadradas (1:1) y clicables */
 .project-collage-side {
   display: flex !important;
-  flex: 0 0 125px !important;
-  width: 125px !important;
+  flex: 0 0 120px !important;
+  width: 120px !important;
   flex-direction: column !important;
-  gap: 10px !important;
+  gap: 12px !important;
 }
 
-.project-collage-thumb-btn {
+.project-collage-side button,
+.project-collage-side .project-collage-thumb-btn {
   width: 100% !important;
   aspect-ratio: 1 / 1 !important;
+  height: auto !important;
   padding: 0 !important;
   margin: 0 !important;
   border: 2px solid transparent !important;
@@ -316,14 +314,17 @@ a:focus-visible,
   transition: transform 0.2s ease, border-color 0.2s ease !important;
 }
 
-.project-collage-thumb-btn:hover {
+.project-collage-side button:hover,
+.project-collage-side .project-collage-thumb-btn:hover {
   transform: scale(0.96) !important;
   border-color: #ffffff !important;
 }
 
-.project-collage-thumb-btn img {
+.project-collage-side img {
   width: 100% !important;
   height: 100% !important;
+  aspect-ratio: 1 / 1 !important;
+  border-radius: 16px !important;
   object-fit: cover !important;
   display: block !important;
 }
@@ -345,41 +346,54 @@ a:focus-visible,
 }
 
 .project-buttons {
-  display: flex;
-  width: 100%;
-  height: 56px;
-  flex: 0 0 56px;
-  gap: 17px;
+  display: flex !important;
+  width: 100% !important;
+  min-height: 52px !important;
+  height: auto !important;
+  gap: 12px !important;
+  align-items: stretch !important;
 }
 
 .project-button {
-  display: flex;
-  min-width: 0;
-  height: 56px;
-  align-items: center;
-  justify-content: center;
-  padding: 16px 20px;
-  border: 2px solid #000;
-  border-radius: 16px;
-  font-size: 16px;
-  line-height: 24px;
-  letter-spacing: -0.32px;
-  white-space: nowrap;
+  display: inline-flex !important;
+  min-width: 0 !important;
+  min-height: 50px !important;
+  height: auto !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 12px 14px !important;
+  border: 2px solid #000 !important;
+  border-radius: 16px !important;
+  font-family: var(--body) !important;
+  font-size: 15px !important;
+  line-height: 1.2 !important;
+  text-align: center !important;
+  white-space: normal !important;
+  word-break: break-word !important;
+  text-decoration: none !important;
+  box-sizing: border-box !important;
+  transition: transform 0.15s ease, background-color 0.15s ease !important;
+}
+
+.project-button:active {
+  transform: scale(0.97) !important;
 }
 
 .project-button-primary {
-  width: 243px;
-  flex: 0 0 243px;
-  background: #000;
-  color: #fff;
-  font-weight: 500;
+  flex: 1 1 50% !important;
+  width: auto !important;
+  max-width: none !important;
+  background: #000 !important;
+  color: #fff !important;
+  font-weight: 500 !important;
 }
 
 .project-button-secondary {
-  flex: 1 1 auto;
-  background: transparent;
-  color: #000;
-  font-weight: 600;
+  flex: 1 1 50% !important;
+  width: auto !important;
+  background: transparent !important;
+  color: #000 !important;
+  font-weight: 600 !important;
 }
 
 /* ==========================================================================
@@ -442,16 +456,6 @@ a:focus-visible,
   -webkit-line-clamp: 6;
 }
 
-.work-card-about .project-buttons .project-button-primary {
-  width: 203px;
-  flex-basis: 203px;
-}
-
-.work-card-about .project-buttons .project-button-secondary {
-  flex-basis: 237px;
-}
-
-/* Work Card en vista Experience (columna 266px con texto igualado a 20px) */
 .bento-grid-experience .work-card,
 .work-card-experience {
   box-sizing: border-box !important;
@@ -675,7 +679,7 @@ a:focus-visible,
 }
 
 /* ==========================================================================
-   PROFILE CARD (Desktop)
+   PROFILE CARD (Desktop & Contact Button)
    ========================================================================== */
 
 .profile-card {
@@ -690,9 +694,15 @@ a:focus-visible,
 
 .profile-card .design-title {
   color: #fff;
-  font-size: 40px;
+  font-size: 38px;
   line-height: 1.05;
   margin-bottom: 24px;
+  white-space: normal;
+  word-break: keep-all;
+}
+
+.profile-desktop-break {
+  display: inline;
 }
 
 .profile-card p {
@@ -731,6 +741,33 @@ a:focus-visible,
   border-radius: 50%;
   background: var(--profile);
   pointer-events: none;
+}
+
+.profile-contact-btn {
+  display: inline-flex !important;
+  width: 185px !important;
+  height: 56px !important;
+  padding: 16px 20px !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 8px !important;
+  border-radius: 16px !important;
+  background-color: #540d6e !important;
+  color: #ffffff !important;
+  border: none !important;
+  font-family: var(--body) !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+  transition: transform 0.15s ease, filter 0.15s ease !important;
+}
+
+.profile-contact-btn:hover {
+  filter: brightness(1.15) !important;
+}
+
+.profile-contact-btn:active {
+  transform: scale(0.96) !important;
 }
 
 /* ==========================================================================
@@ -1040,7 +1077,7 @@ a:focus-visible,
 }
 
 /* ==========================================================================
-   MODALS & OVERLAYS
+   MODALS
    ========================================================================== */
 
 .modal-overlay {
@@ -1573,7 +1610,7 @@ a:focus-visible,
 }
 
 /* ==========================================================================
-   RESPONSIVE MEDIA QUERIES (Tablet & Mobile Perfection)
+   RESPONSIVE MEDIA QUERIES (Desktop Intermedio)
    ========================================================================== */
 
 @media (max-width: 1160px) {
@@ -1654,20 +1691,21 @@ a:focus-visible,
 }
 
 /* ==========================================================================
-   MOBILE & VIEWPORT <= 768px (Especialmente calibrado para 390px / 412px)
+   MOBILE & VIEWPORT <= 768px (Márgenes 64px, miniaturas 1:1, título 1 línea, botón morado)
    ========================================================================== */
 
 @media (max-width: 768px) {
   .app-shell {
-    padding: 20px 16px !important;
+    padding: 24px 64px !important;
     align-items: flex-start !important;
     width: 100% !important;
     max-width: 100vw !important;
+    box-sizing: border-box !important;
   }
 
   .portfolio-main {
     width: 100% !important;
-    max-width: 440px !important;
+    max-width: 100% !important;
     margin: 0 auto !important;
   }
 
@@ -1732,170 +1770,105 @@ a:focus-visible,
     line-height: 1.45 !important;
   }
 
-  /* 1. PROFILE CARD (MOISÉS RODRÍGUEZ) */
-  .profile-card .design-title {
-    font-size: clamp(24px, 6.5vw, 30px) !important;
-    line-height: 1.05 !important;
-    margin: 0 0 16px 0 !important;
-    white-space: normal !important;
-    word-break: keep-all !important;
-    overflow-wrap: normal !important;
-  }
-
-  .profile-card p {
-    margin: 0 0 20px 0 !important;
-  }
-
-  .profile-card .profile-socials,
-  .profile-card .social-icons {
-    display: flex !important;
-    align-items: center !important;
-    gap: 16px !important;
-    margin-bottom: 24px !important;
-  }
-
-  .profile-card button,
-  .profile-card .profile-contact-btn {
-    width: 100% !important;
-    height: 52px !important;
-    border-radius: 16px !important;
-    background: #540d6e !important;
-    color: #fff !important;
-    font-weight: 600 !important;
-    font-size: 15px !important;
-  }
-
-  /* 2. EXPERIENCE CARD (PASTILLA Y 20+ FEATURES LADO A LADO) */
-  .experience-card:not(.experience-card-expanded) {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 16px !important;
-  }
-
-  .experience-card:not(.experience-card-expanded) > .design-title {
-    height: auto !important;
-    flex: 0 0 auto !important;
-    line-height: 1 !important;
-  }
-
-  .experience-card:not(.experience-card-expanded) .experience-collapsed-content {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 16px !important;
-  }
-
-  .experience-card:not(.experience-card-expanded) .experience-collapsed-top {
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: center !important;
-    justify-content: space-between !important;
-    gap: 12px !important;
-    width: 100% !important;
-  }
-
-  .experience-card:not(.experience-card-expanded) .experience-collapsed-bottom {
-    display: contents !important;
-  }
-
-  .experience-card:not(.experience-card-expanded) .experience-brand-compact {
-    flex: 1 1 50% !important;
-    width: 50% !important;
-    max-width: 50% !important;
-    height: 56px !important;
-    transform: none !important;
-    margin: 0 !important;
-    border-radius: 28px !important;
-    background: #035532 !important;
-  }
-
-  .experience-card:not(.experience-card-expanded) .experience-brand-compact .experience-brand-copy {
-    width: 55% !important;
-    flex-basis: 55% !important;
-    padding-left: 12px !important;
-    font-size: 9.5px !important;
-    line-height: 12px !important;
-  }
-
-  .experience-card:not(.experience-card-expanded) .experience-brand-compact .experience-brand-logo {
-    width: 45% !important;
-    padding: 6px !important;
-    border-radius: 0 28px 28px 0 !important;
-  }
-
-  .experience-card:not(.experience-card-expanded) .experience-brand-compact .experience-brand-logo img {
-    width: 100% !important;
-    max-width: 54px !important;
-    height: auto !important;
-  }
-
-  .experience-card:not(.experience-card-expanded) .experience-stat {
-    flex: 1 1 50% !important;
-    width: 50% !important;
-    max-width: 50% !important;
-    height: 56px !important;
-    padding: 8px 12px !important;
-    gap: 8px !important;
-    margin: 0 !important;
-    border-radius: 18px !important;
-  }
-
-  .experience-card:not(.experience-card-expanded) .experience-stat-value {
-    font-size: 20px !important;
-  }
-
-  .experience-card:not(.experience-card-expanded) .experience-stat-label {
-    font-size: 11px !important;
-    line-height: 1.15 !important;
-  }
-
-  .experience-summary-footer {
-    padding-top: 4px !important;
-  }
-
-  /* 3. WORK CARD (Mobile) */
+  /* WORK CARD & COLLAGE */
   .work-card > .design-title {
-    margin-bottom: 8px !important;
+    margin-bottom: 12px !important;
+  }
+
+  .project-collage {
+    display: flex !important;
+    width: 100% !important;
+    height: auto !important;
+    padding: 16px !important;
+    gap: 10px !important;
+    border-radius: 22px !important;
+    background: #000 !important;
+    box-sizing: border-box !important;
+  }
+
+  .project-collage-main {
+    display: flex !important;
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+  }
+
+  .project-collage-main img,
+  .project-collage-main-img {
+    width: 100% !important;
+    aspect-ratio: 1 / 1 !important;
+    height: auto !important;
+    border-radius: 14px !important;
+    object-fit: cover !important;
+    display: block !important;
+  }
+
+  .project-collage-title {
+    color: #fff !important;
+    font-size: 22px !important;
+    line-height: 1.1 !important;
+  }
+
+  .project-collage-side {
+    display: flex !important;
+    flex: 0 0 76px !important;
+    width: 76px !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+  }
+
+  .project-collage-side button,
+  .project-collage-side .project-collage-thumb-btn {
+    width: 100% !important;
+    aspect-ratio: 1 / 1 !important;
+    height: auto !important;
+    border-radius: 12px !important;
+    overflow: hidden !important;
+    border: 1.5px solid transparent !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    background: transparent !important;
+    display: block !important;
+  }
+
+  .project-collage-side img {
+    width: 100% !important;
+    height: 100% !important;
+    aspect-ratio: 1 / 1 !important;
+    border-radius: 12px !important;
+    object-fit: cover !important;
+    display: block !important;
   }
 
   .work-summary {
     height: auto !important;
     max-height: none !important;
     -webkit-line-clamp: unset !important;
-    margin: 12px 0 16px 0 !important;
-  }
-
-  .project-collage {
-    height: auto !important;
-    padding: 12px !important;
-    gap: 8px !important;
-  }
-
-  .project-collage-side {
-    flex: 0 0 85px !important;
-    width: 85px !important;
-    gap: 8px !important;
+    margin: 14px 0 !important;
   }
 
   .project-buttons {
     display: flex !important;
     flex-direction: row !important;
     gap: 10px !important;
-    height: 48px !important;
+    width: 100% !important;
     margin-top: 8px !important;
   }
 
   .project-button {
     flex: 1 1 50% !important;
-    width: auto !important;
-    height: 48px !important;
-    padding: 8px 12px !important;
-    font-size: 13px !important;
+    min-height: 48px !important;
+    height: auto !important;
+    padding: 10px 8px !important;
+    font-size: 13.5px !important;
+    border-radius: 14px !important;
+    white-space: normal !important;
   }
 
-  /* 4. ABOUT CARD (Sin cortes de texto en 1 columna) */
+  /* ABOUT CARD */
   .about-card > .design-title {
     height: auto !important;
-    flex: 0 0 auto !important;
     line-height: 1 !important;
   }
 
@@ -1928,21 +1901,76 @@ a:focus-visible,
     height: 64px !important;
   }
 
-  /* 5. TLDR CARD */
-  .tldr-card {
-    gap: 12px !important;
+  /* PROFILE CARD (MOISÉS RODRÍGUEZ: 1 sola línea en mobile, adaptativo) */
+  .profile-desktop-break {
+    display: none !important;
   }
 
-  .tldr-card > .design-title {
-    height: auto !important;
-    flex: 0 0 auto !important;
-    font-size: 34px !important;
-    line-height: 1 !important;
+  .profile-card .design-title,
+  .profile-card h1,
+  .profile-card h2 {
+    font-size: clamp(16px, 4.3vw, 22px) !important;
+    line-height: 1.1 !important;
+    margin: 0 0 16px 0 !important;
+    white-space: nowrap !important;
+    word-break: keep-all !important;
+    overflow-wrap: normal !important;
+    hyphens: none !important;
   }
 
-  .tldr-card p {
-    height: auto !important;
-    flex: 0 0 auto !important;
+  .profile-card .profile-contact-wrapper {
+    width: 100% !important;
+    margin-top: auto !important;
+    padding-top: 20px !important;
+  }
+
+  .profile-card .profile-contact-btn {
+    width: 100% !important;
+    height: 52px !important;
+    background-color: #540d6e !important;
+    color: #ffffff !important;
+    border-radius: 14px !important;
+  }
+
+  /* EXPERIENCE CARD */
+  .experience-card:not(.experience-card-expanded) .experience-collapsed-top {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 10px !important;
+    width: 100% !important;
+  }
+
+  .experience-card:not(.experience-card-expanded) .experience-collapsed-bottom {
+    display: contents !important;
+  }
+
+  .experience-card:not(.experience-card-expanded) .experience-brand-compact {
+    flex: 1 1 50% !important;
+    width: 50% !important;
+    height: 54px !important;
+    transform: none !important;
+    margin: 0 !important;
+    border-radius: 27px !important;
+    background: #035532 !important;
+  }
+
+  .experience-card:not(.experience-card-expanded) .experience-stat {
+    flex: 1 1 50% !important;
+    width: 50% !important;
+    height: 54px !important;
+    padding: 8px 10px !important;
+    gap: 8px !important;
+    margin: 0 !important;
+    border-radius: 16px !important;
+  }
+}
+
+/* Pantallas ultra-compactas (menos de 380px) */
+@media (max-width: 380px) {
+  .app-shell {
+    padding: 20px 32px !important;
   }
 }
 
