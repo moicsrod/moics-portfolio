@@ -1629,9 +1629,10 @@ a:focus-visible,
     grid-template-columns: 1fr 1fr !important;
     width: 100% !important;
     gap: 20px !important;
+    align-items: start !important;
   }
 
-  /* Columna izquierda (Work + About) */
+  /* Columna izquierda: Work + About */
   .primary-column,
   .bento-grid-about .primary-column,
   .bento-grid-experience .primary-column {
@@ -1643,7 +1644,7 @@ a:focus-visible,
     gap: 20px !important;
   }
 
-  /* Columna derecha arriba (Perfil) */
+  /* Columna derecha: Perfil + TLDR (fluyen continuos sin huecos) */
   .profile-column,
   .bento-grid-about .profile-column,
   .bento-grid-experience .profile-column {
@@ -1655,12 +1656,12 @@ a:focus-visible,
     gap: 20px !important;
   }
 
-  /* Fila inferior compartida (Experience + TLDR) */
+  /* Fila inferior para EXPERIENCE a ancho completo */
   .secondary-column,
   .bento-grid-experience .secondary-column {
     grid-column: 1 / -1 !important;
-    display: grid !important;
-    grid-template-columns: 1fr 1fr !important;
+    display: flex !important;
+    flex-direction: column !important;
     width: 100% !important;
     max-width: 100% !important;
     gap: 20px !important;
@@ -1673,9 +1674,46 @@ a:focus-visible,
   }
 
   .work-card,
+  .experience-card,
   .tldr-card,
   .profile-card {
     padding: 28px 24px !important;
+  }
+
+  /* PROFILE CARD EN 2 COLUMNAS: Eliminar huecos artificiales */
+  .profile-card {
+    height: auto !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+  }
+
+  .profile-card p {
+    margin: 0 0 16px 0 !important;
+  }
+
+  .profile-card .profile-contact-wrapper {
+    margin-top: 8px !important;
+    padding-top: 0 !important;
+    width: 100% !important;
+  }
+
+  /* TLDR CARD EN 2 COLUMNAS */
+  .tldr-card {
+    height: auto !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    gap: 16px !important;
+  }
+
+  .tldr-card > .design-title {
+    height: auto !important;
+    line-height: 1.1 !important;
   }
 
   /* ABOUT CARD EN 2 COLUMNAS */
@@ -1701,7 +1739,7 @@ a:focus-visible,
     margin: 0 !important;
   }
 
-  /* EXPERIENCE CARD EN 2 COLUMNAS: Ajuste compacto y eliminación del vacío central */
+  /* EXPERIENCE CARD EN 2 COLUMNAS */
   .experience-card {
     height: auto !important;
     min-height: 0 !important;
@@ -1761,7 +1799,7 @@ a:focus-visible,
     font-size: 26px !important;
   }
 
-  /* Collage contenido y balanceado en 2 columnas */
+  /* Collage contenido y balanceado */
   .project-collage {
     display: flex !important;
     width: 100% !important;
@@ -2009,7 +2047,7 @@ a:focus-visible,
     height: 64px !important;
   }
 
-  /* PROFILE CARD (MOISÉS RODRÍGUEZ: 1 sola línea continua adaptada al ancho) */
+  /* PROFILE CARD */
   .profile-desktop-break {
     display: none !important;
   }
