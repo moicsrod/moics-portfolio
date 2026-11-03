@@ -134,14 +134,14 @@ a:focus-visible,
   display: grid;
   width: min(100%, 1124px);
   grid-template-columns: 552px 266px 266px;
-  align-items: start;
+  align-items: stretch !important;
   gap: 20px;
 }
 
 .portfolio-column {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   min-width: 0;
-  align-content: start;
   gap: 20px;
 }
 
@@ -149,52 +149,81 @@ a:focus-visible,
   width: 552px;
   max-width: 552px;
   box-sizing: border-box;
-  grid-template-rows: auto auto !important;
+  display: flex !important;
+  flex-direction: column !important;
+  height: auto !important;
 }
 
 .profile-column {
-  grid-template-rows: 292.36px 643px;
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100% !important;
+  min-height: 0 !important;
+  grid-template-rows: none !important;
+}
+
+.profile-photo {
+  flex: 0 0 292.36px !important;
+  height: 292.36px !important;
+}
+
+.profile-card {
+  flex: 1 1 auto !important;
+  height: auto !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.profile-card .profile-contact-wrapper {
+  margin-top: auto !important;
 }
 
 .secondary-column {
-  grid-template-rows: 534px 401px;
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100% !important;
+  min-height: 0 !important;
+  grid-template-rows: none !important;
+}
+
+.secondary-column .experience-card:not(.experience-card-expanded) {
+  flex: 0 0 auto !important;
+  height: auto !important;
+}
+
+.secondary-column .tldr-card {
+  flex: 1 1 auto !important;
+  height: auto !important;
 }
 
 .bento-grid-about .primary-column {
-  grid-template-rows: auto auto !important;
+  display: flex !important;
+  flex-direction: column !important;
 }
 
 .bento-grid-about {
   width: min(100%, 1124px);
   margin-left: 0;
   top: 0;
-}
-
-.bento-grid-about .profile-column {
-  grid-template-rows: 292.36px 643px;
+  align-items: stretch !important;
 }
 
 .bento-grid-experience {
   width: min(100%, 1124px);
   margin-left: 0;
   grid-template-columns: 266px 266px 552px;
+  align-items: stretch !important;
 }
 
 .bento-grid-experience .primary-column {
   width: 266px;
   max-width: 266px;
-  grid-template-rows: 527px 408px;
-}
-
-.bento-grid-experience .profile-column {
-  grid-template-rows: 292.36px 643px;
 }
 
 .bento-grid-experience .secondary-column {
   width: 552px;
   max-width: 552px;
   box-sizing: border-box;
-  grid-template-rows: 667px 268px;
 }
 
 .portfolio-card {
