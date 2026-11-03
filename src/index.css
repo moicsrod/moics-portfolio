@@ -127,7 +127,7 @@ a:focus-visible,
 }
 
 /* ==========================================================================
-   BENTO GRID ARCHITECTURE (Desktop 3-Column Matrix: 552px, 266px, 266px)
+   BENTO GRID ARCHITECTURE (Desktop 3-Column Matrix)
    ========================================================================== */
 
 .bento-grid {
@@ -264,7 +264,6 @@ a:focus-visible,
   box-sizing: border-box !important;
 }
 
-/* Proyecto principal ocupa proporcionalmente el 68% */
 .project-collage-main {
   display: flex !important;
   min-width: 0 !important;
@@ -291,7 +290,6 @@ a:focus-visible,
   margin-top: 2px !important;
 }
 
-/* Miniaturas secundarias ocupan proporcionalmente el 32% */
 .project-collage-side {
   display: flex !important;
   flex: 0 0 32% !important;
@@ -1614,74 +1612,68 @@ a:focus-visible,
 }
 
 /* ==========================================================================
-   RESPONSIVE MEDIA QUERIES (Desktop Intermedio)
+   RESPONSIVE: TABLET & PANTALLAS MEDIANAS (769px a 1160px: 2 COLUMNAS EQUILIBRADAS)
    ========================================================================== */
 
-@media (max-width: 1160px) {
-  .portfolio-main {
-    width: min(1124px, 100%);
-  }
-
-  .notice-banner {
-    width: 100%;
-  }
-
-  .bento-grid,
-  .bento-grid-about {
-    width: 100%;
-    margin-left: 0;
-    grid-template-columns: minmax(0, 552fr) minmax(0, 266fr) minmax(0, 266fr);
-  }
-
-  .bento-grid-experience {
-    width: 100%;
-    margin-left: 0;
-    grid-template-columns: minmax(0, 266fr) minmax(0, 266fr) minmax(0, 552fr);
-  }
-
-  .primary-column,
-  .bento-grid-experience .primary-column,
-  .bento-grid-experience .secondary-column {
-    width: 100%;
-    max-width: none;
-  }
-}
-
-@media (max-width: 1100px) {
-  .project-modal-nav-previous {
-    left: -24px;
-  }
-
-  .project-modal-nav-next {
-    right: -24px;
-  }
-}
-
-@media (max-width: 1050px) {
+@media (max-width: 1160px) and (min-width: 769px) {
   .app-shell {
-    padding-right: 20px;
-    padding-left: 20px;
+    padding: 32px 40px !important;
   }
 
-  .project-modal-close {
-    width: 42px;
-    height: 42px;
-    font-size: 42px;
+  .portfolio-main {
+    width: 100% !important;
+    max-width: 1000px !important;
   }
 
-  .project-modal-nav {
-    width: 63px;
-    height: 63px;
-    font-size: 63px;
+  /* Grid estructurado limpiamente en 2 columnas proporcionadas */
+  .bento-grid,
+  .bento-grid-about,
+  .bento-grid-experience {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    width: 100% !important;
+    gap: 20px !important;
   }
 
-  .notice-banner {
-    padding-right: 32px;
-    padding-left: 32px;
+  /* La columna principal (Work + About) ocupa la columna izquierda */
+  .primary-column,
+  .bento-grid-about .primary-column,
+  .bento-grid-experience .primary-column {
+    grid-column: 1 / 2 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 20px !important;
   }
 
-  .notice-banner p {
-    font-size: 20px;
+  /* La columna de perfil ocupa la columna derecha arriba */
+  .profile-column,
+  .bento-grid-about .profile-column,
+  .bento-grid-experience .profile-column {
+    grid-column: 2 / 3 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 20px !important;
+  }
+
+  /* La columna secundaria (Experience + TLDR) se posiciona equilibrada */
+  .secondary-column,
+  .bento-grid-experience .secondary-column {
+    grid-column: 1 / -1 !important;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    gap: 20px !important;
+  }
+
+  .portfolio-card {
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
   }
 
   .work-card,
@@ -1689,16 +1681,50 @@ a:focus-visible,
   .experience-card,
   .tldr-card,
   .profile-card {
-    padding-right: 24px;
-    padding-left: 24px;
+    padding: 28px 24px !important;
+  }
+
+  /* Collage contenido y balanceado en 2 columnas */
+  .project-collage {
+    display: flex !important;
+    width: 100% !important;
+    height: auto !important;
+    padding: 16px !important;
+    gap: 12px !important;
+    border-radius: 22px !important;
+    background: #000 !important;
+    box-sizing: border-box !important;
+  }
+
+  .project-collage-main {
+    flex: 1 1 68% !important;
+    min-width: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+  }
+
+  .project-collage-side {
+    flex: 0 0 32% !important;
+    max-width: 100px !important;
+    width: 32% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+  }
+
+  /* Título de perfil adaptable */
+  .profile-card .design-title {
+    font-size: clamp(24px, 3.2vw, 32px) !important;
+    line-height: 1.1 !important;
   }
 }
 
 /* ==========================================================================
-   TABLET & MOBILE (<= 1024px: Switch limpio a 1 columna para evitar aplastamiento)
+   MOBILE & VIEWPORT <= 768px (1 Columna Compacta y Márgenes de 64px)
    ========================================================================== */
 
-@media (max-width: 1024px) {
+@media (max-width: 768px) {
   .app-shell {
     padding: 24px 64px !important;
     align-items: flex-start !important;
@@ -1774,7 +1800,7 @@ a:focus-visible,
     line-height: 1.45 !important;
   }
 
-  /* WORK CARD & COLLAGE RESPONSIVE (Principal siempre dominante) */
+  /* WORK CARD & COLLAGE RESPONSIVE */
   .work-card > .design-title {
     margin-bottom: 12px !important;
   }
@@ -1784,7 +1810,7 @@ a:focus-visible,
     width: 100% !important;
     height: auto !important;
     padding: 16px !important;
-    gap: 12px !important;
+    gap: 10px !important;
     border-radius: 22px !important;
     background: #000 !important;
     box-sizing: border-box !important;
@@ -1817,7 +1843,7 @@ a:focus-visible,
   .project-collage-side {
     display: flex !important;
     flex: 0 0 32% !important;
-    max-width: 100px !important;
+    max-width: 90px !important;
     width: 32% !important;
     flex-direction: column !important;
     gap: 8px !important;
