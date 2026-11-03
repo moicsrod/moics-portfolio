@@ -1701,7 +1701,7 @@ a:focus-visible,
     grid-template-rows: none !important;
     gap: 20px !important;
     margin: 0 !important;
-    align-items: start !important;
+    align-items: stretch !important;
   }
 
   .secondary-column > .portfolio-card,
@@ -1778,14 +1778,15 @@ a:focus-visible,
     box-sizing: border-box !important;
   }
 
-  /* TLDR CARD: posición natural con gap uniforme de 20px */
+  /* TLDR CARD: Se estira al 100% igualando la altura final de Experience */
   .tldr-card {
     display: flex !important;
     flex-direction: column !important;
     justify-content: flex-start !important;
     gap: 16px !important;
-    height: auto !important;
+    height: 100% !important;
     min-height: 0 !important;
+    box-sizing: border-box !important;
   }
 
   .tldr-card > .design-title {
