@@ -1694,11 +1694,11 @@ a:focus-visible,
     grid-column: 1 / -1 !important;
     display: grid !important;
     grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    grid-template-rows: 1fr !important;
     width: 100% !important;
     max-width: 100% !important;
     height: auto !important;
     min-height: 0 !important;
-    grid-template-rows: none !important;
     gap: 20px !important;
     margin: 0 !important;
     align-items: stretch !important;
@@ -1708,6 +1708,7 @@ a:focus-visible,
   .bento-grid-experience .secondary-column > .portfolio-card {
     width: 100% !important;
     max-width: 100% !important;
+    height: 100% !important;
   }
 
   .portfolio-card {
@@ -1778,14 +1779,14 @@ a:focus-visible,
     box-sizing: border-box !important;
   }
 
-  /* TLDR CARD: Se estira al 100% igualando la altura final de Experience */
+  /* TLDR CARD: Se estira al 100% exactamente igual a Experience */
   .tldr-card {
     display: flex !important;
     flex-direction: column !important;
     justify-content: flex-start !important;
     gap: 16px !important;
     height: 100% !important;
-    min-height: 0 !important;
+    min-height: 100% !important;
     box-sizing: border-box !important;
   }
 
@@ -1819,13 +1820,14 @@ a:focus-visible,
 
   /* EXPERIENCE CARD EN 2 COLUMNAS */
   .experience-card {
-    height: auto !important;
-    min-height: 0 !important;
+    height: 100% !important;
+    min-height: 100% !important;
     padding: 28px 24px 32px 24px !important;
     display: flex !important;
     flex-direction: column !important;
     justify-content: flex-start !important;
     gap: 20px !important;
+    box-sizing: border-box !important;
   }
 
   .experience-card > .design-title {
@@ -1841,7 +1843,7 @@ a:focus-visible,
     flex-direction: column !important;
     justify-content: flex-start !important;
     gap: 20px !important;
-    flex: 0 0 auto !important;
+    flex: 1 1 auto !important;
     min-height: 0 !important;
     padding-top: 0 !important;
   }
@@ -1863,7 +1865,7 @@ a:focus-visible,
     flex-direction: column !important;
     gap: 12px !important;
     padding-top: 16px !important;
-    margin-top: 0 !important;
+    margin-top: auto !important;
     width: 100% !important;
     border-top: 1.5px solid rgb(0 0 0 / 15%) !important;
   }
