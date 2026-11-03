@@ -1928,6 +1928,30 @@ a:focus-visible,
     margin: 0 auto !important;
   }
 
+  /* SNACKBAR / NOTICE BANNER EN MOBILE: Máximo 2 líneas, padding y botón proporcionados */
+  .notice-banner {
+    width: 100% !important;
+    height: auto !important;
+    min-height: 48px !important;
+    padding: 10px 16px !important;
+    margin-bottom: 16px !important;
+    border-radius: 20px !important;
+    gap: 12px !important;
+  }
+
+  .notice-banner p {
+    font-size: clamp(12.5px, 3.6vw, 14px) !important;
+    line-height: 1.25 !important;
+    white-space: normal !important;
+  }
+
+  .notice-dismiss {
+    width: 28px !important;
+    height: 28px !important;
+    flex: 0 0 28px !important;
+    font-size: 14px !important;
+  }
+
   .bento-grid,
   .bento-grid-about,
   .bento-grid-experience {
