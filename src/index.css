@@ -130,59 +130,76 @@ a:focus-visible,
    BENTO GRID ARCHITECTURE (Desktop 3-Column Matrix: > 1160px)
    ========================================================================== */
 
-.bento-grid {
-  display: grid;
-  width: min(100%, 1124px);
-  grid-template-columns: 552px 266px 266px;
+.bento-grid,
+.bento-grid-about {
+  display: grid !important;
+  width: min(100%, 1124px) !important;
+  grid-template-columns: 552px 266px 266px !important;
   align-items: stretch !important;
-  gap: 20px;
+  gap: 20px !important;
 }
 
 .portfolio-column {
-  display: flex;
-  flex-direction: column;
-  min-width: 0;
-  gap: 20px;
+  display: flex !important;
+  flex-direction: column !important;
+  min-width: 0 !important;
+  gap: 20px !important;
+  height: 100% !important;
 }
 
 .primary-column {
-  width: 552px;
-  max-width: 552px;
-  box-sizing: border-box;
+  width: 552px !important;
+  max-width: 552px !important;
+  box-sizing: border-box !important;
   display: flex !important;
   flex-direction: column !important;
   height: auto !important;
+  gap: 20px !important;
 }
 
-.profile-column {
+/* Columna Central: Foto fija + Tarjeta de Moisés estirada */
+.profile-column,
+.bento-grid-about .profile-column {
   display: flex !important;
   flex-direction: column !important;
+  width: 266px !important;
+  max-width: 266px !important;
   height: 100% !important;
-  min-height: 0 !important;
+  min-height: 100% !important;
+  gap: 20px !important;
   grid-template-rows: none !important;
 }
 
 .profile-photo {
   flex: 0 0 292.36px !important;
   height: 292.36px !important;
+  width: 100% !important;
 }
 
 .profile-card {
-  flex: 1 1 auto !important;
+  flex: 1 1 0% !important;
   height: auto !important;
+  min-height: 0 !important;
   display: flex !important;
   flex-direction: column !important;
+  justify-content: flex-start !important;
 }
 
 .profile-card .profile-contact-wrapper {
   margin-top: auto !important;
+  padding-top: 20px !important;
+  width: 100% !important;
 }
 
+/* Columna Derecha: Experience arriba + TLDR estirada */
 .secondary-column {
   display: flex !important;
   flex-direction: column !important;
+  width: 266px !important;
+  max-width: 266px !important;
   height: 100% !important;
-  min-height: 0 !important;
+  min-height: 100% !important;
+  gap: 20px !important;
   grid-template-rows: none !important;
 }
 
@@ -192,38 +209,32 @@ a:focus-visible,
 }
 
 .secondary-column .tldr-card {
-  flex: 1 1 auto !important;
+  flex: 1 1 0% !important;
   height: auto !important;
-}
-
-.bento-grid-about .primary-column {
+  min-height: 0 !important;
   display: flex !important;
   flex-direction: column !important;
-}
-
-.bento-grid-about {
-  width: min(100%, 1124px);
-  margin-left: 0;
-  top: 0;
-  align-items: stretch !important;
+  justify-content: flex-start !important;
 }
 
 .bento-grid-experience {
-  width: min(100%, 1124px);
-  margin-left: 0;
-  grid-template-columns: 266px 266px 552px;
+  width: min(100%, 1124px) !important;
+  margin-left: 0 !important;
+  display: grid !important;
+  grid-template-columns: 266px 266px 552px !important;
   align-items: stretch !important;
+  gap: 20px !important;
 }
 
 .bento-grid-experience .primary-column {
-  width: 266px;
-  max-width: 266px;
+  width: 266px !important;
+  max-width: 266px !important;
 }
 
 .bento-grid-experience .secondary-column {
-  width: 552px;
-  max-width: 552px;
-  box-sizing: border-box;
+  width: 552px !important;
+  max-width: 552px !important;
+  box-sizing: border-box !important;
 }
 
 .portfolio-card {
