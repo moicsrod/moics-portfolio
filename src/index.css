@@ -400,7 +400,7 @@ a:focus-visible,
 
 /* ==========================================================================
    WORK CARD (Collapsed Views)
-   ========================================================================== */
+   ========================================================================= */
 
 .work-card-about {
   height: auto !important;
@@ -1621,6 +1621,30 @@ a:focus-visible,
     max-width: 1000px !important;
   }
 
+  /* Snackbar / Notice Banner: altura compacta y texto en 1 sola línea */
+  .notice-banner {
+    height: auto !important;
+    min-height: 58px !important;
+    padding: 12px 28px !important;
+    margin-bottom: 20px !important;
+    border-radius: 24px !important;
+  }
+
+  .notice-banner p {
+    font-size: 16px !important;
+    line-height: 1.3 !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+
+  .notice-dismiss {
+    width: 34px !important;
+    height: 34px !important;
+    flex: 0 0 34px !important;
+    font-size: 16px !important;
+  }
+
   /* El Bento Grid funciona como un Grid de 2 columnas continuas */
   .bento-grid,
   .bento-grid-about,
@@ -1702,10 +1726,14 @@ a:focus-visible,
     padding: 28px 24px !important;
   }
 
-  /* PROFILE CARD: se estira para coincidir exactamente con el final de About */
+  /* PROFILE CARD: Título más grande en exactamente 2 líneas y alineación inferior */
   .profile-photo {
     flex: 0 0 292.36px !important;
     height: 292.36px !important;
+  }
+
+  .profile-desktop-break {
+    display: block !important;
   }
 
   .profile-card {
@@ -1718,7 +1746,20 @@ a:focus-visible,
     margin: 0 !important;
   }
 
+  .profile-card .design-title,
+  .profile-card h1,
+  .profile-card h2 {
+    font-size: clamp(32px, 4vw, 44px) !important;
+    line-height: 1.05 !important;
+    margin-bottom: 20px !important;
+    white-space: normal !important;
+    word-break: keep-all !important;
+    overflow-wrap: normal !important;
+  }
+
   .profile-card p {
+    font-size: 16px !important;
+    line-height: 1.45 !important;
     margin: 0 0 20px 0 !important;
   }
 
@@ -1853,12 +1894,6 @@ a:focus-visible,
     display: flex !important;
     flex-direction: column !important;
     gap: 8px !important;
-  }
-
-  /* Título de perfil adaptable */
-  .profile-card .design-title {
-    font-size: clamp(24px, 3.2vw, 32px) !important;
-    line-height: 1.1 !important;
   }
 }
 
