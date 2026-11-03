@@ -1608,7 +1608,7 @@ a:focus-visible,
 }
 
 /* ==========================================================================
-   RESPONSIVE: TABLET & PANTALLAS MEDIANAS (769px a 1160px: 2 COLUMNAS EQUILIBRADAS)
+   RESPONSIVE: TABLET & PANTALLAS MEDIANAS (769px a 1160px: 2 COLUMNAS CONTINUAS SIN HUECOS)
    ========================================================================== */
 
 @media (max-width: 1160px) and (min-width: 769px) {
@@ -1621,101 +1621,78 @@ a:focus-visible,
     max-width: 1000px !important;
   }
 
-  /* Grid en 2 columnas proporcionadas */
+  /* Bento Grid padre estructurado en 2 columnas fluidas */
   .bento-grid,
   .bento-grid-about,
   .bento-grid-experience {
-    display: grid !important;
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    flex-direction: row !important;
     width: 100% !important;
     gap: 20px !important;
-    align-items: stretch !important;
+    align-items: flex-start !important;
+    justify-content: space-between !important;
   }
 
-  /* Columna Izquierda: WORK + ABOUT */
+  /* COLUMNA 1 (Izquierda: WORK + ABOUT) -> 50% exacto menos la mitad del gap */
   .primary-column,
   .bento-grid-about .primary-column,
   .bento-grid-experience .primary-column {
-    grid-column: 1 / 2 !important;
     display: flex !important;
     flex-direction: column !important;
-    width: 100% !important;
-    max-width: 100% !important;
+    width: calc(50% - 10px) !important;
+    max-width: calc(50% - 10px) !important;
     height: auto !important;
     min-height: 0 !important;
     grid-template-rows: none !important;
     gap: 20px !important;
     margin: 0 !important;
+    order: 1 !important;
   }
 
-  /* Columna Derecha: FOTO + MOISÉS RODRÍGUEZ (se extiende a la altura de la izquierda) */
+  /* COLUMNA 2 (Derecha: FOTO + MOISÉS) -> 50% exacto menos la mitad del gap */
   .profile-column,
   .bento-grid-about .profile-column,
   .bento-grid-experience .profile-column {
-    grid-column: 2 / 3 !important;
     display: flex !important;
     flex-direction: column !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    height: 100% !important;
+    width: calc(50% - 10px) !important;
+    max-width: calc(50% - 10px) !important;
+    height: auto !important;
     min-height: 0 !important;
     grid-template-rows: none !important;
     gap: 20px !important;
     margin: 0 !important;
+    order: 2 !important;
   }
 
-  .profile-photo {
-    flex: 0 0 292.36px !important;
-    height: 292.36px !important;
-  }
-
-  /* Tarjeta de Moisés se estira hasta igualar la parte inferior de About */
-  .profile-card {
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: flex-start !important;
-    flex: 1 1 auto !important;
-    height: auto !important;
-    min-height: 0 !important;
-    margin: 0 !important;
-  }
-
-  .profile-card p {
-    margin: 0 0 20px 0 !important;
-  }
-
-  /* El botón de contacto y los íconos se fijan armónicamente abajo */
-  .profile-card .profile-contact-wrapper {
-    margin-top: auto !important;
-    padding-top: 16px !important;
-    width: 100% !important;
-  }
-
-  /* Fila siguiente: EXPERIENCE y TLDR ocupan cada uno 1 columna debajo de las anteriores */
+  /* COLUMNA 3 (EXPERIENCE + TLDR) -> Se desenvuelve con display: contents para que TLDR y EXPERIENCE se acomoden en las 2 columnas naturales */
   .secondary-column,
   .bento-grid-experience .secondary-column {
-    grid-column: 1 / -1 !important;
-    display: grid !important;
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    height: auto !important;
-    min-height: 0 !important;
-    grid-template-rows: none !important;
-    gap: 20px !important;
-    margin-top: 0 !important;
+    display: contents !important;
   }
 
-  .secondary-column > .portfolio-card,
-  .bento-grid-experience .secondary-column > .portfolio-card {
-    width: 100% !important;
-    max-width: 100% !important;
+  /* EXPERIENCE va a la izquierda (debajo de About) */
+  .experience-card {
+    order: 3 !important;
+    width: calc(50% - 10px) !important;
+    max-width: calc(50% - 10px) !important;
+    margin: 0 !important;
+  }
+
+  /* TLDR va a la derecha (inmediatamente debajo de Moisés) */
+  .tldr-card {
+    order: 4 !important;
+    width: calc(50% - 10px) !important;
+    max-width: calc(50% - 10px) !important;
+    margin: 0 !important;
   }
 
   .portfolio-card {
     height: auto !important;
     min-height: 0 !important;
     max-height: none !important;
+    border-radius: 28px !important;
   }
 
   .work-card,
@@ -1725,12 +1702,39 @@ a:focus-visible,
     padding: 28px 24px !important;
   }
 
-  /* TLDR CARD EN 2 COLUMNAS */
+  /* PROFILE PHOTO & PROFILE CARD */
+  .profile-photo {
+    flex: 0 0 292.36px !important;
+    height: 292.36px !important;
+  }
+
+  .profile-card {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    height: auto !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+  }
+
+  .profile-card p {
+    margin: 0 0 16px 0 !important;
+  }
+
+  .profile-card .profile-contact-wrapper {
+    margin-top: 8px !important;
+    padding-top: 0 !important;
+    width: 100% !important;
+  }
+
+  /* TLDR CARD: Separación vertical constante y sin gaps desmedidos */
   .tldr-card {
     display: flex !important;
     flex-direction: column !important;
     justify-content: flex-start !important;
     gap: 16px !important;
+    height: auto !important;
+    min-height: 0 !important;
   }
 
   .tldr-card > .design-title {
