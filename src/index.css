@@ -1673,13 +1673,12 @@ a:focus-visible,
   }
 
   .work-card,
-  .experience-card,
   .tldr-card,
   .profile-card {
     padding: 28px 24px !important;
   }
 
-  /* ABOUT CARD EN 2 COLUMNAS: Padding bottom garantizado y texto continuo */
+  /* ABOUT CARD EN 2 COLUMNAS */
   .about-card {
     height: auto !important;
     min-height: 0 !important;
@@ -1700,6 +1699,66 @@ a:focus-visible,
     font-size: 16px !important;
     line-height: 1.45 !important;
     margin: 0 !important;
+  }
+
+  /* EXPERIENCE CARD EN 2 COLUMNAS: Ajuste compacto y eliminación del vacío central */
+  .experience-card {
+    height: auto !important;
+    min-height: 0 !important;
+    padding: 28px 24px 32px 24px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    gap: 20px !important;
+  }
+
+  .experience-card > .design-title {
+    height: auto !important;
+    flex: 0 0 auto !important;
+    font-size: 38px !important;
+    line-height: 1.1 !important;
+    margin: 0 !important;
+  }
+
+  .experience-collapsed-content {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    gap: 20px !important;
+    flex: 0 0 auto !important;
+    min-height: 0 !important;
+    padding-top: 0 !important;
+  }
+
+  .experience-collapsed-top {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 16px !important;
+  }
+
+  .experience-summary,
+  .experience-summary p {
+    font-size: 16px !important;
+    line-height: 1.45 !important;
+  }
+
+  .experience-collapsed-bottom {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+    padding-top: 16px !important;
+    margin-top: 0 !important;
+    width: 100% !important;
+    border-top: 1.5px solid rgb(0 0 0 / 15%) !important;
+  }
+
+  .experience-stat {
+    padding: 12px 16px !important;
+    gap: 12px !important;
+  }
+
+  .experience-card:not(.experience-card-expanded) .experience-stat-value {
+    font-size: 26px !important;
   }
 
   /* Collage contenido y balanceado en 2 columnas */
