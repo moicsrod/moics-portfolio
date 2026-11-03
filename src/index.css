@@ -536,7 +536,7 @@ a:focus-visible,
 }
 
 .about-copy {
-  display: -webkit-box;
+  display: block;
   height: auto !important;
   max-height: none !important;
   overflow: visible !important;
@@ -545,8 +545,6 @@ a:focus-visible,
   font-size: 20px !important;
   font-weight: 400;
   line-height: 1.35 !important;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 4;
 }
 
 .about-card-expanded {
@@ -577,7 +575,6 @@ a:focus-visible,
   font-size: 20px !important;
   font-weight: 400;
   line-height: 1.35 !important;
-  -webkit-line-clamp: unset;
   display: block;
   overflow: visible;
   margin-bottom: 0;
@@ -677,7 +674,6 @@ a:focus-visible,
 .bento-grid-experience .about-copy {
   height: 180px;
   flex-basis: 180px;
-  -webkit-line-clamp: 6;
 }
 
 /* ==========================================================================
@@ -1625,7 +1621,7 @@ a:focus-visible,
     max-width: 1000px !important;
   }
 
-  /* Grid estructurado limpiamente en 2 columnas proporcionadas */
+  /* Grid estructurado en 2 columnas proporcionadas */
   .bento-grid,
   .bento-grid-about,
   .bento-grid-experience {
@@ -1635,7 +1631,7 @@ a:focus-visible,
     gap: 20px !important;
   }
 
-  /* La columna principal (Work + About) ocupa la columna izquierda */
+  /* Columna izquierda (Work + About) */
   .primary-column,
   .bento-grid-about .primary-column,
   .bento-grid-experience .primary-column {
@@ -1647,7 +1643,7 @@ a:focus-visible,
     gap: 20px !important;
   }
 
-  /* La columna de perfil ocupa la columna derecha arriba */
+  /* Columna derecha arriba (Perfil) */
   .profile-column,
   .bento-grid-about .profile-column,
   .bento-grid-experience .profile-column {
@@ -1659,7 +1655,7 @@ a:focus-visible,
     gap: 20px !important;
   }
 
-  /* La columna secundaria (Experience + TLDR) se posiciona equilibrada */
+  /* Fila inferior compartida (Experience + TLDR) */
   .secondary-column,
   .bento-grid-experience .secondary-column {
     grid-column: 1 / -1 !important;
@@ -1677,11 +1673,33 @@ a:focus-visible,
   }
 
   .work-card,
-  .about-card,
   .experience-card,
   .tldr-card,
   .profile-card {
     padding: 28px 24px !important;
+  }
+
+  /* ABOUT CARD EN 2 COLUMNAS: Padding bottom garantizado y texto continuo */
+  .about-card {
+    height: auto !important;
+    min-height: 0 !important;
+    padding: 28px 24px 36px 24px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    gap: 16px !important;
+  }
+
+  .about-copy {
+    display: block !important;
+    -webkit-line-clamp: unset !important;
+    -webkit-box-orient: unset !important;
+    overflow: visible !important;
+    height: auto !important;
+    max-height: none !important;
+    font-size: 16px !important;
+    line-height: 1.45 !important;
+    margin: 0 !important;
   }
 
   /* Collage contenido y balanceado en 2 columnas */
