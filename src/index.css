@@ -732,6 +732,18 @@ a:focus-visible,
   display: inline;
 }
 
+/* Salto de línea especial en RODRI-GUEZ: Oculto por defecto */
+.rodriguez-break {
+  display: none;
+}
+
+/* Solo visible en la versión grande de escritorio */
+@media (min-width: 1161px) {
+  .rodriguez-break {
+    display: block;
+  }
+}
+
 .profile-card p {
   color: #fff;
   font-family: var(--body);
