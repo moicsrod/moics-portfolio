@@ -79,7 +79,7 @@ function AboutCard({ expanded, onToggle }) {
     <motion.article
       layout
       transition={layoutTransition}
-      className={`portfolio-card about-card ${expanded ? "about-card-expanded" : ""}`}
+      className={`portfolio-card about-card flex flex-col flex-1 ${expanded ? "about-card-expanded" : ""}`}
       onClick={onToggle}
       onKeyDown={(event) => {
         if (
@@ -160,7 +160,7 @@ function ExperienceCard({ expanded, onToggle }) {
     <motion.article
       layout
       transition={layoutTransition}
-      className={`portfolio-card experience-card ${expanded ? "experience-card-expanded" : ""}`}
+      className={`portfolio-card experience-card shrink-0 ${expanded ? "experience-card-expanded" : ""}`}
       onClick={onToggle}
       onKeyDown={(event) => {
         if (event.key === "Enter" || event.key === " ") {
@@ -263,7 +263,6 @@ function ProfileCard({ onOpenContactModal }) {
       className="portfolio-card profile-card flex flex-col flex-1 justify-between"
     >
       <div className="flex w-full flex-col items-start gap-4">
-        {/* En desktop (>1160px) quiebra en RODRI-GUEZ; en tablet/mobile fluye según corresponda */}
         <h1 className="design-title font-['Boldonse',sans-serif] text-white">
           MOISES<br className="profile-desktop-break" /> RODRI<br className="rodriguez-break" />GUEZ
         </h1>
@@ -379,11 +378,11 @@ export default function BentoGrid({
       className={`bento-grid bento-grid-${activeSection}`}
       aria-label="Portfolio"
     >
-      <motion.div layout className="portfolio-column primary-column">
+      <motion.div layout className="portfolio-column primary-column flex flex-col h-full">
         <motion.article
           layout
           transition={layoutTransition}
-          className={`portfolio-card work-card work-card-${activeSection}`}
+          className={`portfolio-card work-card work-card-${activeSection} shrink-0`}
         >
           <h2 className="design-title font-['Boldonse',sans-serif]">WORK</h2>
           {activeSection === "work" ? (
