@@ -247,7 +247,7 @@ function ProfilePhoto() {
     <motion.div
       layout
       transition={layoutTransition}
-      className="profile-photo"
+      className="profile-photo shrink-0"
     >
       <img src={ASSETS.moises} alt="Moises Rodriguez" />
       <span className="profile-accent" aria-hidden="true" />
@@ -260,12 +260,12 @@ function ProfileCard({ onOpenContactModal }) {
     <motion.article
       layout
       transition={layoutTransition}
-      className="portfolio-card profile-card"
+      className="portfolio-card profile-card flex flex-col flex-1 justify-between"
     >
       <div className="flex w-full flex-col items-start gap-4">
-        {/* En desktop (>768px) quiebra en 2 líneas; en mobile se muestra en una sola línea continua */}
+        {/* En desktop (>1160px) quiebra en RODRI-GUEZ; en tablet/mobile fluye según corresponda */}
         <h1 className="design-title font-['Boldonse',sans-serif] text-white">
-          MOISES<br className="profile-desktop-break" /> RODRIGUEZ
+          MOISES<br className="profile-desktop-break" /> RODRI<br className="rodriguez-break" />GUEZ
         </h1>
         <p className="m-0 text-white">
           UI/UX Designer with a deep focus on design systems &amp; human-centered
@@ -342,7 +342,7 @@ function TldrCard() {
     <motion.article
       layout
       transition={layoutTransition}
-      className="portfolio-card tldr-card"
+      className="portfolio-card tldr-card flex flex-col flex-1"
     >
       <h2 className="design-title font-['Boldonse',sans-serif]">TLDR</h2>
       <p>
@@ -420,12 +420,12 @@ export default function BentoGrid({
         />
       </motion.div>
 
-      <motion.div layout className="portfolio-column profile-column">
+      <motion.div layout className="portfolio-column profile-column flex flex-col h-full">
         <ProfilePhoto />
         <ProfileCard onOpenContactModal={onOpenContactModal} />
       </motion.div>
 
-      <motion.div layout className="portfolio-column secondary-column">
+      <motion.div layout className="portfolio-column secondary-column flex flex-col h-full">
         <ExperienceCard
           expanded={activeSection === "experience"}
           onToggle={() => toggleSection("experience")}
