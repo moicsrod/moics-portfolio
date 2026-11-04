@@ -733,7 +733,7 @@ a:focus-visible,
 .profile-card .design-title {
   color: #fff;
   font-size: 38px;
-  line-height: 1.05;
+  line-height: 1.18 !important;
   margin-bottom: 24px;
   white-space: normal;
   word-break: keep-all;
