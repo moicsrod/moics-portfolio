@@ -217,24 +217,37 @@ a:focus-visible,
   justify-content: flex-start !important;
 }
 
+/* Estado Expandido de EXPERIENCE */
 .bento-grid-experience {
   width: min(100%, 1124px) !important;
   margin-left: 0 !important;
   display: grid !important;
   grid-template-columns: 266px 266px 552px !important;
-  align-items: stretch !important;
+  align-items: start !important;
   gap: 20px !important;
 }
 
 .bento-grid-experience .primary-column {
   width: 266px !important;
   max-width: 266px !important;
+  height: auto !important;
+}
+
+.bento-grid-experience .profile-column {
+  height: auto !important;
 }
 
 .bento-grid-experience .secondary-column {
   width: 552px !important;
   max-width: 552px !important;
   box-sizing: border-box !important;
+  height: auto !important;
+  min-height: 0 !important;
+}
+
+.bento-grid-experience .secondary-column .tldr-card {
+  flex: 0 0 auto !important;
+  height: auto !important;
 }
 
 .portfolio-card {
@@ -501,13 +514,13 @@ a:focus-visible,
 .bento-grid-experience .work-card,
 .work-card-experience {
   box-sizing: border-box !important;
-  padding: 32px 28px 24px !important;
+  padding: 28px 24px 20px !important;
   display: flex !important;
   flex-direction: column !important;
   justify-content: flex-start !important;
-  gap: 16px !important;
-  height: 527px !important;
-  max-height: 527px !important;
+  gap: 14px !important;
+  height: auto !important;
+  max-height: none !important;
   overflow: hidden !important;
 }
 
@@ -516,7 +529,7 @@ a:focus-visible,
 .work-card-experience > .design-title {
   height: auto !important;
   flex: 0 0 auto !important;
-  font-size: 43px !important;
+  font-size: 38px !important;
   line-height: 1.1 !important;
   margin: 0 !important;
   padding: 0 !important;
@@ -525,12 +538,12 @@ a:focus-visible,
 .bento-grid-experience .experience-work-copy,
 .work-card-experience .experience-work-copy {
   font-family: var(--body) !important;
-  font-size: 20px !important;
+  font-size: 16px !important;
   font-weight: 400 !important;
-  line-height: 1.35 !important;
+  line-height: 1.4 !important;
   display: -webkit-box !important;
   -webkit-box-orient: vertical !important;
-  -webkit-line-clamp: 5 !important;
+  -webkit-line-clamp: 4 !important;
   overflow: hidden !important;
   text-overflow: ellipsis !important;
   margin: 0 !important;
@@ -542,9 +555,9 @@ a:focus-visible,
 .bento-grid-experience .experience-work-image,
 .work-card-experience .experience-work-image {
   width: 100% !important;
-  height: 130px !important;
-  flex: 0 0 130px !important;
-  border-radius: 18px !important;
+  height: 110px !important;
+  flex: 0 0 110px !important;
+  border-radius: 16px !important;
   object-fit: cover !important;
   margin-top: auto !important;
   display: block !important;
@@ -707,13 +720,12 @@ a:focus-visible,
 }
 
 .bento-grid-experience .about-card {
-  padding-right: 40px;
-  padding-left: 40px;
+  padding: 24px 28px !important;
 }
 
 .bento-grid-experience .about-copy {
-  height: 180px;
-  flex-basis: 180px;
+  font-size: 15px !important;
+  line-height: 1.4 !important;
 }
 
 /* ==========================================================================
@@ -977,21 +989,24 @@ a:focus-visible,
   white-space: nowrap;
 }
 
+/* EXPERIENCE EXPANDIDO AJUSTADO Y PROPORCIONADO */
 .experience-card-expanded {
   display: flex !important;
   flex-direction: column !important;
-  padding: 36px 40px 32px !important;
+  padding: 32px 36px !important;
   gap: 0 !important;
   justify-content: flex-start !important;
   box-sizing: border-box !important;
+  height: auto !important;
 }
 
 .experience-card-expanded > .design-title {
   height: auto !important;
   flex: 0 0 auto !important;
   color: #1e1e1e !important;
+  font-size: 43px !important;
   line-height: 1.1 !important;
-  margin: 0 0 40px 0 !important;
+  margin: 0 0 24px 0 !important;
   padding: 0 !important;
 }
 
@@ -999,8 +1014,8 @@ a:focus-visible,
   display: flex !important;
   min-height: 0 !important;
   flex-direction: column !important;
-  gap: 20px !important;
-  overflow: hidden !important;
+  gap: 16px !important;
+  overflow: visible !important;
   margin-top: 0 !important;
   padding-top: 0 !important;
 }
@@ -1012,76 +1027,76 @@ a:focus-visible,
 
 .experience-brand {
   display: flex;
-  width: 304px;
-  height: 90px;
-  flex: 0 0 90px;
+  width: 280px;
+  height: 80px;
+  flex: 0 0 80px;
   overflow: hidden;
-  border-radius: 45px;
+  border-radius: 40px;
   background: #035532;
   color: #fff;
 }
 
 .experience-brand-copy {
   display: flex;
-  width: 158px;
-  flex: 0 0 158px;
+  width: 146px;
+  flex: 0 0 146px;
   flex-direction: column;
   justify-content: center;
-  padding-left: 30px;
-  font-size: 14px;
-  line-height: 21px;
+  padding-left: 24px;
+  font-size: 13px;
+  line-height: 19px;
 }
 
 .experience-brand-copy span {
-  font-size: 12px;
+  font-size: 11px;
 }
 
 .experience-brand-logo {
   display: flex;
-  width: 146px;
+  width: 134px;
   align-items: center;
-  padding: 15px;
-  border-radius: 0 45px 45px 0;
+  padding: 12px;
+  border-radius: 0 40px 40px 0;
   background: #0d8b55;
 }
 
 .experience-brand-logo img {
   display: block;
-  width: 89.32px;
-  height: 31.97px;
+  width: 82px;
+  height: auto;
 }
 
 .experience-timeline {
   display: flex;
-  height: 36px;
-  flex: 0 0 36px;
+  height: 32px;
+  flex: 0 0 32px;
   align-items: center;
   gap: 8px;
   color: #1e1e1e;
-  font-size: 24px;
-  line-height: 36px;
+  font-size: 20px;
+  line-height: 32px;
   white-space: nowrap;
 }
 
 .experience-timeline-line {
-  height: 4px;
+  height: 3px;
   flex: 1 1 auto;
   background: #000;
 }
 
 .experience-achievements {
   font-family: var(--body);
-  font-size: 20px !important;
+  font-size: 16px !important;
   font-weight: 400;
-  line-height: 1.35 !important;
+  line-height: 1.45 !important;
 }
 
 .experience-achievements p {
-  margin: 0 0 20px;
+  margin: 0 0 14px;
   font-family: var(--body);
-  font-size: 20px !important;
+  font-size: 16px !important;
   font-weight: 400;
-  line-height: 1.35 !important;
+  line-height: 1.45 !important;
 }
 
 .experience-achievements p:last-child {
@@ -1117,13 +1132,15 @@ a:focus-visible,
 }
 
 .bento-grid-experience .tldr-card > .design-title {
-  height: 85px;
-  flex-basis: 85px;
+  height: auto;
+  font-size: 40px;
+  line-height: 1.1;
+  margin-bottom: 8px;
 }
 
 .bento-grid-experience .tldr-card p {
-  height: 72px;
-  flex: 0 0 72px;
+  font-size: 16px !important;
+  line-height: 1.4 !important;
 }
 
 /* ==========================================================================
@@ -1673,7 +1690,6 @@ a:focus-visible,
     max-width: 1000px !important;
   }
 
-  /* Snackbar / Notice Banner: texto en 1 sola línea sin desbordes */
   .notice-banner {
     height: auto !important;
     min-height: 56px !important;
@@ -1697,7 +1713,6 @@ a:focus-visible,
     font-size: 15px !important;
   }
 
-  /* El Bento Grid funciona como un Grid de 2 columnas continuas */
   .bento-grid,
   .bento-grid-about,
   .bento-grid-experience {
@@ -1708,7 +1723,6 @@ a:focus-visible,
     align-items: start !important;
   }
 
-  /* Columna 1 (Izquierda: WORK + ABOUT) */
   .primary-column,
   .bento-grid-about .primary-column,
   .bento-grid-experience .primary-column {
@@ -1724,7 +1738,6 @@ a:focus-visible,
     margin: 0 !important;
   }
 
-  /* Columna 2 (Derecha: FOTO + MOISÉS) */
   .profile-column,
   .bento-grid-about .profile-column,
   .bento-grid-experience .profile-column {
@@ -1740,7 +1753,6 @@ a:focus-visible,
     margin: 0 !important;
   }
 
-  /* Columna 3 (EXPERIENCE a la izq, TLDR a la der) */
   .secondary-column,
   .bento-grid-experience .secondary-column {
     grid-column: 1 / -1 !important;
@@ -1779,7 +1791,6 @@ a:focus-visible,
     padding: 28px 24px !important;
   }
 
-  /* PROFILE CARD: Título en 2 líneas con buen interlineado y botón al 100% */
   .profile-photo {
     flex: 0 0 292.36px !important;
     height: 292.36px !important;
@@ -1831,7 +1842,6 @@ a:focus-visible,
     box-sizing: border-box !important;
   }
 
-  /* TLDR CARD: Se estira al 100% exactamente igual a Experience */
   .tldr-card {
     display: flex !important;
     flex-direction: column !important;
@@ -1847,7 +1857,6 @@ a:focus-visible,
     line-height: 1.1 !important;
   }
 
-  /* ABOUT CARD EN 2 COLUMNAS */
   .about-card {
     height: auto !important;
     min-height: 0 !important;
@@ -1870,7 +1879,6 @@ a:focus-visible,
     margin: 0 !important;
   }
 
-  /* EXPERIENCE CARD EN 2 COLUMNAS */
   .experience-card {
     height: 100% !important;
     min-height: 100% !important;
@@ -1931,7 +1939,6 @@ a:focus-visible,
     font-size: 26px !important;
   }
 
-  /* Collage contenido y balanceado */
   .project-collage {
     display: flex !important;
     width: 100% !important;
@@ -1980,7 +1987,6 @@ a:focus-visible,
     margin: 0 auto !important;
   }
 
-  /* SNACKBAR / NOTICE BANNER EN MOBILE: Máximo 2 líneas, padding y botón proporcionados */
   .notice-banner {
     width: 100% !important;
     height: auto !important;
@@ -2065,7 +2071,6 @@ a:focus-visible,
     line-height: 1.45 !important;
   }
 
-  /* WORK CARD & COLLAGE RESPONSIVE */
   .work-card > .design-title {
     margin-bottom: 12px !important;
   }
@@ -2162,7 +2167,6 @@ a:focus-visible,
     white-space: normal !important;
   }
 
-  /* ABOUT CARD */
   .about-card > .design-title {
     height: auto !important;
     line-height: 1 !important;
@@ -2197,7 +2201,6 @@ a:focus-visible,
     height: 64px !important;
   }
 
-  /* PROFILE CARD */
   .profile-desktop-break {
     display: none !important;
   }
@@ -2228,7 +2231,6 @@ a:focus-visible,
     border-radius: 14px !important;
   }
 
-  /* EXPERIENCE CARD */
   .experience-card:not(.experience-card-expanded) .experience-collapsed-top {
     display: flex !important;
     flex-direction: row !important;
