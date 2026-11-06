@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
-import { Check, Copy, Mail } from "lucide-react";
+import { Check, Copy, Mail, Loader2 } from "lucide-react";
 
 const EMAIL = "moiserod04@gmail.com";
 const PROJECT_SCOPES = [
@@ -10,9 +10,15 @@ const PROJECT_SCOPES = [
   "Other",
 ];
 
+// Coloca aquí la URL generada en API Gateway
+const API_ENDPOINT = "https://35aao305p7.execute-api.us-east-2.amazonaws.com/default/sendContactEmail";
+
 export default function ContactModal({ isOpen, onClose }) {
   const [copyStatus, setCopyStatus] = useState("idle");
   const [isClosing, setIsClosing] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState("idle"); // "idle" | "success" | "error"
+
   const closeTimer = useRef(null);
   const isClosingRef = useRef(false);
 
@@ -23,6 +29,7 @@ export default function ContactModal({ isOpen, onClose }) {
     closeTimer.current = window.setTimeout(() => {
       isClosingRef.current = false;
       setIsClosing(false);
+      setSubmitStatus("idle");
       onClose();
     }, 250);
   }, [onClose]);
@@ -32,6 +39,7 @@ export default function ContactModal({ isOpen, onClose }) {
 
     isClosingRef.current = false;
     setIsClosing(false);
+    setSubmitStatus("idle");
     const previousOverflow = document.body.style.overflow;
     const handleKeyDown = (event) => {
       if (event.key === "Escape") closeModal();
@@ -86,19 +94,45 @@ export default function ContactModal({ isOpen, onClose }) {
     }
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    const formData = new FormData(event.currentTarget);
-    const subject = `${formData.get("scope")}: ${formData.get("name")}`;
-    const body = [
-      `Name: ${formData.get("name")}`,
-      `Email: ${formData.get("email")}`,
-      `Project scope: ${formData.get("scope")}`,
-      "",
-      formData.get("message"),
-    ].join("\n");
+    setIsSubmitting(true);
+    setSubmitStatus("idle");
 
-    window.location.href = `mailto:${EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const formElement = event.currentTarget;
+    const formData = new FormData(formElement);
+
+    const payload = {
+      name: formData.get("name"),
+      email: formData.get("email"),
+      subject: formData.get("scope"),
+      message: `Project Scope: ${formData.get("scope")}\n\n${formData.get("message")}`,
+    };
+
+    try {
+      const response = await fetch(API_ENDPOINT, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      if (!response.ok) {
+        throw new Error("Error en el envío del formulario");
+      }
+
+      setSubmitStatus("success");
+      formElement.reset();
+      window.setTimeout(() => {
+        closeModal();
+      }, 1800);
+    } catch (error) {
+      console.error(error);
+      setSubmitStatus("error");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -188,6 +222,7 @@ export default function ContactModal({ isOpen, onClose }) {
               placeholder="e.g. Satoshi Nakamoto"
               autoComplete="name"
               required
+              disabled={isSubmitting}
             />
           </label>
           <label>
@@ -198,11 +233,12 @@ export default function ContactModal({ isOpen, onClose }) {
               placeholder="name@domain.com"
               autoComplete="email"
               required
+              disabled={isSubmitting}
             />
           </label>
           <label>
             <span>Project Scope</span>
-            <select name="scope" defaultValue="" required>
+            <select name="scope" defaultValue="" required disabled={isSubmitting}>
               <option value="" disabled>Select a project scope</option>
               {PROJECT_SCOPES.map((scope) => (
                 <option key={scope} value={scope}>
@@ -218,10 +254,37 @@ export default function ContactModal({ isOpen, onClose }) {
               rows="3"
               placeholder="Tell me about your idea, timeline and goals..."
               required
+              disabled={isSubmitting}
             />
           </label>
-          <button className="contact-submit" type="submit">
-            Send Message
+
+          {submitStatus === "success" && (
+            <p className="col-span-full m-0 text-center text-sm font-semibold text-[#090909]">
+              Message sent successfully! I will reply soon.
+            </p>
+          )}
+
+          {submitStatus === "error" && (
+            <p className="col-span-full m-0 text-center text-sm font-semibold text-[#ff2964]">
+              Could not send message. Please try copying the email above.
+            </p>
+          )}
+
+          <button
+            className="contact-submit flex items-center justify-center gap-2"
+            type="submit"
+            disabled={isSubmitting || submitStatus === "success"}
+          >
+            {isSubmitting ? (
+              <>
+                <Loader2 className="h-5 w-5 animate-spin" />
+                <span>Sending...</span>
+              </>
+            ) : submitStatus === "success" ? (
+              <span>Message Sent!</span>
+            ) : (
+              <span>Send Message</span>
+            )}
           </button>
         </form>
       </section>
