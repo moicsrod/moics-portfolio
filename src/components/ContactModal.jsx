@@ -10,8 +10,7 @@ const PROJECT_SCOPES = [
   "Other",
 ];
 
-// Coloca aquí la URL generada en API Gateway
-const const API_ENDPOINT = "https://35aao305p7.execute-api.us-east-2.amazonaws.com/sendContactEmail";
+const API_ENDPOINT = "https://35aao305p7.execute-api.us-east-2.amazonaws.com/sendContactEmail";
 
 export default function ContactModal({ isOpen, onClose }) {
   const [copyStatus, setCopyStatus] = useState("idle");
@@ -112,9 +111,9 @@ export default function ContactModal({ isOpen, onClose }) {
     try {
       const response = await fetch(API_ENDPOINT, {
         method: "POST",
-headers: {
-  "Content-Type": "text/plain",
-},
+        headers: {
+          "Content-Type": "text/plain",
+        },
         body: JSON.stringify(payload),
       });
 
