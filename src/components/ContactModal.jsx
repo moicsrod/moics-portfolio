@@ -112,9 +112,9 @@ export default function ContactModal({ isOpen, onClose }) {
     try {
       const response = await fetch(API_ENDPOINT, {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+headers: {
+  "Content-Type": "text/plain",
+},
         body: JSON.stringify(payload),
       });
 
