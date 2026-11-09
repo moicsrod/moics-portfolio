@@ -160,7 +160,9 @@ function ExperienceCard({ expanded, onToggle }) {
     <motion.article
       layout
       transition={layoutTransition}
-      className={`portfolio-card experience-card shrink-0 ${expanded ? "experience-card-expanded" : ""}`}
+      className={`portfolio-card experience-card shrink-0 flex flex-col justify-between ${
+        expanded ? "experience-card-expanded" : ""
+      }`}
       onClick={onToggle}
       onKeyDown={(event) => {
         if (event.key === "Enter" || event.key === " ") {
@@ -172,59 +174,72 @@ function ExperienceCard({ expanded, onToggle }) {
       tabIndex={0}
       aria-expanded={expanded}
     >
-      <h2 className="design-title font-['Boldonse',sans-serif]">EXPERIENCE</h2>
+      <h2 className="design-title font-['Boldonse',sans-serif] m-0">EXPERIENCE</h2>
+
       {!expanded ? (
-        <div className="flex flex-col justify-between flex-1 gap-4">
+        <div className="flex flex-col justify-between flex-1 pt-6 sm:pt-8 gap-5">
+          {/* Descripción con espaciado natural */}
           <div>
-            <p className="m-0 text-black text-base sm:text-lg leading-snug">
-              Designing for <b>Humans</b> at Humano Seguros — UI/UX Designer
+            <p className="m-0 text-black text-base sm:text-lg font-medium leading-snug">
+              Designing for <strong className="font-bold">Humans</strong> at Humano Seguros — UI/UX Designer
             </p>
           </div>
 
-          {/* Fila en mobile/desktop: 20+ Features Shipped + Píldora Humano Seguros */}
-          <div className="flex items-center gap-3 w-full">
-            <div className="experience-stat shrink-0">
-              <span className="experience-stat-value">20+</span>
-              <span className="experience-stat-label">
+          {/* Fila compacta e integrada para mobile: misma altura visual de 52px */}
+          <div className="flex flex-wrap items-center gap-2.5 sm:gap-3 w-full">
+            {/* Badge 20+ Features Shipped */}
+            <div
+              className="experience-stat shrink-0 flex items-center gap-2 px-3.5 rounded-2xl border border-black/15 bg-black/[0.04]"
+              style={{ height: "52px", margin: 0 }}
+            >
+              <span className="font-['Boldonse',sans-serif] text-2xl font-black text-[#090909] leading-none">
+                20+
+              </span>
+              <span className="text-[11px] font-semibold text-[#090909]/90 leading-[1.15]">
                 Features
                 <br />
                 Shipped
               </span>
             </div>
 
+            {/* Píldora Humano Seguros Pulida y Proporcional */}
             <div
-              className="flex items-center rounded-full overflow-hidden shrink-0 shadow-sm"
+              className="inline-flex items-stretch rounded-full overflow-hidden shrink-0 shadow-sm"
               style={{
-                position: "static",
+                height: "52px",
                 background: "#034426",
-                height: "fit-content",
               }}
             >
-              <div className="py-2 pl-3.5 pr-2.5 text-left text-white leading-tight">
-                <strong className="block text-xs font-bold leading-tight">UI UX Design</strong>
-                <span className="block text-[10px] text-white/75 font-semibold">DR</span>
+              <div className="flex flex-col justify-center pl-3.5 pr-2.5 text-left text-white leading-tight">
+                <span className="text-xs font-bold leading-tight tracking-tight text-white whitespace-nowrap">
+                  UI UX Design
+                </span>
+                <span className="text-[10px] font-semibold text-white/75 uppercase tracking-wider leading-tight">
+                  DR
+                </span>
               </div>
               <div
-                className="flex items-center justify-center px-3 py-2.5"
-                style={{ background: "#008f51", minHeight: "100%" }}
+                className="flex items-center justify-center px-3 rounded-r-full"
+                style={{ background: "#008f51" }}
               >
                 <img
                   src={ASSETS.humanoLogo}
                   alt="Humano Seguros"
-                  className="h-3.5 w-auto object-contain"
+                  className="h-3.5 w-auto max-w-[70px] object-contain"
                 />
               </div>
             </div>
           </div>
 
-          <div className="experience-summary-footer flex justify-between items-center text-xs font-bold text-black/80 uppercase">
+          {/* Footer de la tarjeta */}
+          <div className="experience-summary-footer flex justify-between items-center text-xs font-bold text-black/80 uppercase pt-2">
             <span>2024 — Present</span>
             <span>Click to expand ↗</span>
           </div>
         </div>
       ) : (
         <motion.div
-          className="experience-details"
+          className="experience-details pt-4"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.12 }}
