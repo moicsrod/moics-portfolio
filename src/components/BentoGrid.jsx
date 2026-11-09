@@ -174,40 +174,32 @@ function ExperienceCard({ expanded, onToggle }) {
     >
       <h2 className="design-title font-['Boldonse',sans-serif]">EXPERIENCE</h2>
       {!expanded ? (
-        <div className="experience-collapsed-content flex flex-col justify-between flex-1">
-          {/* Texto descriptivo sin píldora arriba para evitar el duplicado */}
-          <div className="experience-collapsed-top !block">
-            <div className="experience-summary pt-2">
+        <div className="experience-collapsed-content">
+          <div className="experience-collapsed-top">
+            <div className="experience-summary">
               <p className="m-0 text-black">
                 Designing for <b>Humans</b> at Humano Seguros — UI/UX Designer
               </p>
             </div>
-          </div>
-
-          {/* Fila inferior: 20+ Features Shipped + Píldora original limpia a su lado */}
-          <div className="experience-collapsed-bottom">
-            <div className="flex items-center gap-3 w-full">
-              <div className="experience-stat shrink-0">
-                <span className="experience-stat-value">20+</span>
-                <span className="experience-stat-label">
-                  Features
-                  <br />
-                  Shipped
-                </span>
+            <div className="experience-brand experience-brand-compact">
+              <div className="experience-brand-copy">
+                <strong>UI UX Design</strong>
+                <span>DR</span>
               </div>
-
-              {/* ÚNICA píldora original de Humano intacta */}
-              <div className="experience-brand experience-brand-compact !static !m-0 shrink-0">
-                <div className="experience-brand-copy">
-                  <strong>UI UX Design</strong>
-                  <span>DR</span>
-                </div>
-                <div className="experience-brand-logo">
-                  <img src={ASSETS.humanoLogo} alt="Humano Seguros" />
-                </div>
+              <div className="experience-brand-logo">
+                <img src={ASSETS.humanoLogo} alt="Humano Seguros" />
               </div>
             </div>
-
+          </div>
+          <div className="experience-collapsed-bottom">
+            <div className="experience-stat">
+              <span className="experience-stat-value">20+</span>
+              <span className="experience-stat-label">
+                Features
+                <br />
+                Shipped
+              </span>
+            </div>
             <div className="experience-summary-footer">
               <span>2024 — Present</span>
               <span>Click to expand ↗</span>

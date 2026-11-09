@@ -2266,6 +2266,24 @@ a:focus-visible,
     margin: 0 !important;
     border-radius: 16px !important;
   }
+
+  /* Reset del espacio superior de Experience en Mobile */
+  .experience-card > .design-title {
+    height: auto !important;
+    flex: 0 0 auto !important;
+    margin-bottom: 16px !important;
+    line-height: 1.1 !important;
+  }
+
+  .experience-collapsed-content {
+    gap: 20px !important;
+    justify-content: flex-start !important;
+  }
+
+  .experience-card:not(.experience-card-expanded) {
+    height: auto !important;
+    min-height: 0 !important;
+  }
 }
 
 /* Pantallas ultra-compactas (menos de 380px) */
