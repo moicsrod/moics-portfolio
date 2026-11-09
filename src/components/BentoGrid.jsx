@@ -174,15 +174,16 @@ function ExperienceCard({ expanded, onToggle }) {
     >
       <h2 className="design-title font-['Boldonse',sans-serif]">EXPERIENCE</h2>
       {!expanded ? (
-        <div className="experience-collapsed-content">
+        <div className="experience-collapsed-content flex flex-col justify-between flex-1 h-full">
+          {/* Top content */}
           <div className="experience-collapsed-top">
-            <div className="experience-summary">
-              <p className="m-0 text-black">
+            <div className="experience-summary pt-2">
+              <p className="m-0 text-black text-base sm:text-lg leading-snug">
                 Designing for <b>Humans</b> at Humano Seguros — UI/UX Designer
               </p>
             </div>
-            {/* Píldora original intacta para Tablet y PC (visible solo en md o superior) */}
-            <div className="hidden md:flex experience-brand experience-brand-compact">
+            {/* Píldora original de Desktop: oculta obligatoriamente en mobile (!hidden md:!flex) para eliminar la píldora extra */}
+            <div className="experience-brand experience-brand-compact !hidden md:!flex">
               <div className="experience-brand-copy">
                 <strong>UI UX Design</strong>
                 <span>DR</span>
@@ -192,10 +193,11 @@ function ExperienceCard({ expanded, onToggle }) {
               </div>
             </div>
           </div>
-          <div className="experience-collapsed-bottom">
-            {/* Contenedor que agrupa la métrica y en mobile incorpora la píldora a su lado */}
-            <div className="flex items-center gap-3">
-              <div className="experience-stat">
+
+          {/* Bottom content: fila de métrica + píldora solo en mobile */}
+          <div className="experience-collapsed-bottom mt-auto">
+            <div className="flex items-center gap-3 w-full">
+              <div className="experience-stat shrink-0">
                 <span className="experience-stat-value">20+</span>
                 <span className="experience-stat-label">
                   Features
@@ -204,14 +206,28 @@ function ExperienceCard({ expanded, onToggle }) {
                 </span>
               </div>
 
-              {/* Píldora visible SOLO en mobile (md:hidden) usando exactamente la estructura CSS nativa */}
-              <div className="flex md:hidden experience-brand experience-brand-compact !m-0">
-                <div className="experience-brand-copy">
-                  <strong>UI UX Design</strong>
-                  <span>DR</span>
+              {/* Píldora de Mobile: visible solo bajo md */}
+              <div
+                className="flex md:hidden items-center rounded-full overflow-hidden shrink-0 shadow-sm"
+                style={{
+                  position: "static",
+                  background: "#034426",
+                  height: "fit-content",
+                }}
+              >
+                <div className="py-2 pl-3.5 pr-2.5 text-left text-white leading-tight">
+                  <strong className="block text-xs font-bold leading-tight">UI UX Design</strong>
+                  <span className="block text-[10px] text-white/75 font-semibold">DR</span>
                 </div>
-                <div className="experience-brand-logo">
-                  <img src={ASSETS.humanoLogo} alt="Humano Seguros" />
+                <div
+                  className="flex items-center justify-center px-3 py-2.5"
+                  style={{ background: "#008f51", minHeight: "100%" }}
+                >
+                  <img
+                    src={ASSETS.humanoLogo}
+                    alt="Humano Seguros"
+                    className="h-3.5 w-auto object-contain"
+                  />
                 </div>
               </div>
             </div>
