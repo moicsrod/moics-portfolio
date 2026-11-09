@@ -181,7 +181,8 @@ function ExperienceCard({ expanded, onToggle }) {
                 Designing for <b>Humans</b> at Humano Seguros — UI/UX Designer
               </p>
             </div>
-            <div className="experience-brand experience-brand-compact">
+            {/* Píldora visible en Desktop y Tablet */}
+            <div className="hidden md:flex experience-brand experience-brand-compact">
               <div className="experience-brand-copy">
                 <strong>UI UX Design</strong>
                 <span>DR</span>
@@ -192,13 +193,26 @@ function ExperienceCard({ expanded, onToggle }) {
             </div>
           </div>
           <div className="experience-collapsed-bottom">
-            <div className="experience-stat">
-              <span className="experience-stat-value">20+</span>
-              <span className="experience-stat-label">
-                Features
-                <br />
-                Shipped
-              </span>
+            {/* Fila inferior: en mobile pone la píldora al lado de 20+ Features Shipped */}
+            <div className="experience-collapsed-stat-row">
+              <div className="experience-stat">
+                <span className="experience-stat-value">20+</span>
+                <span className="experience-stat-label">
+                  Features
+                  <br />
+                  Shipped
+                </span>
+              </div>
+              {/* Píldora visible en Mobile */}
+              <div className="flex md:hidden experience-brand experience-brand-compact">
+                <div className="experience-brand-copy">
+                  <strong>UI UX Design</strong>
+                  <span>DR</span>
+                </div>
+                <div className="experience-brand-logo">
+                  <img src={ASSETS.humanoLogo} alt="Humano Seguros" />
+                </div>
+              </div>
             </div>
             <div className="experience-summary-footer">
               <span>2024 — Present</span>

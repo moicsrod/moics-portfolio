@@ -159,7 +159,6 @@ a:focus-visible,
   gap: 20px !important;
 }
 
-/* En desktop, About siempre llena el espacio inferior de su columna */
 .primary-column .about-card {
   flex: 1 1 0% !important;
   height: auto !important;
@@ -188,7 +187,6 @@ a:focus-visible,
   width: 100% !important;
 }
 
-/* Moisés siempre llena el espacio inferior de su columna */
 .profile-card {
   flex: 1 1 0% !important;
   height: auto !important;
@@ -221,7 +219,6 @@ a:focus-visible,
   height: auto !important;
 }
 
-/* TLDR siempre llena el espacio inferior de su columna */
 .secondary-column .tldr-card {
   flex: 1 1 0% !important;
   height: auto !important;
@@ -231,7 +228,6 @@ a:focus-visible,
   justify-content: flex-start !important;
 }
 
-/* Reorganización cuando EXPERIENCE está expandida */
 .bento-grid-experience {
   grid-template-columns: 266px 266px 552px !important;
 }
@@ -936,6 +932,13 @@ a:focus-visible,
   width: 100%;
   box-sizing: border-box;
   border-top: 2px solid rgb(0 0 0 / 15%);
+}
+
+.experience-collapsed-stat-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
 }
 
 .experience-stat {
@@ -2053,7 +2056,7 @@ a:focus-visible,
   .experience-card,
   .tldr-card,
   .profile-card {
-    padding: 28px 24px !important;
+    padding: 24px 20px !important;
   }
 
   .design-title {
@@ -2234,62 +2237,123 @@ a:focus-visible,
     border-radius: 14px !important;
   }
 
-  .experience-card:not(.experience-card-expanded) .experience-collapsed-top {
+  /* ==========================================================================
+     EXPERIENCE CARD EN MOBILE (Reset y alineación precisa)
+     ========================================================================== */
+
+  .experience-card:not(.experience-card-expanded) {
+    height: auto !important;
+    min-height: 0 !important;
     display: flex !important;
-    flex-direction: row !important;
+    flex-direction: column !important;
+    gap: 16px !important;
+  }
+
+  /* Reset del título para que no deje 134px de espacio vacío */
+  .experience-card > .design-title {
+    height: auto !important;
+    flex: 0 0 auto !important;
+    margin: 0 0 4px 0 !important;
+    line-height: 1.1 !important;
+  }
+
+  .experience-collapsed-content {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 16px !important;
+    justify-content: flex-start !important;
+    padding-top: 0 !important;
+  }
+
+  .experience-collapsed-top {
+    display: block !important;
+    width: 100% !important;
+  }
+
+  .experience-collapsed-bottom {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+    border-top: none !important;
+    width: 100% !important;
+  }
+
+  .experience-collapsed-stat-row {
+    display: flex !important;
     align-items: center !important;
-    justify-content: space-between !important;
     gap: 10px !important;
     width: 100% !important;
   }
 
-  .experience-card:not(.experience-card-expanded) .experience-collapsed-bottom {
-    display: contents !important;
-  }
-
-  .experience-card:not(.experience-card-expanded) .experience-brand-compact {
-    flex: 1 1 50% !important;
-    width: 50% !important;
+  .experience-stat {
+    flex: 1 1 auto !important;
+    width: auto !important;
     height: 54px !important;
-    transform: none !important;
-    margin: 0 !important;
-    border-radius: 27px !important;
-    background: #035532 !important;
-  }
-
-  .experience-card:not(.experience-card-expanded) .experience-stat {
-    flex: 1 1 50% !important;
-    width: 50% !important;
-    height: 54px !important;
-    padding: 8px 10px !important;
+    padding: 8px 12px !important;
     gap: 8px !important;
     margin: 0 !important;
     border-radius: 16px !important;
   }
 
-  /* Reset del espacio superior de Experience en Mobile */
-  .experience-card > .design-title {
-    height: auto !important;
+  /* Píldora original completa en mobile sin recortar */
+  .experience-card:not(.experience-card-expanded) .experience-brand-compact {
+    display: inline-flex !important;
     flex: 0 0 auto !important;
-    margin-bottom: 16px !important;
-    line-height: 1.1 !important;
+    width: auto !important;
+    min-width: 180px !important;
+    height: 54px !important;
+    transform: none !important;
+    margin: 0 !important;
+    border-radius: 27px !important;
+    overflow: hidden !important;
+    background: #035532 !important;
   }
 
-  .experience-collapsed-content {
-    gap: 20px !important;
-    justify-content: flex-start !important;
+  .experience-card:not(.experience-card-expanded) .experience-brand-compact .experience-brand-copy {
+    width: auto !important;
+    flex: 0 0 auto !important;
+    padding: 0 10px 0 16px !important;
+    justify-content: center !important;
   }
 
-  .experience-card:not(.experience-card-expanded) {
+  .experience-card:not(.experience-card-expanded) .experience-brand-compact .experience-brand-copy strong {
+    font-size: 11px !important;
+    line-height: 1.2 !important;
+    white-space: nowrap !important;
+  }
+
+  .experience-card:not(.experience-card-expanded) .experience-brand-compact .experience-brand-copy span {
+    font-size: 9px !important;
+  }
+
+  .experience-card:not(.experience-card-expanded) .experience-brand-compact .experience-brand-logo {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: auto !important;
+    flex: 0 0 auto !important;
+    padding: 6px 12px !important;
+    border-radius: 0 27px 27px 0 !important;
+    background: #0d8b55 !important;
+  }
+
+  .experience-card:not(.experience-card-expanded) .experience-brand-compact .experience-brand-logo img {
+    width: 58px !important;
     height: auto !important;
-    min-height: 0 !important;
+    display: block !important;
   }
 }
 
 /* Pantallas ultra-compactas (menos de 380px) */
 @media (max-width: 380px) {
   .app-shell {
-    padding: 20px 32px !important;
+    padding: 20px 24px !important;
+  }
+
+  .experience-collapsed-stat-row {
+    flex-wrap: wrap !important;
   }
 }
 
