@@ -428,7 +428,7 @@ a:focus-visible,
   word-break: break-word !important;
   text-decoration: none !important;
   box-sizing: border-box !important;
-  transition: transform 0.15s ease, background-color 0.15s ease !important;
+  transition: transform 0.15s ease, background-color 0.15s ease, border-color 0.15s ease !important;
 }
 
 .project-button:active {
@@ -444,12 +444,21 @@ a:focus-visible,
   font-weight: 500 !important;
 }
 
+.project-button-primary:hover {
+  background: #1e1e1e !important;
+  border-color: #1e1e1e !important;
+}
+
 .project-button-secondary {
   flex: 1 1 50% !important;
   width: auto !important;
   background: transparent !important;
   color: #000 !important;
   font-weight: 600 !important;
+}
+
+.project-button-secondary:hover {
+  background: rgba(0, 0, 0, 0.08) !important;
 }
 
 /* ==========================================================================
@@ -1102,7 +1111,6 @@ a:focus-visible,
   margin-bottom: 0;
 }
 
-/* Reglas explícitas de visibilidad para Desktop vs Mobile */
 .experience-brand-desktop {
   display: flex !important;
 }
@@ -2281,7 +2289,6 @@ a:focus-visible,
     width: 100% !important;
   }
 
-  /* Control estricto de visibilidad sin colisión de !important */
   .experience-brand-desktop {
     display: none !important;
   }
@@ -2290,7 +2297,6 @@ a:focus-visible,
     display: inline-flex !important;
   }
 
-  /* Fila móvil: distribuye el espacio exactamente sin desbordar */
   .experience-collapsed-stat-row {
     display: flex !important;
     align-items: center !important;
@@ -2322,7 +2328,6 @@ a:focus-visible,
     line-height: 1.15 !important;
   }
 
-  /* Píldora móvil con proporción exacta y borde derecho totalmente curvo */
   .experience-brand-mobile {
     flex: 0 0 auto !important;
     width: auto !important;
@@ -2377,8 +2382,8 @@ a:focus-visible,
   .tldr-card {
     height: auto !important;
     min-height: 0 !important;
-    padding: 26px 22px !important;
-    gap: 14px !important;
+    padding: 26px 24px !important;
+    gap: 12px !important;
     justify-content: flex-start !important;
   }
 
@@ -2386,11 +2391,12 @@ a:focus-visible,
     height: auto !important;
     flex: 0 0 auto !important;
     line-height: 1.1 !important;
-    margin: 0 0 2px 0 !important;
+    margin: 0 !important;
   }
 
   .tldr-card p {
     margin: 0 !important;
+    font-size: 15px !important;
     line-height: 1.45 !important;
   }
 }
