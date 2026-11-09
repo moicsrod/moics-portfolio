@@ -38,14 +38,20 @@ function ProjectButtons({ projectId, onOpenProjectModal, onNextProject }) {
     <div className="project-buttons">
       <button
         className="project-button project-button-primary"
-        onClick={() => onOpenProjectModal(projectId)}
+        onClick={(e) => {
+          e.stopPropagation();
+          onOpenProjectModal(projectId);
+        }}
         type="button"
       >
         Know more
       </button>
       <button
         className="project-button project-button-secondary"
-        onClick={onNextProject}
+        onClick={(e) => {
+          e.stopPropagation();
+          onNextProject();
+        }}
         type="button"
       >
         Explore projects
@@ -396,6 +402,24 @@ export default function BentoGrid({
           layout
           transition={layoutTransition}
           className={`portfolio-card work-card work-card-${activeSection} shrink-0`}
+          onClick={() => {
+            if (activeSection !== "work") {
+              toggleSection("work");
+            }
+          }}
+          onKeyDown={(event) => {
+            if (
+              activeSection !== "work" &&
+              (event.key === "Enter" || event.key === " ")
+            ) {
+              event.preventDefault();
+              toggleSection("work");
+            }
+          }}
+          role="button"
+          tabIndex={0}
+          aria-expanded={activeSection === "work"}
+          style={{ cursor: activeSection === "work" ? "default" : "pointer" }}
         >
           <h2 className="design-title font-['Boldonse',sans-serif]">WORK</h2>
           {activeSection === "work" ? (
