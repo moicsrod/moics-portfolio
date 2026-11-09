@@ -548,9 +548,9 @@ a:focus-visible,
 .bento-grid-experience .experience-work-copy,
 .work-card-experience .experience-work-copy {
   font-family: var(--body) !important;
-  font-size: 16px !important;
+  font-size: 20px !important;
   font-weight: 400 !important;
-  line-height: 1.4 !important;
+  line-height: 1.35 !important;
   display: -webkit-box !important;
   -webkit-box-orient: vertical !important;
   -webkit-line-clamp: 4 !important;
@@ -729,13 +729,14 @@ a:focus-visible,
   line-height: 1.4;
 }
 
+/* En vista EXPERIENCE expandida en desktop: igual al tamaño de Moises (20px) */
 .bento-grid-experience .about-card {
   padding: 24px 28px !important;
 }
 
 .bento-grid-experience .about-copy {
-  font-size: 15px !important;
-  line-height: 1.4 !important;
+  font-size: 20px !important;
+  line-height: 1.35 !important;
 }
 
 /* ==========================================================================
@@ -778,8 +779,8 @@ a:focus-visible,
 .profile-card p {
   color: #fff;
   font-family: var(--body);
-  font-size: 20px;
-  line-height: 1.35;
+  font-size: 20px !important;
+  line-height: 1.35 !important;
   margin: 0 0 24px 0;
 }
 
@@ -1094,17 +1095,17 @@ a:focus-visible,
 
 .experience-achievements {
   font-family: var(--body);
-  font-size: 16px !important;
+  font-size: 20px !important;
   font-weight: 400;
-  line-height: 1.45 !important;
+  line-height: 1.35 !important;
 }
 
 .experience-achievements p {
   margin: 0 0 14px;
   font-family: var(--body);
-  font-size: 16px !important;
+  font-size: 20px !important;
   font-weight: 400;
-  line-height: 1.45 !important;
+  line-height: 1.35 !important;
 }
 
 .experience-achievements p:last-child {
@@ -1155,8 +1156,8 @@ a:focus-visible,
 }
 
 .bento-grid-experience .tldr-card p {
-  font-size: 16px !important;
-  line-height: 1.4 !important;
+  font-size: 20px !important;
+  line-height: 1.35 !important;
 }
 
 /* ==========================================================================
@@ -2441,8 +2442,8 @@ a:focus-visible,
 .tldr-card p,
 .profile-card p {
   font-family: var(--body) !important;
-  font-size: 20px;
-  font-weight: 400;
-  line-height: 1.35;
-  letter-spacing: normal;
+  font-size: 20px !important;
+  font-weight: 400 !important;
+  line-height: 1.35 !important;
+  letter-spacing: normal !important;
 }
