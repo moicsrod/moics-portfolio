@@ -2369,6 +2369,27 @@ a:focus-visible,
     display: block !important;
     object-fit: contain !important;
   }
+
+  /* ==========================================================================
+     TLDR CARD EN MOBILE (Reset de espaciado y altura del título)
+     ========================================================================== */
+
+  .tldr-card {
+    height: auto !important;
+    min-height: 0 !important;
+    gap: 8px !important;
+  }
+
+  .tldr-card > .design-title {
+    height: auto !important;
+    flex: 0 0 auto !important;
+    line-height: 1.1 !important;
+    margin: 0 !important;
+  }
+
+  .tldr-card p {
+    margin: 0 !important;
+  }
 }
 
 /* Pantallas ultra-compactas (menos de 380px) */
