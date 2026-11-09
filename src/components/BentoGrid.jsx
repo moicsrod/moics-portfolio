@@ -221,7 +221,7 @@ function ExperienceCard({ expanded, onToggle }) {
         </div>
       ) : (
         <motion.div
-          className="experience-details"
+          className="experience-details pt-5"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.12 }}

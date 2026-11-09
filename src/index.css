@@ -729,7 +729,6 @@ a:focus-visible,
   line-height: 1.4;
 }
 
-/* En vista EXPERIENCE expandida en desktop: igual al tamaño de Moises (20px) */
 .bento-grid-experience .about-card {
   padding: 24px 28px !important;
 }
@@ -1814,7 +1813,6 @@ a:focus-visible,
     padding: 28px 24px !important;
   }
 
-  /* Unificación de tamaño de tipografía descriptiva en 2 columnas */
   .work-summary,
   .project-overview p,
   .about-copy,
@@ -2283,6 +2281,20 @@ a:focus-visible,
     flex: 0 0 auto !important;
     margin: 0 0 4px 0 !important;
     line-height: 1.1 !important;
+  }
+
+  /* Separación real y balanceada cuando EXPERIENCE está expandida en mobile */
+  .experience-card-expanded > .design-title {
+    margin: 0 0 18px 0 !important;
+  }
+
+  .experience-card-expanded .experience-details {
+    padding-top: 6px !important;
+    gap: 18px !important;
+  }
+
+  .experience-card-expanded .experience-brand {
+    margin-top: 0 !important;
   }
 
   .experience-collapsed-content {
