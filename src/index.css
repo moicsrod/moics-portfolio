@@ -1754,6 +1754,12 @@ a:focus-visible,
     margin: 0 !important;
   }
 
+  .primary-column .about-card {
+    flex: 1 1 auto !important;
+    height: auto !important;
+    min-height: 0 !important;
+  }
+
   .profile-column,
   .bento-grid-about .profile-column,
   .bento-grid-experience .profile-column {
@@ -1807,6 +1813,24 @@ a:focus-visible,
     padding: 28px 24px !important;
   }
 
+  /* Unificación de tamaño de tipografía descriptiva en 2 columnas */
+  .work-summary,
+  .project-overview p,
+  .about-copy,
+  .about-copy-expanded,
+  .profile-card p,
+  .experience-summary,
+  .experience-summary p,
+  .experience-achievements p,
+  .tldr-card p {
+    font-size: 17px !important;
+    line-height: 1.45 !important;
+  }
+
+  .work-summary {
+    margin: 12px 0 0 0 !important;
+  }
+
   .profile-photo {
     flex: 0 0 292.36px !important;
     height: 292.36px !important;
@@ -1839,8 +1863,6 @@ a:focus-visible,
   }
 
   .profile-card p {
-    font-size: 16px !important;
-    line-height: 1.45 !important;
     margin: 0 0 20px 0 !important;
   }
 
@@ -1873,6 +1895,10 @@ a:focus-visible,
     line-height: 1.1 !important;
   }
 
+  .tldr-card p {
+    margin: 0 !important;
+  }
+
   .about-card {
     height: auto !important;
     min-height: 0 !important;
@@ -1890,8 +1916,6 @@ a:focus-visible,
     overflow: visible !important;
     height: auto !important;
     max-height: none !important;
-    font-size: 16px !important;
-    line-height: 1.45 !important;
     margin: 0 !important;
   }
 
@@ -1928,12 +1952,6 @@ a:focus-visible,
     display: flex !important;
     flex-direction: column !important;
     gap: 16px !important;
-  }
-
-  .experience-summary,
-  .experience-summary p {
-    font-size: 16px !important;
-    line-height: 1.45 !important;
   }
 
   .experience-collapsed-bottom {
