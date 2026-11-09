@@ -934,13 +934,6 @@ a:focus-visible,
   border-top: 2px solid rgb(0 0 0 / 15%);
 }
 
-.experience-collapsed-stat-row {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  width: 100%;
-}
-
 .experience-stat {
   display: flex;
   box-sizing: border-box !important;
@@ -1107,6 +1100,15 @@ a:focus-visible,
 
 .experience-achievements p:last-child {
   margin-bottom: 0;
+}
+
+/* Reglas explícitas de visibilidad para Desktop vs Mobile */
+.experience-brand-desktop {
+  display: flex !important;
+}
+
+.experience-brand-mobile {
+  display: none !important;
 }
 
 /* ==========================================================================
@@ -2238,7 +2240,7 @@ a:focus-visible,
   }
 
   /* ==========================================================================
-     EXPERIENCE CARD EN MOBILE (Reset y alineación precisa)
+     EXPERIENCE CARD EN MOBILE
      ========================================================================== */
 
   .experience-card:not(.experience-card-expanded) {
@@ -2249,7 +2251,6 @@ a:focus-visible,
     gap: 16px !important;
   }
 
-  /* Reset del título para que no deje 134px de espacio vacío */
   .experience-card > .design-title {
     height: auto !important;
     flex: 0 0 auto !important;
@@ -2280,69 +2281,93 @@ a:focus-visible,
     width: 100% !important;
   }
 
+  /* Control estricto de visibilidad sin colisión de !important */
+  .experience-brand-desktop {
+    display: none !important;
+  }
+
+  .experience-brand-mobile {
+    display: inline-flex !important;
+  }
+
+  /* Fila móvil: distribuye el espacio exactamente sin desbordar */
   .experience-collapsed-stat-row {
     display: flex !important;
     align-items: center !important;
-    gap: 10px !important;
+    justify-content: space-between !important;
+    gap: 8px !important;
     width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
   }
 
   .experience-stat {
     flex: 1 1 auto !important;
+    min-width: 0 !important;
     width: auto !important;
-    height: 54px !important;
-    padding: 8px 12px !important;
+    height: 50px !important;
+    padding: 6px 10px !important;
     gap: 8px !important;
     margin: 0 !important;
     border-radius: 16px !important;
+    box-sizing: border-box !important;
   }
 
-  /* Píldora original completa en mobile sin recortar */
-  .experience-card:not(.experience-card-expanded) .experience-brand-compact {
-    display: inline-flex !important;
+  .experience-card:not(.experience-card-expanded) .experience-stat-value {
+    font-size: 21px !important;
+  }
+
+  .experience-stat-label {
+    font-size: 11px !important;
+    line-height: 1.15 !important;
+  }
+
+  /* Píldora móvil con proporción exacta y borde derecho totalmente curvo */
+  .experience-brand-mobile {
     flex: 0 0 auto !important;
     width: auto !important;
-    min-width: 180px !important;
-    height: 54px !important;
+    height: 50px !important;
     transform: none !important;
     margin: 0 !important;
-    border-radius: 27px !important;
+    border-radius: 25px !important;
     overflow: hidden !important;
     background: #035532 !important;
+    box-sizing: border-box !important;
   }
 
-  .experience-card:not(.experience-card-expanded) .experience-brand-compact .experience-brand-copy {
+  .experience-brand-mobile .experience-brand-copy {
     width: auto !important;
     flex: 0 0 auto !important;
-    padding: 0 10px 0 16px !important;
+    padding: 0 8px 0 12px !important;
     justify-content: center !important;
   }
 
-  .experience-card:not(.experience-card-expanded) .experience-brand-compact .experience-brand-copy strong {
-    font-size: 11px !important;
-    line-height: 1.2 !important;
+  .experience-brand-mobile .experience-brand-copy strong {
+    font-size: 10.5px !important;
+    line-height: 1.15 !important;
     white-space: nowrap !important;
   }
 
-  .experience-card:not(.experience-card-expanded) .experience-brand-compact .experience-brand-copy span {
-    font-size: 9px !important;
+  .experience-brand-mobile .experience-brand-copy span {
+    font-size: 8.5px !important;
   }
 
-  .experience-card:not(.experience-card-expanded) .experience-brand-compact .experience-brand-logo {
+  .experience-brand-mobile .experience-brand-logo {
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
     width: auto !important;
     flex: 0 0 auto !important;
-    padding: 6px 12px !important;
-    border-radius: 0 27px 27px 0 !important;
+    padding: 4px 10px !important;
+    border-radius: 0 25px 25px 0 !important;
     background: #0d8b55 !important;
   }
 
-  .experience-card:not(.experience-card-expanded) .experience-brand-compact .experience-brand-logo img {
-    width: 58px !important;
+  .experience-brand-mobile .experience-brand-logo img {
+    width: 48px !important;
     height: auto !important;
     display: block !important;
+    object-fit: contain !important;
   }
 }
 
@@ -2350,10 +2375,6 @@ a:focus-visible,
 @media (max-width: 380px) {
   .app-shell {
     padding: 20px 24px !important;
-  }
-
-  .experience-collapsed-stat-row {
-    flex-wrap: wrap !important;
   }
 }
 
