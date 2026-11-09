@@ -174,28 +174,18 @@ function ExperienceCard({ expanded, onToggle }) {
     >
       <h2 className="design-title font-['Boldonse',sans-serif]">EXPERIENCE</h2>
       {!expanded ? (
-        <div className="experience-collapsed-content flex flex-col justify-between flex-1 h-full">
-          {/* Top content */}
-          <div className="experience-collapsed-top">
+        <div className="experience-collapsed-content flex flex-col justify-between flex-1">
+          {/* Texto descriptivo sin píldora arriba para evitar el duplicado */}
+          <div className="experience-collapsed-top !block">
             <div className="experience-summary pt-2">
-              <p className="m-0 text-black text-base sm:text-lg leading-snug">
+              <p className="m-0 text-black">
                 Designing for <b>Humans</b> at Humano Seguros — UI/UX Designer
               </p>
             </div>
-            {/* Píldora original de Desktop: oculta obligatoriamente en mobile (!hidden md:!flex) para eliminar la píldora extra */}
-            <div className="experience-brand experience-brand-compact !hidden md:!flex">
-              <div className="experience-brand-copy">
-                <strong>UI UX Design</strong>
-                <span>DR</span>
-              </div>
-              <div className="experience-brand-logo">
-                <img src={ASSETS.humanoLogo} alt="Humano Seguros" />
-              </div>
-            </div>
           </div>
 
-          {/* Bottom content: fila de métrica + píldora solo en mobile */}
-          <div className="experience-collapsed-bottom mt-auto">
+          {/* Fila inferior: 20+ Features Shipped + Píldora original limpia a su lado */}
+          <div className="experience-collapsed-bottom">
             <div className="flex items-center gap-3 w-full">
               <div className="experience-stat shrink-0">
                 <span className="experience-stat-value">20+</span>
@@ -206,28 +196,14 @@ function ExperienceCard({ expanded, onToggle }) {
                 </span>
               </div>
 
-              {/* Píldora de Mobile: visible solo bajo md */}
-              <div
-                className="flex md:hidden items-center rounded-full overflow-hidden shrink-0 shadow-sm"
-                style={{
-                  position: "static",
-                  background: "#034426",
-                  height: "fit-content",
-                }}
-              >
-                <div className="py-2 pl-3.5 pr-2.5 text-left text-white leading-tight">
-                  <strong className="block text-xs font-bold leading-tight">UI UX Design</strong>
-                  <span className="block text-[10px] text-white/75 font-semibold">DR</span>
+              {/* ÚNICA píldora original de Humano intacta */}
+              <div className="experience-brand experience-brand-compact !static !m-0 shrink-0">
+                <div className="experience-brand-copy">
+                  <strong>UI UX Design</strong>
+                  <span>DR</span>
                 </div>
-                <div
-                  className="flex items-center justify-center px-3 py-2.5"
-                  style={{ background: "#008f51", minHeight: "100%" }}
-                >
-                  <img
-                    src={ASSETS.humanoLogo}
-                    alt="Humano Seguros"
-                    className="h-3.5 w-auto object-contain"
-                  />
+                <div className="experience-brand-logo">
+                  <img src={ASSETS.humanoLogo} alt="Humano Seguros" />
                 </div>
               </div>
             </div>
