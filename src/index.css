@@ -2371,24 +2371,27 @@ a:focus-visible,
   }
 
   /* ==========================================================================
-     TLDR CARD EN MOBILE (Reset de espaciado y altura del título)
+     TLDR CARD EN MOBILE (Espaciado equilibrado para que respire)
      ========================================================================== */
 
   .tldr-card {
     height: auto !important;
     min-height: 0 !important;
-    gap: 8px !important;
+    padding: 26px 22px !important;
+    gap: 14px !important;
+    justify-content: flex-start !important;
   }
 
   .tldr-card > .design-title {
     height: auto !important;
     flex: 0 0 auto !important;
     line-height: 1.1 !important;
-    margin: 0 !important;
+    margin: 0 0 2px 0 !important;
   }
 
   .tldr-card p {
     margin: 0 !important;
+    line-height: 1.45 !important;
   }
 }
 
