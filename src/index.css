@@ -2431,7 +2431,7 @@ a:focus-visible,
   }
 
   /* ==========================================================================
-     PROJECT MODAL EN MOBILE (Header lado a lado + Paddings desktop + Hug)
+     PROJECT MODAL EN MOBILE
      ========================================================================== */
 
   .modal-overlay {
@@ -2460,7 +2460,6 @@ a:focus-visible,
     line-height: 1 !important;
   }
 
-  /* Imagen a la izquierda y título + subtítulo al lado derecho sin espacio vacío */
   .project-modal-header {
     display: flex !important;
     flex-direction: row !important;
@@ -2492,11 +2491,11 @@ a:focus-visible,
   }
 
   .project-modal-heading p {
-    font-size: 14px !important;
-    line-height: 1.35 !important;
+    font-size: 15px !important;
+    line-height: 1.45 !important;
+    margin: 0 !important;
   }
 
-  /* De 2 columnas fijas a 1 columna apilada */
   .project-modal-columns {
     display: flex !important;
     flex-direction: column !important;
@@ -2505,9 +2504,10 @@ a:focus-visible,
     width: 100% !important;
   }
 
-  /* About y Preview respetan paddings/gaps de desktop con altura HUG */
   .project-modal-about,
   .project-modal-preview {
+    display: flex !important;
+    flex-direction: column !important;
     height: auto !important;
     min-height: 0 !important;
     padding: 24px 28px !important;
@@ -2527,11 +2527,17 @@ a:focus-visible,
   }
 
   .project-modal-copy {
+    display: flex !important;
+    flex-direction: column !important;
     max-height: none !important;
     overflow: visible !important;
     gap: 16px !important;
+  }
+
+  .project-modal-copy p {
     font-size: 15px !important;
     line-height: 1.45 !important;
+    margin: 0 !important;
   }
 
   .project-modal-visit {
@@ -2544,6 +2550,8 @@ a:focus-visible,
   }
 
   .project-modal-images {
+    display: flex !important;
+    flex-direction: column !important;
     width: 100% !important;
     gap: 14px !important;
   }
