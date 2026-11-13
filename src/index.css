@@ -2283,7 +2283,6 @@ a:focus-visible,
     line-height: 1.1 !important;
   }
 
-  /* Separación real y balanceada cuando EXPERIENCE está expandida en mobile */
   .experience-card-expanded > .design-title {
     margin: 0 0 18px 0 !important;
   }
@@ -2429,6 +2428,133 @@ a:focus-visible,
     margin: 0 !important;
     font-size: 15px !important;
     line-height: 1.45 !important;
+  }
+
+  /* ==========================================================================
+     PROJECT MODAL EN MOBILE (Layout 1 columna, HUG en About y Preview visible)
+     ========================================================================== */
+
+  .modal-overlay {
+    align-items: flex-start !important;
+    padding: 16px !important;
+  }
+
+  .project-modal {
+    width: 100% !important;
+    padding: 20px !important;
+    gap: 16px !important;
+    border-radius: 26px !important;
+    margin: auto 0 !important;
+  }
+
+  .project-modal-nav {
+    display: none !important;
+  }
+
+  .project-modal-close {
+    top: 0 !important;
+    right: 0 !important;
+    width: 36px !important;
+    height: 36px !important;
+    font-size: 32px !important;
+    line-height: 1 !important;
+  }
+
+  /* Imagen arriba y BUSY debajo de la imagen */
+  .project-modal-header {
+    flex-direction: column !important;
+    min-height: 0 !important;
+    gap: 14px !important;
+    padding-right: 40px !important;
+  }
+
+  .project-modal-brand {
+    width: 96px !important;
+    height: 96px !important;
+    flex: 0 0 96px !important;
+    border-radius: 14px !important;
+  }
+
+  .project-modal-heading {
+    width: 100% !important;
+    gap: 6px !important;
+  }
+
+  .project-modal-heading h2 {
+    min-height: 0 !important;
+    font-size: 32px !important;
+    line-height: 1.1 !important;
+    margin: 0 !important;
+  }
+
+  .project-modal-heading p {
+    font-size: 16px !important;
+    line-height: 1.35 !important;
+  }
+
+  /* De 2 columnas fijas a 1 columna apilada */
+  .project-modal-columns {
+    display: flex !important;
+    flex-direction: column !important;
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+    width: 100% !important;
+  }
+
+  /* About y Preview en modo HUG (sin height fijo de 537px) */
+  .project-modal-about,
+  .project-modal-preview {
+    height: auto !important;
+    min-height: 0 !important;
+    padding: 20px !important;
+    border-radius: 22px !important;
+    justify-content: flex-start !important;
+    gap: 14px !important;
+    width: 100% !important;
+  }
+
+  .project-modal-about h3,
+  .project-modal-preview h3 {
+    height: auto !important;
+    flex: 0 0 auto !important;
+    font-size: 26px !important;
+    line-height: 1.1 !important;
+    margin: 0 !important;
+  }
+
+  .project-modal-copy {
+    max-height: none !important;
+    overflow: visible !important;
+    gap: 12px !important;
+    font-size: 15px !important;
+    line-height: 1.45 !important;
+  }
+
+  .project-modal-visit {
+    width: 100% !important;
+    height: 48px !important;
+    flex: 0 0 48px !important;
+    margin-top: 6px !important;
+    font-size: 15px !important;
+    border-radius: 14px !important;
+  }
+
+  .project-modal-images {
+    width: 100% !important;
+    gap: 12px !important;
+  }
+
+  .project-modal-images img {
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 16 / 10 !important;
+    flex: none !important;
+    border-radius: 12px !important;
+  }
+
+  .project-modal-placeholder {
+    min-height: 160px !important;
+    font-size: 15px !important;
   }
 }
 
