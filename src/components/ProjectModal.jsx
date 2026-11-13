@@ -104,7 +104,7 @@ export default function ProjectModal({ projectId, onClose }) {
 
         <div className="project-modal-columns">
           <section className="project-modal-about">
-            <div>
+            <div className="flex flex-col gap-4">
               <h3 className="design-title font-['Boldonse',sans-serif]">ABOUT</h3>
               <div className="project-modal-copy">
                 <p>{project.description}</p>
