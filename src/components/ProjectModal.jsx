@@ -5,12 +5,13 @@ import { PROJECT_IDS, PROJECTS_DATA } from "../constants/assets";
 export default function ProjectModal({ projectId, onClose }) {
   const [activeProjectId, setActiveProjectId] = useState(projectId);
   const project = PROJECTS_DATA[activeProjectId];
+  const currentIndex = PROJECT_IDS.indexOf(activeProjectId);
 
   const navigateProject = useCallback((direction) => {
     setActiveProjectId((currentProjectId) => {
-      const currentIndex = PROJECT_IDS.indexOf(currentProjectId);
+      const idx = PROJECT_IDS.indexOf(currentProjectId);
       const nextIndex =
-        (currentIndex + direction + PROJECT_IDS.length) % PROJECT_IDS.length;
+        (idx + direction + PROJECT_IDS.length) % PROJECT_IDS.length;
       return PROJECT_IDS[nextIndex];
     });
   }, []);
@@ -137,6 +138,57 @@ export default function ProjectModal({ projectId, onClose }) {
               )}
             </div>
           </section>
+        </div>
+
+        {/* Navegación inferior exclusiva para Mobile */}
+        <div className="project-modal-mobile-nav">
+          <button
+            type="button"
+            className="project-modal-mobile-btn project-modal-mobile-btn-prev"
+            aria-label="Previous project"
+            onClick={() => navigateProject(-1)}
+          >
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M15 18l-6-6 6-6" />
+            </svg>
+            <span>Prev</span>
+          </button>
+
+          <span className="project-modal-mobile-counter">
+            {currentIndex + 1} / {PROJECT_IDS.length}
+          </span>
+
+          <button
+            type="button"
+            className="project-modal-mobile-btn project-modal-mobile-btn-next"
+            aria-label="Next project"
+            onClick={() => navigateProject(1)}
+          >
+            <span>Next</span>
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M9 18l6-6-6-6" />
+            </svg>
+          </button>
         </div>
       </motion.section>
     </motion.div>

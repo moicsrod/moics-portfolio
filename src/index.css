@@ -1405,6 +1405,11 @@ a:focus-visible,
   object-position: left top;
 }
 
+/* Barra de navegación inferior oculta por defecto en Desktop y Tablet */
+.project-modal-mobile-nav {
+  display: none;
+}
+
 .contact-modal-overlay {
   position: fixed;
   z-index: 50;
@@ -2517,7 +2522,6 @@ a:focus-visible,
     width: 100% !important;
   }
 
-  /* El contenedor div interno que envuelve el h3 ABOUT y .project-modal-copy */
   .project-modal-about > div {
     display: flex !important;
     flex-direction: column !important;
@@ -2574,6 +2578,60 @@ a:focus-visible,
   .project-modal-placeholder {
     min-height: 160px !important;
     font-size: 15px !important;
+  }
+
+  /* Barra de navegación inferior exclusiva en Mobile */
+  .project-modal-mobile-nav {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 12px !important;
+    width: 100% !important;
+    padding-top: 4px !important;
+  }
+
+  .project-modal-mobile-btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 6px !important;
+    height: 48px !important;
+    padding: 0 18px !important;
+    border: 2px solid #000 !important;
+    border-radius: 16px !important;
+    font-family: var(--body) !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    transition: transform 0.15s ease, background-color 0.15s ease !important;
+  }
+
+  .project-modal-mobile-btn:active {
+    transform: scale(0.96) !important;
+  }
+
+  .project-modal-mobile-btn-prev {
+    background: transparent !important;
+    color: #000 !important;
+  }
+
+  .project-modal-mobile-btn-prev:hover {
+    background: rgba(0, 0, 0, 0.08) !important;
+  }
+
+  .project-modal-mobile-btn-next {
+    background: #000 !important;
+    color: #fff !important;
+  }
+
+  .project-modal-mobile-btn-next:hover {
+    background: #1e1e1e !important;
+  }
+
+  .project-modal-mobile-counter {
+    font-family: var(--display) !important;
+    font-size: 14px !important;
+    color: #000 !important;
+    letter-spacing: 0.04em !important;
   }
 }
 
