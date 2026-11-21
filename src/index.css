@@ -2633,6 +2633,101 @@ a:focus-visible,
     color: #000 !important;
     letter-spacing: 0.04em !important;
   }
+
+  /* ==========================================================================
+     CONTACT MODAL EN MOBILE (Padding reducido 25% + Fix copiar email)
+     ========================================================================== */
+
+  .contact-modal-overlay {
+    align-items: flex-start !important;
+    padding: 16px !important;
+  }
+
+  .contact-modal {
+    padding: 27px 30px 30px !important;
+    border-radius: 26px !important;
+    margin: auto 0 !important;
+    max-height: none !important;
+  }
+
+  .contact-modal-close {
+    top: 18px !important;
+    right: 18px !important;
+    width: 36px !important;
+    height: 36px !important;
+    font-size: 20px !important;
+  }
+
+  .contact-modal-header {
+    margin-bottom: 14px !important;
+    padding-right: 42px !important;
+  }
+
+  .contact-modal-header h2 {
+    font-size: clamp(24px, 6.8vw, 30px) !important;
+    line-height: 1.15 !important;
+  }
+
+  .contact-modal-subtitle {
+    margin-bottom: 18px !important;
+    font-size: 14.5px !important;
+    line-height: 1.4 !important;
+  }
+
+  .contact-email-copy {
+    padding: 8px 10px 8px 12px !important;
+    gap: 8px !important;
+    margin-bottom: 18px !important;
+    min-height: 48px !important;
+    border-radius: 14px !important;
+  }
+
+  .contact-email-copy > div {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    min-width: 0 !important;
+    flex: 1 1 auto !important;
+  }
+
+  .contact-email-copy > div > svg {
+    width: 18px !important;
+    height: 18px !important;
+    flex-shrink: 0 !important;
+  }
+
+  .contact-email-copy > div > span {
+    font-size: clamp(11.5px, 3.2vw, 13.5px) !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    overflow-wrap: normal !important;
+  }
+
+  .contact-email-copy button {
+    height: 34px !important;
+    padding: 0 10px !important;
+    font-size: 11px !important;
+    border-radius: 10px !important;
+    flex-shrink: 0 !important;
+    gap: 4px !important;
+  }
+
+  .contact-email-copy button svg {
+    width: 13px !important;
+    height: 13px !important;
+  }
+
+  .contact-form {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+
+  .contact-submit {
+    height: 50px !important;
+    font-size: 15px !important;
+    border-radius: 14px !important;
+  }
 }
 
 /* Pantallas ultra-compactas (menos de 380px) */
