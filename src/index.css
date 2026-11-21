@@ -2007,12 +2007,12 @@ a:focus-visible,
 }
 
 /* ==========================================================================
-   MOBILE & VIEWPORT <= 768px (1 Columna Compacta y Márgenes de 64px)
+   MOBILE & VIEWPORT <= 768px (1 Columna Compacta y Márgenes de 32px)
    ========================================================================== */
 
 @media (max-width: 768px) {
   .app-shell {
-    padding: 24px 64px !important;
+    padding: 24px 32px !important;
     align-items: flex-start !important;
     width: 100% !important;
     max-width: 100vw !important;
@@ -2638,7 +2638,7 @@ a:focus-visible,
 /* Pantallas ultra-compactas (menos de 380px) */
 @media (max-width: 380px) {
   .app-shell {
-    padding: 20px 24px !important;
+    padding: 20px 12px !important;
   }
 }
 
