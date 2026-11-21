@@ -2635,7 +2635,7 @@ a:focus-visible,
   }
 
   /* ==========================================================================
-     CONTACT MODAL EN MOBILE (Título ajustado en 2 líneas + Email copy en 1 línea)
+     CONTACT MODAL EN MOBILE (Título con +30% line-height + Email copy en 1 línea)
      ========================================================================== */
 
   .contact-modal-overlay {
@@ -2665,7 +2665,7 @@ a:focus-visible,
 
   .contact-modal-header h2 {
     font-size: clamp(22px, 6.2vw, 28px) !important;
-    line-height: 1.15 !important;
+    line-height: 1.5 !important;
     white-space: normal !important;
     word-break: keep-all !important;
     overflow-wrap: break-word !important;
